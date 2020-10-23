@@ -5,17 +5,20 @@
 <table>
 	<tr>
 		<td colspan="2"></th>
-		<td>星期一</td>
-		<td>星期二</td>
-		<td>星期三</td>
-		<td>星期四</td>
-		<td>星期五</td>
+		<td style="text-align:center">星期一</td>
+		<td style="text-align:center">星期二</td>
+		<td style="text-align:center">星期三</td>
+		<td style="text-align:center">星期四</td>
+		<td style="text-align:center">星期五</td>
 	</tr>
 	<tr>
 		<td>1</td>
 		<td>08:10<br />｜<br />09:00</td>
 		<td>資訊館<br />資料結構<br />陳世穎 / 2702</td>
 		<td>弘業樓<br />民主憲法與政治<br />蔡秀玲 / 6604</td>
+		<td></td>
+		<td></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>2</td>
@@ -44,7 +47,6 @@
 		<td>資訊館<br />計算機網路<br />陳弘明 / 2702</td>
 		<td>資訊館<br />計算機組織<br />陳永隆 / 2703</td>
 	</tr>
-	
 	<tr>
 		<td>5</td>
 		<td>13:25<br />｜<br />14:15</td>
