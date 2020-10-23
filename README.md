@@ -1,6 +1,7 @@
 # CollegeWork
 
 ## Curriculum
+
 <table>
 	<thead>
 		<tr>
@@ -22,6 +23,7 @@
 </table>
 
 ## Courses
+
 計算機網路 -> `Computer_Network`<br />
 計算機組織 -> `Computer_Organization`<br />
 資料結構 -> `Data_Structure`<br />
