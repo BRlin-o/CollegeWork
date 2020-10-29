@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chap2</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h2 id="chap2">Chap2</h2>
+<h5 id="1-請說明tcpip協定中哪幾層有定址方式各式什麼-並請利用wireshark抓出一例子標示之">1. 請說明TCP/IP協定中哪幾層有定址,方式各式什麼? 並請利用Wireshark抓出一例子標示之.</h5>
+<blockquote>
+<ol>
+<li></li>
+</ol>
+<blockquote>
+<p>應用層 - 埠口號碼(Port Number)<br />
+傳輸層 - 協定號碼(Protocol Number)<br />
+網際網路層 - IP位址(IP Address)<br />
+網路存取層 - 網路實體位址(如Ethenet Address)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li></li>
+</ol>
+<blockquote>
+<p>Port Number: 80<br />
+Protocol Number: 6<br />
+IP Address: 2406:2000:ec:c58::3001<br />
+Ethenet Address: 2a:ff:a7:86:98:2c<br />
+<img src="https://media.discordapp.net/attachments/604901020710993921/771207749677350942/unknown.png" alt="alt text" title="Logo Title Text 1"></p>
+</blockquote>
+</blockquote>
+<h2 id="chap-3">Chap 3</h2>
+<h5 id="2-請試舉4例應用層通訊協定-please-take-at-least-4-examples-for-tcpip-application-layer-protocols-and-services">2. 請試舉4例應用層通訊協定. Please take at least 4 examples for TCP/IP Application layer protocols and services.</h5>
+<blockquote>
+<p>網域名稱服務協定(DNS)<br />
+超文字傳輸協定(HTTP)<br />
+簡易郵件傳輸協定(SMTP)<br />
+檔案傳輸協定(FTP)</p>
+</blockquote>
+<h5 id="3-請指出我們-tcpip-應用層通訊協定和服務相關聯的-tcp-和-udp-連接埠號-dnshttp-smtp-pop-telnet-dhcp-ftp-ssh-https">3. 請指出我們 TCP/IP 應用層通訊協定和服務相關聯的 TCP 和 UDP 連接埠號-DNS,HTTP, SMTP, POP, Telnet, DHCP, FTP, SSH, HTTPS</h5>
+<blockquote>
+<p>DNS    - TCP/UDP 53<br />
+HTTP   - TCP/UDP 80<br />
+SMTP   - TCP/UDP 25<br />
+POP    - TCP 110<br />
+Telnet - TCP 23<br />
+DHCP   - UDP 67、68<br />
+FTP    - TCP/UDP 20、21<br />
+SSH    - TCP/UDP 22<br />
+HTTPS  - TCP/UDP 443<br /></p>
+</blockquote>
+<h5 id="4-請問dnsdynamic-name-services的作用用哪一個port-number與基本通訊方式-please-state-the-port-number-for-the-following-tcpip-application-layer-protocols-and-services">4. 請問DNS(Dynamic Name Services)的作用(用哪一個port number)與基本通訊方式? Please state the port number for the following TCP/IP Application layer protocols and services.</h5>
+<blockquote>
+<ol>
+<li>port 53.<br /></li>
+<li>定義了一自動化服務，該服務將資源名稱所需的數位網路位址匹配。通訊協定涵蓋了尋找格式，回應格式及資料格式。DNS通訊協定通信採用單一格式，即訊息格式。該格適用於所有蕾型的用戶端尋找呵伺服器回應、報錯訊息、以及伺服器間的資源紀錄資訊傳輸。</li>
+</ol>
+</blockquote>
+<h5 id="5-請問dnsdynamic-name-services訊息格式主要有哪些欄位-請說明resouce-record中a-aaaa的定義-please-state-the-main-message-fields-on-dns-message-and-please-explain-the-definition-of-a-and-aaaa-in-dns-resource-record">5. 請問DNS(Dynamic Name Services)訊息格式主要有哪些欄位? 請說明Resouce Record中A, AAAA的定義? Please state the main message fields on DNS message. And, please explain the definition of A and AAAA in DNS resource record.</h5>
+<blockquote>
+<ol>
+<li>標頭、問題、答案、權限、其他<br /></li>
+<li>A - 將DNS網域名稱對應到IPv4的32位元位址<br />
+AAAA - 將DNS網域名稱對應到IPv6的128位元位址</li>
+</ol>
+</blockquote>
+<h5 id="6-請問http基本通訊流程以及用哪一個port-number-http的通訊方法除了get外請舉例3種方法-please-explain-the-purpose-of-http-using-which-transport-port-and-its-basic-protocolalso-in-addition-to-http-get-please-state-other-3-methods-for-http-request">6. 請問HTTP基本通訊流程以及用哪一個(port number)? HTTP的通訊方法除了GET外請舉例3種方法? Please explain the purpose of HTTP, using which transport port and its basic protocol.Also, in addition to HTTP GET, please state other 3 methods for HTTP REQUEST.</h5>
+<blockquote>
+<ol>
+<li>當用戶端向伺服器發送請求訊息時，HTTP通訊協定將規定用戶端請求網頁訊息的類型，以及伺服器回應資訊的類型。<br /></li>
+<li>POST, PUT, DELETE</li>
+</ol>
+</blockquote>
+
+    </body>
+    </html>
