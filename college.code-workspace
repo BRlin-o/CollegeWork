@@ -1,8 +1,12 @@
 {
 	"folders": [
 		{
+			"path": "./Sophomore-1",
+			"name": "二上"
+		}
+		{
 			"path": ".",
-			"name": "College"
+			"name": "ALL"
 		}
 	],
 	"settings": {
