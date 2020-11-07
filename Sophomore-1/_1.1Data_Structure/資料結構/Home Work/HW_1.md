@@ -42,7 +42,7 @@ struct node{ //單向串列結構
 > ```
 > ---
 > 2. 刪除串列第m筆資料的時間複雜度為
-> > O(m);
+> > O(n);
 > ```c++
 > node* REMOVE_M(node* list, int m){
 >   node *start;
