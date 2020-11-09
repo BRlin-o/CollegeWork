@@ -20,7 +20,7 @@ bool isfull(){
 
 void add(int d){
     tag = 1;
-    if(isfull() == false){
+    if(isfull()){
         printf("qeueu is full!");
         exit(1);
     }

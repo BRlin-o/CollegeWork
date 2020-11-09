@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>第三張 - 使用者身分鑑別</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-light">
+        <h2 id="第三張---使用者身分鑑別">第三張 - 使用者身分鑑別</h2>
+<h4 id="1-用來判別是否為真正的使用者其中須預防冒充身分的問題">1. 用來判別是否為真正的使用者，其中須預防冒充身分的問題</h4>
+<h4 id="2-識別類型">2. 識別類型</h4>
+<ul>
+<li>
+<h5 id="1-證件驗證--條碼ic卡智慧卡">1. 證件驗證 : 條碼、IC卡、智慧卡</h5>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>IC卡中常見的有，金融卡、IC電話卡、一卡通等等，與磁卡最大差異，除了記憶容量及安全性較高外，還可以重寫於IC卡。</li>
+<li>智慧卡基本上可以說是一台迷你型電腦</li>
+</ol>
+</blockquote>
+<ul>
+<li>
+<h5 id="2-生物特性驗證--指紋眼膜聲音筆跡">2. 生物特性驗證 : 指紋、眼膜、聲音、筆跡</h5>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>生物特性的優點在於，人在生理上獨一的特性。此外，行為也存在著每個人不同的習慣的差異，藉此可以進行判斷。</li>
+<li>但同時也因為差異性的不明顯、重複性，導致有較高的錯誤接受綠及錯誤拒絕率、且驗證時間較長。</li>
+</ol>
+</blockquote>
+<ul>
+<li>
+<h5 id="3-通行密碼驗證--usernamepassword">3. 通行密碼驗證 : username、password</h5>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>基本上是最常見的做法，只是同時也有許多要注意的部分，主要是系統要進行有安全性的保護。</li>
+<li>身分鑑別流程</li>
+</ol>
+<blockquote>
+<ol>
+<li>識別身分(username) - 系統必須能夠唯一識別每一位合法使用者</li>
+<li>鑑別身分(password) - 系統比須不含糊地驗證使用者所宣稱之身分</li>
+</ol>
+</blockquote>
+<ol start="3">
+<li>常見的攻擊</li>
+</ol>
+<blockquote>
+<ol>
+<li>字典攻擊 - 以常用單字進行猜測</li>
+<li>猜測攻擊 - 以使用者特徵進行猜測(生日、生分證號碼、電話、紀念日等)</li>
+<li>窮舉攻擊或暴力攻擊 - 將所有有可能的密碼一一測試</li>
+</ol>
+</blockquote>
+<ol start="4">
+<li>通行密碼的安全威脅</li>
+</ol>
+<blockquote>
+<p>重送攻擊 - 攔截使用者送出的密碼，另傳送給系統界已通過驗證。
+行騙法(釣魚網站) - 模擬系統登入畫面及處理步驟，以騙取使用者密碼</p>
+</blockquote>
+<ol start="5">
+<li>通行密碼管理</li>
+</ol>
+<blockquote>
+<ol>
+<li>使用者自選的密碼</li>
+</ol>
+<blockquote>
+<ul>
+<li>特性
+容易遭受字典及猜測攻擊</li>
+<li>建議
+避免選擇單字、相關個性資料、鍵盤排列等</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>電腦隨機產生之密碼</li>
+</ol>
+<blockquote>
+<ul>
+<li>特性
+不易記憶</li>
+<li>建議
+避免將通行密碼寫在記事本</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>使用通行密碼注意事項</li>
+</ol>
+<blockquote>
+<ul>
+<li>除了特別的情況外，請勿將密碼給他人使用</li>
+<li>每次登入，檢察系統信息(例如：上次登入時間)</li>
+<li>盡量不要重複使用密碼</li>
+<li>離開裝置時要登出系統</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>通行密碼生命週期</li>
+</ol>
+<blockquote>
+<ul>
+<li>使用者
+建議每2~3個月更改一次</li>
+<li>系統端</li>
+</ul>
+<blockquote>
+<ul>
+<li>如為臨時性任務申請之通行密碼，任務結束應給予停用或刪除(並備份使用者檔案)</li>
+<li>離職員工帳號應刪除</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<ol start="6">
+<li>登入系統種類</li>
+</ol>
+<blockquote>
+<ul>
+<li>直接登入或本機登入</li>
+<li>本地登入</li>
+<li>撥接登入</li>
+<li>遠端登入</li>
+<li>網路芳鄰登入</li>
+<li>網路登入</li>
+<li>網頁登入</li>
+<li>代理登入</li>
+<li>批次登入</li>
+<li>子處李登入</li>
+</ul>
+</blockquote>
+<ol start="7">
+<li>各種通行密碼技術</li>
+</ol>
+<blockquote>
+<ol>
+<li>設計密碼注意事項</li>
+</ol>
+<blockquote>
+<ul>
+<li>記錄錯誤次數</li>
+<li>同時登入警告</li>
+<li>建議使用者定期更改密碼，並制定密碼強度規則，且限制過於容易被攻擊的密碼產生</li>
+<li>所有Login等動作均須紀錄，以作為稽核。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>密碼技術分類</li>
+</ol>
+<blockquote>
+<ol>
+<li>需要儲存的密碼表</li>
+</ol>
+<blockquote>
+<ul>
+<li>直接儲存法</li>
+<li>單向函數法 $$ Y_i=F(PW_i) $$</li>
+<li>通行密碼加密法</li>
+</ul>
+<blockquote>
+<p>UNIX系統的通行加密法: DES</p>
+</blockquote>
+<ul>
+<li>通行密碼加鹽法 $$ E_k(PW_i) $$</li>
+<li>挑戰與回應法</li>
+<li>時戳法</li>
+<li>亂數法</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>不需要儲存的密碼表</li>
+</ol>
+<blockquote>
+<ul>
+<li>加密法 $$ PW = E_k(ID) $$</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="第五章---秘密金鑰密碼系統">第五章 - 秘密金鑰密碼系統</h2>
+<p>透過網路傳輸機密資訊，很容易被竊聽，所以應先加密成密文，使資料能夠不被未經授權人員讀取。</p>
+<h3 id="1-密碼學基本觀念">1. 密碼學基本觀念</h3>
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/604901020710993921/774649892114530324/unknown.png" alt="alt text"></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>加密公式：</mtext><mi>C</mi><mo>=</mo><msub><mi>E</mi><mi>k</mi></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">加密公式：C = E_k(M) 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">公</span><span class="mord cjk_fallback">式</span><span class="mord cjk_fallback">：</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>解密公式：</mtext><msub><mi>D</mi><mi>k</mi></msub><mo stretchy="false">(</mo><mi>C</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>D</mi><mi>k</mi></msub><mo stretchy="false">(</mo><msub><mi>E</mi><mi>k</mi></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">解密公式：D_k(C) = D_k(E_k(M)) = M 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">解</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">公</span><span class="mord cjk_fallback">式</span><span class="mord cjk_fallback">：</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span></span></p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>:</mo><mtext>加密演算法</mtext></mrow><annotation encoding="application/x-tex">E:加密演算法</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">演</span><span class="mord cjk_fallback">算</span><span class="mord cjk_fallback">法</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>:</mo><mtext>解密演算法</mtext></mrow><annotation encoding="application/x-tex">D:解密演算法</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">解</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">演</span><span class="mord cjk_fallback">算</span><span class="mord cjk_fallback">法</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>:</mo><mtext>密文</mtext></mrow><annotation encoding="application/x-tex">C:密文</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:</mo><mtext>明文</mtext></mrow><annotation encoding="application/x-tex">M:明文</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">明</span><span class="mord cjk_fallback">文</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>:</mo><mtext>金鑰</mtext></mrow><annotation encoding="application/x-tex">K:金鑰</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">金</span><span class="mord cjk_fallback">鑰</span></span></span></span></li>
+</ul>
+<h4 id="1-為什麼加密方法或演算法需要公開">1. 為什麼加密方法或演算法需要公開</h4>
+<ol>
+<li>較不佔空間</li>
+<li>為公開的加密演算法也不一定安全</li>
+<li>相容性問題(?)</li>
+</ol>
+<h4 id="2-密碼系統的安全性程度">2. 密碼系統的安全性程度</h4>
+<ol>
+<li>無條件安全：無亂被攔截多少、用盡各種方法都無法解密</li>
+</ol>
+<blockquote>
+<h5 id="bbbone-time-pad-加密法"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="double-struck">O</mi><mi mathvariant="double-struck">n</mi><mi mathvariant="double-struck">e</mi><mo>−</mo><mi mathvariant="double-struck">t</mi><mi mathvariant="double-struck">i</mi><mi mathvariant="double-struck">m</mi><mi mathvariant="double-struck">e</mi><mi mathvariant="double-struck">P</mi><mi mathvariant="double-struck">a</mi><mi mathvariant="double-struck">d</mi></mrow><mtext>加密法</mtext></mrow><annotation encoding="application/x-tex">\Bbb{One-time Pad} 加密法</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8611099999999999em;vertical-align:-0.16667em;"></span><span class="mord"><span class="mord mathbb">O</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathbb">P</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">法</span></span></span></span></h5>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>加密過程</mtext><mi>c</mi><mo>=</mo><mi>k</mi><mo>⨁</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">加密過程 c = k \bigoplus m 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">過</span><span class="mord cjk_fallback">程</span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>  </mtext><mo>⟹</mo><mtext>  </mtext><mn>00111000</mn><mo>⨁</mo><mn>01010011</mn><mo>=</mo><mn>01101011</mn></mrow><annotation encoding="application/x-tex">\implies 00111000 \bigoplus 01010011 = 01101011 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>解密過程</mtext><mi>m</mi><mo>=</mo><mi>k</mi><mo>⨁</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">解密過程 m = k \bigoplus c
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">解</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">過</span><span class="mord cjk_fallback">程</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>  </mtext><mo>⟹</mo><mtext>  </mtext><mn>01101011</mn><mo>⨁</mo><mn>01010011</mn><mo>=</mo><mn>00111000</mn></mrow><annotation encoding="application/x-tex">\implies 01101011 \bigoplus 01010011 = 00111000 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span></span></p>
+</blockquote>
+<ol start="2">
+<li>計算安全：可以被破解，但就時間上的問題</li>
+</ol>
+<h4 id="3-密碼系統的分類">3. 密碼系統的分類</h4>
+<p>對稱式加密系統、秘密金鑰密碼、單金鑰密碼系統：加密金鑰及解密金鑰為同一把</p>
+<blockquote>
+<ul>
+<li>優點：加解密速度快</li>
+<li>缺點：有金鑰管理問題、每位使用者都需儲存n-1把金鑰
+非對稱式加密系統、公開金鑰密碼系統、雙金鑰密碼系統：加密與解密金鑰為不同的兩把金鑰</li>
+<li>優點：沒有金鑰管理問題、高安全性、有數位簽章功能</li>
+<li>缺點：加解密速度快</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="2-古代密碼系統">2. 古代密碼系統</h3>
+<blockquote>
+<ol>
+<li>換位法</li>
+<li>代替法</li>
+</ol>
+<blockquote>
+<ul>
+<li>簡單代替法</li>
+<li>編譯法</li>
+<li>同音異字法</li>
+<li>多字母代替法</li>
+<li>多圖替代法</li>
+<li>旋轉機</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>古代密碼系統破解法</li>
+</ol>
+<blockquote>
+<ul>
+<li>窮舉法</li>
+<li>統計分析攻擊法</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="3-近代密碼系統">3. 近代密碼系統</h3>
+<blockquote>
+<ol>
+<li>DES加密系統</li>
+</ol>
+<blockquote>
+<ul>
+<li>對稱式加密系統之代表</li>
+<li>美國國家標準局公布為資料加密標準的一種區塊加密法</li>
+<li>區塊加密法就是對一定大小的明文或秘文來加密或解密</li>
+<li>每次加解密的區塊大小均為64bit</li>
+<li>對超過64位元的資料，進行切割、加解密即可</li>
+<li>如果不足64位元，就要將此區附加&quot;0&quot;位元，直到剛好為64bit即可</li>
+<li>DES加解密都是用64bit，但其實有8bit是拿來做錯誤更正，真正有效的長度只有56位元</li>
+<li>雖然56bit的秘密金鑰不好破解，但現在硬體的發展速度越來越快，要破解56bit也不困但，所以目前大說採用3DES，架構來拓展秘密金鑰長達168bit
+<img src="https://media.discordapp.net/attachments/604901020710993921/774695864387240007/unknown.png" alt="alt text"></li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="4-秘密金鑰密碼系統的加密模式">4. 秘密金鑰密碼系統的加密模式</h3>
+<ul>
+<li>ECB加解密式</li>
+</ul>
+<blockquote>
+<ul>
+<li>加解密做法
+<img src="https://media.discordapp.net/attachments/604901020710993921/775063871474892820/unknown.png" alt="">
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>密文區塊</mtext><mi>i</mi></msub><mo>=</mo><mtext>加密</mtext><mo stretchy="false">(</mo><msub><mtext>明文區塊</mtext><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{密文區塊}_i = 加密({明文區塊}_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord cjk_fallback">明</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>明文區塊</mtext><mi>i</mi></msub><mo>=</mo><mtext>解密</mtext><mo stretchy="false">(</mo><msub><mtext>密文區塊</mtext><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{明文區塊}_i = 解密({密文區塊}_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">明</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">解</span><span class="mord cjk_fallback">密</span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>優點：可以平行處裡</li>
+<li>缺點：相同明文產生相同密文，內容可能被剪貼替換</li>
+</ul>
+</blockquote>
+<ul>
+<li>CBC加密模式</li>
+</ul>
+<blockquote>
+<ul>
+<li>加密方法
+<img src="https://media.discordapp.net/attachments/604901020710993921/775065563251605534/unknown.png" alt="">
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>密文區塊</mtext><mn>1</mn></msub><mo>=</mo><mtext>加密</mtext><mo stretchy="false">(</mo><msub><mtext>名文區塊</mtext><mn>1</mn></msub><mo>⨁</mo><mi>I</mi><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{密文區塊}_1 = 加密({名文區塊}_1 \bigoplus IV)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord cjk_fallback">名</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>密文區塊</mtext><mi>i</mi></msub><mo>=</mo><mtext>加密</mtext><mo stretchy="false">(</mo><msub><mtext>明文區塊</mtext><mi>i</mi></msub><mo>⨁</mo><msub><mtext>密文區塊</mtext><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{密文區塊}_i = 加密({明文區塊}_i \bigoplus {密文區塊}_{i-1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord cjk_fallback">明</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>解密方法
+<img src="https://media.discordapp.net/attachments/604901020710993921/775065814679814164/unknown.png" alt=""></li>
+<li>優點：相同明文可以產生不同密文，不會有剪貼方法</li>
+<li>缺點：加密程序不能平行處理(但解密程序可以)；有一個bit錯誤，之後就全部都錯</li>
+</ul>
+</blockquote>
+<ul>
+<li>CFB加密模式</li>
+</ul>
+<blockquote>
+<ul>
+<li>加密方法
+<img src="https://media.discordapp.net/attachments/604901020710993921/775067372812763146/unknown.png" alt="">
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>密文區塊</mtext><mn>1</mn></msub><mo>=</mo><msub><mtext>明文區塊</mtext><mn>1</mn></msub><mo>⨁</mo><mtext>加密</mtext><mo stretchy="false">(</mo><mi>I</mi><mi>V</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{密文區塊}_1 = {明文區塊}_1 \bigoplus 加密(IV)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">明</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>密文區塊</mtext><mi>i</mi></msub><mo>=</mo><msub><mtext>明文區塊</mtext><mi>i</mi></msub><mo>⨁</mo><mtext>加密</mtext><mo stretchy="false">(</mo><msub><mtext>密文區塊</mtext><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{密文區塊}_i = {明文區塊}_i \bigoplus 加密({密文區塊}_{i-1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mord"><span class="mord"><span class="mord cjk_fallback">明</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">⨁</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">區</span><span class="mord cjk_fallback">塊</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>解密方法
+<img src="https://media.discordapp.net/attachments/604901020710993921/775067503369519115/unknown.png" alt=""></li>
+<li>優點：一個密文區塊錯誤僅影響目前區塊及下一區塊；加密區塊長度可異動</li>
+<li>缺點：不能平行處裡</li>
+</ul>
+</blockquote>
+<ul>
+<li>OFB加密模式</li>
+</ul>
+<h3 id="5-三重des3des密碼系蓊">5. 三重DES(3DES)密碼系蓊</h3>
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/604901020710993921/774699898582990908/unknown.png" alt=""></p>
+<ul>
+<li>EEE3: 用三把不同秘密金鑰(168bit)，進行 加密 - 加密 - 加密 順序產生密文</li>
+<li>EDE3: 用三把不同秘密金鑰(168bit)，進行 加密 - 解密 - 加密 順序產生密文</li>
+<li>EEE2: 三把中選兩把不同秘密金鑰(112bit)且DES相同(DES與另外第三把需不同)，進行 加密 - 加密 - 加密 順序產生密文</li>
+<li>EDE2: 三把中選兩把不同秘密金鑰(112bit)且DES相同(DES與另外第三把需不同)，進行 加密 - 解密 - 加密 順序產生密文</li>
+</ul>
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/604901020710993921/774701128553857044/unknown.png" alt=""></p>
+</blockquote>
+</blockquote>
+<h4 id="上課筆記">上課筆記</h4>
+<p>美國國家標準局公佈為資料加密標準的一種區塊
+加密法(Block Cipher)</p>
+<p>DES 所用加密或解密金鑰也是64位元大小。但其中有8個位元是用來做錯誤更正，真正的金鑰有效長度只有 56 位元。</p>
+<h4 id="考試注意">考試注意</h4>
+<p>問觀念:如何形成、如何運作</p>
+<h2 id="第6章">第6章</h2>
+<h4 id="前言">前言</h4>
+<ul>
+<li>就目前科技而言DES的(56bit太短了)已經被現代科技唾棄，其安全性已遭受質疑，為了提升安全性，便有了3DES的構想</li>
+<li>但隨著科技(硬體、演算法等)的發展，3DES會被淘台也是遲早的事，有鑑於此，美國國家標準技術局(NIST)於1997年開 使著手計畫公開為求新一代加密標準(簡稱AED)，並於該年4月15日舉辦AES研討會</li>
+</ul>
+<blockquote>
+<h4 id="nist於該年9月12日正式公布aed功能規格標準需求">NIST於該年9月12日，正式公布AED功能規格標準需求：</h4>
+<ul>
+<li>AES唯一對稱式秘密金鑰密碼系統</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>A</mi><mi>E</mi><mi>S</mi><mtext>必須公開，沒有專利限制，可以自由使用</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{AES必須公開，沒有專利限制，可以自由使用}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord" style="color:red;"><span class="mord mathdefault" style="color:red;">A</span><span class="mord mathdefault" style="margin-right:0.05764em;color:red;">E</span><span class="mord mathdefault" style="margin-right:0.05764em;color:red;">S</span><span class="mord cjk_fallback" style="color:red;">必</span><span class="mord cjk_fallback" style="color:red;">須</span><span class="mord cjk_fallback" style="color:red;">公</span><span class="mord cjk_fallback" style="color:red;">開</span><span class="mord cjk_fallback" style="color:red;">，</span><span class="mord cjk_fallback" style="color:red;">沒</span><span class="mord cjk_fallback" style="color:red;">有</span><span class="mord cjk_fallback" style="color:red;">專</span><span class="mord cjk_fallback" style="color:red;">利</span><span class="mord cjk_fallback" style="color:red;">限</span><span class="mord cjk_fallback" style="color:red;">制</span><span class="mord cjk_fallback" style="color:red;">，</span><span class="mord cjk_fallback" style="color:red;">可</span><span class="mord cjk_fallback" style="color:red;">以</span><span class="mord cjk_fallback" style="color:red;">自</span><span class="mord cjk_fallback" style="color:red;">由</span><span class="mord cjk_fallback" style="color:red;">使</span><span class="mord cjk_fallback" style="color:red;">用</span></span></span></span></span></li>
+<li>AES為區塊加密，加密之區塊大小為128bit</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="blue"><mrow><mi>A</mi><mi>E</mi><mi>S</mi><mtext>金鑰長度是可以變動的，支援</mtext><mn>128</mn><mtext>、</mtext><mn>192</mn><mtext>、</mtext><mn>256</mn><mtext>位元之金鑰長度</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{blue}{AES金鑰長度是可以變動的，支援128、192、256位元之金鑰長度}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord" style="color:blue;"><span class="mord mathdefault" style="color:blue;">A</span><span class="mord mathdefault" style="margin-right:0.05764em;color:blue;">E</span><span class="mord mathdefault" style="margin-right:0.05764em;color:blue;">S</span><span class="mord cjk_fallback" style="color:blue;">金</span><span class="mord cjk_fallback" style="color:blue;">鑰</span><span class="mord cjk_fallback" style="color:blue;">長</span><span class="mord cjk_fallback" style="color:blue;">度</span><span class="mord cjk_fallback" style="color:blue;">是</span><span class="mord cjk_fallback" style="color:blue;">可</span><span class="mord cjk_fallback" style="color:blue;">以</span><span class="mord cjk_fallback" style="color:blue;">變</span><span class="mord cjk_fallback" style="color:blue;">動</span><span class="mord cjk_fallback" style="color:blue;">的</span><span class="mord cjk_fallback" style="color:blue;">，</span><span class="mord cjk_fallback" style="color:blue;">支</span><span class="mord cjk_fallback" style="color:blue;">援</span><span class="mord" style="color:blue;">1</span><span class="mord" style="color:blue;">2</span><span class="mord" style="color:blue;">8</span><span class="mord cjk_fallback" style="color:blue;">、</span><span class="mord" style="color:blue;">1</span><span class="mord" style="color:blue;">9</span><span class="mord" style="color:blue;">2</span><span class="mord cjk_fallback" style="color:blue;">、</span><span class="mord" style="color:blue;">2</span><span class="mord" style="color:blue;">5</span><span class="mord" style="color:blue;">6</span><span class="mord cjk_fallback" style="color:blue;">位</span><span class="mord cjk_fallback" style="color:blue;">元</span><span class="mord cjk_fallback" style="color:blue;">之</span><span class="mord cjk_fallback" style="color:blue;">金</span><span class="mord cjk_fallback" style="color:blue;">鑰</span><span class="mord cjk_fallback" style="color:blue;">長</span><span class="mord cjk_fallback" style="color:blue;">度</span></span></span></span></span></li>
+<li>可以同時有軟體及硬體來實作</li>
+<li>在經過三次的演算法表決，最後由比利時兩為密碼專家Joan Daemen、Vincent Rijmen兩位博士所設計的Rijndael獲選為AES之演算法</li>
+</ul>
+</blockquote>
+<h3 id="1-rijndael">1. Rijndael</h3>
+<ul>
+<li>反覆運算的加密演算法</li>
+<li>資料區塊及金鑰可獨立變動(128, 192, 256bits)</li>
+</ul>
+<h4 id="上課筆記-1">上課筆記</h4>
+<p>AES 現在用 對稱式加密</p>
+<h2 id="第七章---公開津要密碼系統">第七章 - 公開津要密碼系統</h2>
+<h3 id="1-公開金鑰的基本觀念">1. 公開金鑰的基本觀念</h3>
+<ul>
+<li>對稱式密碼系統有金鑰管理問題，假設要與n個人通訊，就需要儲存n把密鑰。</li>
+<li>為了改善對稱式密碼的問題，便是有了公開金鑰密碼系統的產生</li>
+<li><img src="https://media.discordapp.net/attachments/604901020710993921/775057989412847626/unknown.png" alt=""></li>
+<li><img src="https://media.discordapp.net/attachments/604901020710993921/775059141986877550/unknown.png" alt=""></li>
+</ul>
+<h4 id="數位簽章">數位簽章</h4>
+<blockquote>
+<p>一般數位簽章具有下列功能</p>
+<ul>
+<li>鑑別性：可確認文件來雲的合法性，而非經他人偽造</li>
+<li>完整性：可確認文件內容不會被新增或竄改</li>
+<li>不可否認性：簽章者無法否認曾簽屬過此件
+<img src="https://media.discordapp.net/attachments/604901020710993921/775063214185775114/unknown.png" alt=""></li>
+</ul>
+</blockquote>
+<h3 id="2-rsa公開金鑰密碼機制">2. RSA公開金鑰密碼機制</h3>
+<ul>
+<li>屬於非對稱式加密</li>
+<li>由三位麻省理工學院的教授發表，名稱取自其三人名子開頭的字母</li>
+<li>利用公開金鑰密碼系統做為資料加密方式，可達到資料加密及數位簽屬功能</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>E</mi><mi>n</mi><mi>c</mi><mi>r</mi><mi>y</mi><mi>p</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mtext>：</mtext><mi>R</mi><mi>S</mi><mi>A</mi><mtext>加密演算法，明文加密使用區塊為每次加密的範圍，使用對方公開金鑰對明文進行加密</mtext><mo stretchy="false">(</mo><mtext>只有公開金鑰原主人能有解密</mtext><mo stretchy="false">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{Encryption：RSA加密演算法，明文加密使用區塊為每次加密的範圍，使用對方公開金鑰對明文進行加密(只有公開金鑰原主人能有解密)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord" style="color:red;"><span class="mord mathdefault" style="margin-right:0.05764em;color:red;">E</span><span class="mord mathdefault" style="color:red;">n</span><span class="mord mathdefault" style="color:red;">c</span><span class="mord mathdefault" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;color:red;">y</span><span class="mord mathdefault" style="color:red;">p</span><span class="mord mathdefault" style="color:red;">t</span><span class="mord mathdefault" style="color:red;">i</span><span class="mord mathdefault" style="color:red;">o</span><span class="mord mathdefault" style="color:red;">n</span><span class="mord cjk_fallback" style="color:red;">：</span><span class="mord mathdefault" style="margin-right:0.00773em;color:red;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;color:red;">S</span><span class="mord mathdefault" style="color:red;">A</span><span class="mord cjk_fallback" style="color:red;">加</span><span class="mord cjk_fallback" style="color:red;">密</span><span class="mord cjk_fallback" style="color:red;">演</span><span class="mord cjk_fallback" style="color:red;">算</span><span class="mord cjk_fallback" style="color:red;">法</span><span class="mord cjk_fallback" style="color:red;">，</span><span class="mord cjk_fallback" style="color:red;">明</span><span class="mord cjk_fallback" style="color:red;">文</span><span class="mord cjk_fallback" style="color:red;">加</span><span class="mord cjk_fallback" style="color:red;">密</span><span class="mord cjk_fallback" style="color:red;">使</span><span class="mord cjk_fallback" style="color:red;">用</span><span class="mord cjk_fallback" style="color:red;">區</span><span class="mord cjk_fallback" style="color:red;">塊</span><span class="mord cjk_fallback" style="color:red;">為</span><span class="mord cjk_fallback" style="color:red;">每</span><span class="mord cjk_fallback" style="color:red;">次</span><span class="mord cjk_fallback" style="color:red;">加</span><span class="mord cjk_fallback" style="color:red;">密</span><span class="mord cjk_fallback" style="color:red;">的</span><span class="mord cjk_fallback" style="color:red;">範</span><span class="mord cjk_fallback" style="color:red;">圍</span><span class="mord cjk_fallback" style="color:red;">，</span><span class="mord cjk_fallback" style="color:red;">使</span><span class="mord cjk_fallback" style="color:red;">用</span><span class="mord cjk_fallback" style="color:red;">對</span><span class="mord cjk_fallback" style="color:red;">方</span><span class="mord cjk_fallback" style="color:red;">公</span><span class="mord cjk_fallback" style="color:red;">開</span><span class="mord cjk_fallback" style="color:red;">金</span><span class="mord cjk_fallback" style="color:red;">鑰</span><span class="mord cjk_fallback" style="color:red;">對</span><span class="mord cjk_fallback" style="color:red;">明</span><span class="mord cjk_fallback" style="color:red;">文</span><span class="mord cjk_fallback" style="color:red;">進</span><span class="mord cjk_fallback" style="color:red;">行</span><span class="mord cjk_fallback" style="color:red;">加</span><span class="mord cjk_fallback" style="color:red;">密</span><span class="mopen" style="color:red;">(</span><span class="mord cjk_fallback" style="color:red;">只</span><span class="mord cjk_fallback" style="color:red;">有</span><span class="mord cjk_fallback" style="color:red;">公</span><span class="mord cjk_fallback" style="color:red;">開</span><span class="mord cjk_fallback" style="color:red;">金</span><span class="mord cjk_fallback" style="color:red;">鑰</span><span class="mord cjk_fallback" style="color:red;">原</span><span class="mord cjk_fallback" style="color:red;">主</span><span class="mord cjk_fallback" style="color:red;">人</span><span class="mord cjk_fallback" style="color:red;">能</span><span class="mord cjk_fallback" style="color:red;">有</span><span class="mord cjk_fallback" style="color:red;">解</span><span class="mord cjk_fallback" style="color:red;">密</span><span class="mclose" style="color:red;">)</span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>D</mi><mi>e</mi><mi>c</mi><mi>r</mi><mi>y</mi><mi>p</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mtext>：</mtext><mi>R</mi><mi>S</mi><mi>A</mi><mtext>解密演算法，必須使用自己的私有金鑰才能將密文解至明文</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{Decryption：RSA解密演算法，必須使用自己的私有金鑰才能將密文解至明文}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord" style="color:red;"><span class="mord mathdefault" style="margin-right:0.02778em;color:red;">D</span><span class="mord mathdefault" style="color:red;">e</span><span class="mord mathdefault" style="color:red;">c</span><span class="mord mathdefault" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;color:red;">y</span><span class="mord mathdefault" style="color:red;">p</span><span class="mord mathdefault" style="color:red;">t</span><span class="mord mathdefault" style="color:red;">i</span><span class="mord mathdefault" style="color:red;">o</span><span class="mord mathdefault" style="color:red;">n</span><span class="mord cjk_fallback" style="color:red;">：</span><span class="mord mathdefault" style="margin-right:0.00773em;color:red;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;color:red;">S</span><span class="mord mathdefault" style="color:red;">A</span><span class="mord cjk_fallback" style="color:red;">解</span><span class="mord cjk_fallback" style="color:red;">密</span><span class="mord cjk_fallback" style="color:red;">演</span><span class="mord cjk_fallback" style="color:red;">算</span><span class="mord cjk_fallback" style="color:red;">法</span><span class="mord cjk_fallback" style="color:red;">，</span><span class="mord cjk_fallback" style="color:red;">必</span><span class="mord cjk_fallback" style="color:red;">須</span><span class="mord cjk_fallback" style="color:red;">使</span><span class="mord cjk_fallback" style="color:red;">用</span><span class="mord cjk_fallback" style="color:red;">自</span><span class="mord cjk_fallback" style="color:red;">己</span><span class="mord cjk_fallback" style="color:red;">的</span><span class="mord cjk_fallback" style="color:red;">私</span><span class="mord cjk_fallback" style="color:red;">有</span><span class="mord cjk_fallback" style="color:red;">金</span><span class="mord cjk_fallback" style="color:red;">鑰</span><span class="mord cjk_fallback" style="color:red;">才</span><span class="mord cjk_fallback" style="color:red;">能</span><span class="mord cjk_fallback" style="color:red;">將</span><span class="mord cjk_fallback" style="color:red;">密</span><span class="mord cjk_fallback" style="color:red;">文</span><span class="mord cjk_fallback" style="color:red;">解</span><span class="mord cjk_fallback" style="color:red;">至</span><span class="mord cjk_fallback" style="color:red;">明</span><span class="mord cjk_fallback" style="color:red;">文</span></span></span></span></span></li>
+<li>例子
+<blockquote>
+<ol>
+<li>張三選2個大質數<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>，另<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mi>p</mi><mo>∗</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">N=p*q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.6597200000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span></li>
+<li>計算<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>q</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\phi(N)=(p-1)(q-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">ϕ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>，並選1個與<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\phi(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">ϕ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>互質的數<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span></span></span></span></li>
+</ol>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\phi(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">ϕ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>為Euler's Totient函數，其意為<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="blue"><mrow><mtext>與</mtext><mi>N</mi><mtext>互質之個數</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{blue}{與N互質之個數}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord" style="color:blue;"><span class="mord cjk_fallback" style="color:blue;">與</span><span class="mord mathdefault" style="margin-right:0.10903em;color:blue;">N</span><span class="mord cjk_fallback" style="color:blue;">互</span><span class="mord cjk_fallback" style="color:blue;">質</span><span class="mord cjk_fallback" style="color:blue;">之</span><span class="mord cjk_fallback" style="color:blue;">個</span><span class="mord cjk_fallback" style="color:blue;">數</span></span></span></span></span></p>
+</blockquote>
+<ol start="3">
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>e</mi><mo separator="true">,</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(e, N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>即為張三的公開金鑰</li>
+</ol>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>加密法為</mtext><mi>C</mi><mo>=</mo><msup><mi>M</mi><mi>e</mi></msup><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mi>N</mi></mrow><annotation encoding="application/x-tex">加密法為 C = M^e\, mod\, N 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">為</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7143919999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span></p>
+<ol start="4">
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>張三選</mtext><mn>1</mn><mtext>個數</mtext><mi>d</mi><mtext>，滿足</mtext><mi>e</mi><mo>⋅</mo><mi>d</mi><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mi>ϕ</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">張三選1個數d，滿足e \cdot d\, mod\, \phi(N) = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord cjk_fallback">張</span><span class="mord cjk_fallback">三</span><span class="mord cjk_fallback">選</span><span class="mord">1</span><span class="mord cjk_fallback">個</span><span class="mord cjk_fallback">數</span><span class="mord mathdefault">d</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">滿</span><span class="mord cjk_fallback">足</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">ϕ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>$d即為張三的解密金鑰(亦稱斯有金鑰或秘密金鑰)</li>
+</ol>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>解祕法為</mtext><mi>M</mi><mo>=</mo><msup><mi>C</mi><mi>d</mi></msup><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mi>N</mi></mrow><annotation encoding="application/x-tex">解祕法為 M = C^d\, mod\, N 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">解</span><span class="mord cjk_fallback">祕</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">為</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8991079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span></p>
+</blockquote>
+</li>
+<li>RSA之安全性取決於<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mtext>質因數分解之困難度</mtext></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{質因數分解之困難度}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord" style="color:red;"><span class="mord cjk_fallback" style="color:red;">質</span><span class="mord cjk_fallback" style="color:red;">因</span><span class="mord cjk_fallback" style="color:red;">數</span><span class="mord cjk_fallback" style="color:red;">分</span><span class="mord cjk_fallback" style="color:red;">解</span><span class="mord cjk_fallback" style="color:red;">之</span><span class="mord cjk_fallback" style="color:red;">困</span><span class="mord cjk_fallback" style="color:red;">難</span><span class="mord cjk_fallback" style="color:red;">度</span></span></span></span></span></li>
+<li>要將很大的N因屬分解成P跟Q之相乘，是不容易的</li>
+</ul>
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/604901020710993921/775074840591466536/unknown.png" alt=""></p>
+<ul>
+<li>費馬定理：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>諾</mtext><mi>p</mi><mtext>為質數且</mtext><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>p</mi><mo stretchy="false">)</mo><mtext>互質，則</mtext><msup><mi>a</mi><mrow><mi>p</mi><mo>−</mo><mn>1</mn></mrow></msup><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">諾p為質數且(a, p)互質，則a^{p-1}\, mod\, p = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">諾</span><span class="mord mathdefault">p</span><span class="mord cjk_fallback">為</span><span class="mord cjk_fallback">質</span><span class="mord cjk_fallback">數</span><span class="mord cjk_fallback">且</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mclose">)</span><span class="mord cjk_fallback">互</span><span class="mord cjk_fallback">質</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">則</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>尤拉定理：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>諾</mtext><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mtext>互質，則</mtext><msup><mi>a</mi><mrow><mi>ϕ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">諾(a, n)互質，則a^{\phi(n)}\, mod\, = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">諾</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mord cjk_fallback">互</span><span class="mord cjk_fallback">質</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">則</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">ϕ</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>模係數下的乘法反元素問題</li>
+</ul>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>×</mo><mi>x</mi><mo>=</mo><mn>1</mn><mo>→</mo><mi>x</mi><mo>=</mo><msup><mi>a</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">a \times x = 1 \to x = a^{-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>=</mo><mo stretchy="false">(</mo><mi>a</mi><mo>×</mo><mi>x</mi><mo stretchy="false">)</mo><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mi>N</mi><mo>→</mo><mi>x</mi><mo>=</mo><msup><mi>a</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mi>N</mi></mrow><annotation encoding="application/x-tex">1=(a \times x)\, mod\, N \to x = a^{-1}\, mod\, N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></p>
+</blockquote>
+</blockquote>
+<h3 id="3-e1gamal的公開金鑰密碼系統">3. E1Gamal的公開金鑰密碼系統</h3>
+<ul>
+<li>非對稱式加密的一種</li>
+<li>安全性導因於離散對數之困難度</li>
+<li>相同的銘文可以得到不同的秘聞(RSA密碼系統中相同明文是會得到相同密文的)</li>
+<li>
+<ol>
+<li>E1Gamal加解密機制</li>
+</ol>
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/604901020710993921/775090112567705600/unknown.png" alt="">
+<img src="https://media.discordapp.net/attachments/604901020710993921/775090149998460958/unknown.png" alt=""></p>
+</blockquote>
+</li>
+<li>
+<h2 id="必考">必考</h2>
+<img src="https://media.discordapp.net/attachments/604901020710993921/775090868704903229/unknown.png" alt=""></li>
+<li>原根
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>如果</mtext><mi>g</mi><mtext>為</mtext><mi>p</mi><mtext>的原根，那</mtext></mrow><annotation encoding="application/x-tex">如果g為p的原根，那</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord cjk_fallback">如</span><span class="mord cjk_fallback">果</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord cjk_fallback">為</span><span class="mord mathdefault">p</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">原</span><span class="mord cjk_fallback">根</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">那</span></span></span></span><p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>&lt;</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">g&lt;p 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span></span></p>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>且在</mtext><msup><mi>g</mi><mrow><mn>1</mn><mo>→</mo><mo stretchy="false">(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mtext> </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext> </mtext><mi>p</mi><mtext>之值不重複且全都剛好出現於</mtext><mn>1</mn><mo>→</mo><mo stretchy="false">(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mtext>中</mtext></mrow><annotation encoding="application/x-tex">且在g^{1 \to (p-1)}\,mod\,p之值不重複且全都剛好出現於1 \to (p-1)中</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0824399999999998em;vertical-align:-0.19444em;"></span><span class="mord cjk_fallback">且</span><span class="mord cjk_fallback">在</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mrel mtight">→</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">p</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mord cjk_fallback">之</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">不</span><span class="mord cjk_fallback">重</span><span class="mord cjk_fallback">複</span><span class="mord cjk_fallback">且</span><span class="mord cjk_fallback">全</span><span class="mord cjk_fallback">都</span><span class="mord cjk_fallback">剛</span><span class="mord cjk_fallback">好</span><span class="mord cjk_fallback">出</span><span class="mord cjk_fallback">現</span><span class="mord cjk_fallback">於</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord cjk_fallback">中</span></span></span></span></li>
+</ul>
+
+    </body>
+    </html>
