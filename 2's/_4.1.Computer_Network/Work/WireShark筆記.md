@@ -9,3 +9,6 @@ Acknowledgment number - 確認號
 > 指出下一個期望接收的序列號(Seq)
 
 Ckecksum - 確認碼
+
+SYN 控自
+FIN 結束的控制旗標

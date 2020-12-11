@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>20201210</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="20201210">20201210</h1>
+<h2 id="上課小考">上課小考</h2>
+<h3 id="1-請說明私有位址private-address與公有位址public-address的差異-並說明在ipv4與ipv6中哪幾個位址範圍屬於私有位址">1. 請說明私有位址(private address)與公有位址(public address)的差異， 並說明在IPv4與IPv6中哪幾個位址範圍屬於私有位址.</h3>
+<pre><code>- 私有位置是在一個區域網路內的位址，公有位址是在全球網路上的位址。
+- IPv4
+  - 10.0.1.10
+  - 192.168.1.1
+- IPv6
+  - FEC0:0000:0000:0000:0000:0000:0000:0000/10
+</code></pre>
+<h3 id="2-請問何謂natnetwork-address-translation做法為何">2. 請問何謂NAT(Network Address translation)做法為何?</h3>
+<pre><code>[6.2.5.1]
+- 借助將私有位址轉換為公用位址的服務，可以在位於私有網路邊緣的設備上實施。
+- NAT 使網路中的主機可以“借用”公用位址與外部網路通信。
+</code></pre>
+<h3 id="3-請說明多點廣播位址multicast-address在ipv4與ipv6的範圍是甚麼-舉例其應用方法">3. 請說明多點廣播位址(multicast address)在IPv4與IPv6的範圍是甚麼? 舉例其應用方法?</h3>
+<pre><code>[6.2.3.3]
+- IPv4
+  - 範圍：224.0.0.0~239.255.255.255
+- IPv6
+  - 範圍：FF02:0:0:0:0:1:FF00:0000~FF02:0:0:0:0:1:FFFF:FFFF
+</code></pre>
+<h3 id="4-請說明在ipv4-有級別classful網路中-a類網路範圍網路遮罩以及主機數">4. 請說明在IPv4 有級別(Classful)網路中， A類網路範圍,網路遮罩以及主機數.</h3>
+<pre><code>- 網路範圍：1~127.0.0.0
+- 網路遮罩：255.0.0.0
+- 主機數：16,777,214
+</code></pre>
+<h3 id="5-請問在ipv4中-127001的用意為何-0000的用意為何">5. 請問在IPv4中 127.0.0.1的用意為何? 0.0.0.0的用意為何?</h3>
+<pre><code>[6.2.6.1]
+- 127.0.0.1
+  - 為IPv4迴路位址
+  - 迴路是主機用於向自身發通信的一個特殊位置。
+- 0.0.0.0
+  - 表示IPv4的預設路由。
+  - 在沒有更具體的路由可用時，疆域攝錄由作為&quot;滿足所有&quot;路由使用。
+</code></pre>
+<h3 id="6-請問在ipv4中link-local連結本地的位址範圍-ipv6對應的位址呢-link-local-ip通常何種情況被指定">6. 請問在IPv4中Link-local連結本地的位址範圍? IPv6對應的位址呢? Link-local IP通常何種情況被指定?</h3>
+<pre><code>[工具-詞彙-Link-local-address]
+- 169.254.1.0~169.254.254.255
+- fe80::/10
+[6.2.6.1]
+-  這些位址可用於小型點對點網路中，或者供無法從動態主機設定協定 (DHCP) 伺服器自動獲取位址的主機使用。
+</code></pre>
+<h3 id="7-請劃出ipv6欄位並說明ipv6位址共有多少bits表示方法為何">7. 請劃出IPv6欄位,並說明IPv6位址共有多少bits?表示方法為何?</h3>
+<p>[6.3.6.1]
+<img src="https://cdn.discordapp.com/attachments/786427880472707082/786427891453132840/unknown.png" alt="">
+- <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>612</mn><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">612 bits</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span><br/>
+- <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>:</mo><mi>x</mi><mo>:</mo><mi>x</mi><mo>:</mo><mi>x</mi><mo>:</mo><mi>x</mi><mo>:</mo><mi>x</mi><mo>:</mo><mi>x</mi><mo>:</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">x:x:x:x:x:x:x:x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span></p>
+<h2 id="上課筆記">上課筆記</h2>
+<h3 id="子網路劃分6521">子網路劃分[6.5.2.1]</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">區域</th>
+<th style="text-align:center">位址需求量</th>
+<th style="text-align:center">分段</th>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>172</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}172</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">7</span><span class="mord" style="color:red;">2</span></span></span></span></th>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>16</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">6</span></span></span></span></th>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>0</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span></span></span></span></th>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>0</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span></span></span></span></th>
+<th style="text-align:center">/22</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111110</td>
+<td style="text-align:center">00000000</td>
+<td style="text-align:center">/23</td>
+</tr>
+<tr>
+<td style="text-align:center">HQ</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>00000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}00000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>0000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}0000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span></span></span></span></td>
+<td style="text-align:center">/23</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Green"><mn>00000010</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{Green}00000010</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">1</span><span class="mord" style="color:Green;">0</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Green"><mn>00000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{Green}00000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span></span></span></span></td>
+<td style="text-align:center">/23</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">00000000</td>
+<td style="text-align:center">/24</td>
+</tr>
+<tr>
+<td style="text-align:center">Sales</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Green"><mn>00000010</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{Green}00000010</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">1</span><span class="mord" style="color:Green;">0</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="Green"><mn>00000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{Green}00000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span><span class="mord" style="color:Green;">0</span></span></span></span></td>
+<td style="text-align:center">/24</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>00000011</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}00000011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">1</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>00000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}00000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span></span></span></span></td>
+<td style="text-align:center">/24</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11000000</td>
+<td style="text-align:center">/26</td>
+</tr>
+<tr>
+<td style="text-align:center">HR</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>00000011</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}00000011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">1</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>00000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}00000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span></span></span></span></td>
+<td style="text-align:center">/26</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="green"><mn>00000011</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{green}00000011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">1</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="green"><mn>01000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{green}01000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span></span></span></span></td>
+<td style="text-align:center">/26</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">10000000</td>
+<td style="text-align:center">/26</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">11000000</td>
+<td style="text-align:center">/26</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11100000</td>
+<td style="text-align:center">/27</td>
+</tr>
+<tr>
+<td style="text-align:center">Legal</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="green"><mn>00000011</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{green}00000011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">1</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="green"><mn>01000000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{green}01000000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">0</span></span></span></span></td>
+<td style="text-align:center">/27</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>00000011</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}00000011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">1</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>01100000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}01100000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span></span></span></span></td>
+<td style="text-align:center">/27</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111111</td>
+<td style="text-align:center">11111100</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center">WAM3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>00000011</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}00000011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">1</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mn>01100000</mn></mstyle></mrow><annotation encoding="application/x-tex">\color{red}01100000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span><span class="mord" style="color:red;">0</span></span></span></span></td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center">WAM2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">01100100</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center">WAN1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">01101000</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">01101100</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">01110000</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">01110100</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">01111000</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">172</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">00000011</td>
+<td style="text-align:center">01111100</td>
+<td style="text-align:center">/30</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://cdn.discordapp.com/attachments/786427880472707082/786431023436136478/unknown.png" alt=""></p>
+<p>[HQ]</p>
+<pre><code><code><div>exit
+
+en
+config t
+ip route 172.16.3.64 255.255.255.224 172.16.3.98
+ip route 172.16.2.0 255.255.255.0 172.16.3.102
+ip route 172.16.3.0 255.255.255.192 172.16.3.106
+Configure 
+</div></code></code></pre>
+<h2 id="others">Others</h2>
+<p>不太確定
+多點廣播位址</p>
+<ul>
+<li>IPv4
+<ul>
+<li>範圍是全用1的位址，即為255.255.255.255</li>
+</ul>
+</li>
+</ul>
+
+    </body>
+    </html>

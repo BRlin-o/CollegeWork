@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Homework4</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="homework4">Homework4</h1>
+<h3 id="2-alu-與-cpu-有甚麼關係-其主要功能是什麼">2. ALU 與 CPU 有甚麼關係? 其主要功能是什麼?</h3>
+<pre><code>ALU 是許多類型的計算電路的基本部件，CPU 有部分是由ALU組成的
+ALU 對二進位整數執行算術運算或位運算
+</code></pre>
+<h3 id="4-定址-2m-x-32-的記憶體需要多少位元若其為">4. 定址 2M x 32 的記憶體需要多少位元，若其為</h3>
+<pre><code>- 以位元定址?
+    22 位元
+- 以字組定址?
+    21 位元
+</code></pre>
+<h3 id="6-定址-1m-x-8-的記憶體需要多少位元若其為">6. 定址 1M x 8 的記憶體需要多少位元，若其為</h3>
+<pre><code>- 以位元定址?
+    20 位元
+- 以字組定址?
+    19 位元
+</code></pre>
+<h3 id="8-假設在圖46與47中有4個記憶體模組而非8個畫出各記憶體模組與他們包含的位址範圍若其為">8. 假設在圖4.6與4.7中有4個記憶體模組而非8個。畫出各記憶體模組與他們包含的位址範圍，若其為</h3>
+<pre><code>高序位交錯
+
+低序位交錯
+</code></pre>
+<h3 id="10-設-2m-x-16-的主記憶體是以-256k-x-8-的-ram-晶片構成且記憶體是以字組定址">10. 設 2M x 16 的主記憶體是以 256K x 8 的 RAM 晶片構成且記憶體是以字組定址。</h3>
+<pre><code>- 共需多少個 RAM 晶片?
+    16 個
+- 若需存取一個完整字組，必須使用到多少晶片?
+
+- 每個 RAM 晶片需要多少個位址位元?
+
+- 這個記憶體共有多少個排?
+
+- 整個記憶體需用多少個位址位元?
+
+- 若使用高序交錯，位址 14(十六進的E)將位於何處?
+
+- 若使用低序交錯，重作上題
+</code></pre>
+<h3 id="13-一數位計算機有以-24-位元為字組的記憶單元指令集中有-150-種不同的運作所有指令都有運作碼部分opcode與位址部分只包含一個位址每一指令儲存於記憶體的一個字組中">13. 一數位計算機有以 24 位元為字組的記憶單元。指令集中有 150 種不同的運作。所有指令都有運作碼部分(opcode)與位址部分(只包含一個位址)。每一指令儲存於記憶體的一個字組中。</h3>
+<pre><code>- 運作碼需佔用多少位元?
+
+- 指令中的位址部分剩下多少個位元?
+
+- 最大的可容許記憶體大小是多大?
+
+- 可容納於一個記憶體字組中的最大無號數為何?
+</code></pre>
+<h3 id="15--設有一-2-位元組的記憶體">15.  設有一 2²⁰ 位元組的記憶體。</h3>
+<pre><code>- 若記憶體是以位元組定址，最低與最高的位址各為何?
+
+- 若記憶體是以字組定址且字組大小是 16 位元，最低與最高的位址各為何?
+
+- 若記憶體是以字組定址且字組大小是 32 位元，最低與最高的位址各為何?
+</code></pre>
+<h3 id="29-以-marie-組合語言寫出下列的碼片段">29. 以 MARIE 組合語言寫出下列的碼片段:</h3>
+<pre><code>```	
+IF, 	LOAD X 
+SUBT ONE 
+SKIPCOND 800 
+JUMP ENDIF 
+THEN, 	LOAD X 
+ADD X 
+STORE Y 
+LOAD ZERO 
+STORE X 
+ENDIF, LOAD Y 
+ADD ONE 
+STORE Y 
+HALT
+```
+</code></pre>
+<h3 id="34-寫出下列碼片段的-marie-組合語言程式提示-將-for-迴圈改成-while-迴圈">34. 寫出下列碼片段的 MARIE 組合語言程式。(提示: 將 for 迴圈改成 while 迴圈。)</h3>
+<h3 id="35-以迴圈形式寫出以重複加法將二個正數相乘的-marie-程式例如對-3-x-6程式會加-3-六次">35. 以迴圈形式寫出以重複加法將二個正數相乘的 MARIE 程式。例如對 3 X 6，程式會加 3 六次。</h3>
+<h3 id="50-設某假想系統的控制單元中有一包含若干個-d-正反器的環式循環計數器該系統以-1ghz-的速度執行並且每道指令最高的微運作數是-10">50. 設某假想系統的控制單元中有一包含若干個 D 正反器的環式(循環)計數器。該系統以 1GHz 的速度執行並且每道指令最高的微運作數是 10。</h3>
+<p>由每個正反器輸出的訊號其最大頻率(每秒的訊號脈衝數)為何?</p>
+<p>執行僅需 4 個微運作的指令需時若干?</p>
+<h3 id="62-在下表中指出於執行-jumpi-指令時每一步驟中哪些控制訊號的值應為1">62. 在下表中指出於執行 JumpI 指令時每一步驟中哪些控制訊號的值應為1?</h3>
+
+    </body>
+    </html>
