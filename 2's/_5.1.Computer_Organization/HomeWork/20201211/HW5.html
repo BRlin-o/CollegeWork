@@ -25,31 +25,226 @@
     <body class="vscode-body vscode-light">
         <h1 id="homework-5">Homework 5</h1>
 <h3 id="1-設使用-32-位元整數以位元組定址的機器若欲儲存十六進數值-1234-於位址-0-">1. 設使用 32 位元整數、以位元組定址的機器，若欲儲存十六進數值 1234 於位址 0 :</h3>
-<p>表示出該值如何儲存於大的端機器中</p>
-<p>表示出該值如何儲存於小的端機器中</p>
-<p>若欲將十六進值增大至 123456，在哪一種位元組安置方法、即大的或小的端中會較有效率? 並說明之</p>
+<ul>
+<li>表示出該值如何儲存於大的端機器中<pre><code><code><div>00 00 12 34
+</div></code></code></pre>
+</li>
+<li>表示出該值如何儲存於小的端機器中<pre><code><code><div>32 12 00 00
+</div></code></code></pre>
+</li>
+<li>若欲將十六進值增大至 123456，在哪一種位元組安置方法、即大的或小的端中會較有效率? 並說明之<pre><code><code><div>小的端，因為只要在開頭進行增大即可
+</div></code></code></pre>
+</li>
+</ul>
 <h3 id="2-表示出字組大小是-32-位元以位元組定址的機器會如何以小的端以及大的端格式儲存下列數值設各值均儲存於位址開始於-1016-的位置畫一記憶體圖示就各值對應兩種格式分別將數值置入標註了位址的正確記憶體位置中">2. 表示出字組大小是 32 位元、以位元組定址的機器會如何以小的端以及大的端格式儲存下列數值。設各值均儲存於位址開始於 1016 的位置。畫一記憶體圖示，就各值對應兩種格式分別將數值置入標註了位址的正確記憶體位置中。</h3>
-<p>0x456789A1</p>
-<p>0x0000058A</p>
-<p>0x14148888</p>
+<ul>
+<li>0x456789A1</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>大的端</th>
+<th>小的端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x13</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>0x0000058A</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>大的端</th>
+<th>小的端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x13</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>0x14148888</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>大的端</th>
+<th>小的端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0x13</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="3-設以-16-位元儲存數值且機器採二德補數表示法試完成下表">3. 設以 16 位元儲存數值且機器採二德補數表示法，試完成下表。</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">整數</th>
+<th style="text-align:center">二進制</th>
+<th style="text-align:center">十六進制</th>
+<th style="text-align:center">四位元組大的端(記憶體中以十六進值表示)</th>
+<th style="text-align:center">四位元組小的(記憶體中以十六進值表示)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:center">0000 0000 0000 0000 0000 0000 0001 1100</td>
+<td style="text-align:center">0000 001C</td>
+<td style="text-align:center">0000 001C</td>
+<td style="text-align:center">1C00 0000</td>
+</tr>
+<tr>
+<td style="text-align:center">2216</td>
+<td style="text-align:center">0000 0000 0000 0000 0000 1000 1010 1000</td>
+<td style="text-align:center">0000 08A8</td>
+<td style="text-align:center">0000 08A8</td>
+<td style="text-align:center">A808 0000</td>
+</tr>
+<tr>
+<td style="text-align:center">-18675</td>
+<td style="text-align:center">1111 1111 1111 1111 1011 0111 0000 1101</td>
+<td style="text-align:center">FFFF B70D</td>
+<td style="text-align:center">FFFF B70D</td>
+<td style="text-align:center">0DB7 FFFF</td>
+</tr>
+<tr>
+<td style="text-align:center">-12</td>
+<td style="text-align:center">1111 1111 1111 1111 1111 1111 1111 0100</td>
+<td style="text-align:center">FFFF FFF4</td>
+<td style="text-align:center">FFFF FFF4</td>
+<td style="text-align:center">F4FF FFFF</td>
+</tr>
+<tr>
+<td style="text-align:center">31456</td>
+<td style="text-align:center">0000 0000 0000 0000 0111 1010 1110 0000</td>
+<td style="text-align:center">0000 7AE0</td>
+<td style="text-align:center">0000 7AE0</td>
+<td style="text-align:center">E07A 0000</td>
+</tr>
+</tbody>
+</table>
 <h3 id="11-將下列表示式由中置轉換為反波蘭後置表示式">11. 將下列表示式由中置轉換為反波蘭(後置)表示式</h3>
-<p>(8-6)/2
-8 6 + 2 /
-(2+3)×8/10
-2 3 + 8 × 10 /
-(5×(4+3)×2-6)
-5 4 3 + × 2 × 6 -</p>
+<ul>
+<li>(8-6)/2<pre><code><code><div>8 6 + 2 /
+</div></code></code></pre>
+</li>
+<li>(2+3)×8/10<pre><code><code><div>2 3 + 8 × 10 /
+</div></code></code></pre>
+</li>
+<li>(5×(4+3)×2-6)<pre><code><code><div>5 4 3 + × 2 × 6 -
+</div></code></code></pre>
+</li>
+</ul>
 <h3 id="12-將下列表示式由中置轉換為反波蘭後置表示式">12. 將下列表示式由中置轉換為反波蘭(後置)表示式</h3>
-<p>X × Y + W × Z + V × U
-X Y × W Z × V U × + +
-W × X + W × (U × V + Z)
-W X × W U V × Z + × +
-(W × (W + Y × (U × V)))/(U × (X + Y))</p>
-<h3 id="19-設暫存器共-32-個則-16-位元的指令是否可能以擴充的運作碼來編碼下列指令群">19. 設暫存器共 32 個，則 16 位元的指令是否可能以擴充的運作碼來編碼下列指令群?</h3>
-<pre><code>若是，表示其編碼。若否，說明之。
-</code></pre>
+<ul>
+<li>X × Y + W × Z + V × U<pre><code><code><div>X Y × W Z × V U × + +
+</div></code></code></pre>
+</li>
+<li>W × X + W × (U × V + Z)<pre><code><code><div>W X × W U V × Z + × +
+</div></code></code></pre>
+</li>
+<li>(W × (W + Y × (U × V)))/(U × (X + Y))<pre><code><code><div>W W Y U V × × + × U X Y + × /
+</div></code></code></pre>
+</li>
+</ul>
+<h3 id="19-設暫存器共-32-個則-16-位元的指令是否可能以擴充的運作碼來編碼下列指令群-若是表示其編碼若否說明之">19. 設暫存器共 32 個，則 16 位元的指令是否可能以擴充的運作碼來編碼下列指令群? 若是，表示其編碼。若否，說明之。</h3>
 <h3 id="21">21.</h3>
+<p>記憶體</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x1000</td>
+<td>0x1400</td>
+</tr>
+<tr>
+<td>0x1100</td>
+<td>0x400</td>
+</tr>
+<tr>
+<td>0x1200</td>
+<td>0x100</td>
+</tr>
+<tr>
+<td>0x1300</td>
+<td>0x1100</td>
+</tr>
+<tr>
+<td>0x1400</td>
+<td>0x1300</td>
+</tr>
+</tbody>
+</table>
 <h3 id="23">23.</h3>
 <h3 id="26">26.</h3>
 
