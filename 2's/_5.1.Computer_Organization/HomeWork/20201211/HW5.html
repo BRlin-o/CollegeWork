@@ -5,7 +5,8 @@
         <title>Homework 5</title>
         <style>
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -19,7 +20,7 @@
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </head>
     <body class="vscode-body vscode-light">
@@ -29,7 +30,7 @@
 <li>表示出該值如何儲存於大的端機器中<pre><code><code><div>00 00 12 34
 </div></code></code></pre>
 </li>
-<li>表示出該值如何儲存於小的端機器中<pre><code><code><div>32 12 00 00
+<li>表示出該值如何儲存於小的端機器中<pre><code><code><div>34 12 00 00
 </div></code></code></pre>
 </li>
 <li>若欲將十六進值增大至 123456，在哪一種位元組安置方法、即大的或小的端中會較有效率? 並說明之<pre><code><code><div>小的端，因為只要在開頭進行增大即可
@@ -44,30 +45,26 @@
 <thead>
 <tr>
 <th></th>
-<th>大的端</th>
-<th>小的端</th>
+<th style="text-align:center">0x10</th>
+<th style="text-align:center">0x11</th>
+<th style="text-align:center">0x12</th>
+<th style="text-align:center">0x13</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0x10</td>
-<td></td>
-<td></td>
+<td>大的端</td>
+<td style="text-align:center">45</td>
+<td style="text-align:center">67</td>
+<td style="text-align:center">89</td>
+<td style="text-align:center">A1</td>
 </tr>
 <tr>
-<td>0x11</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0x12</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0x13</td>
-<td></td>
-<td></td>
+<td>小的端</td>
+<td style="text-align:center">A1</td>
+<td style="text-align:center">89</td>
+<td style="text-align:center">67</td>
+<td style="text-align:center">45</td>
 </tr>
 </tbody>
 </table>
@@ -78,30 +75,26 @@
 <thead>
 <tr>
 <th></th>
-<th>大的端</th>
-<th>小的端</th>
+<th style="text-align:center">0x10</th>
+<th style="text-align:center">0x11</th>
+<th style="text-align:center">0x12</th>
+<th style="text-align:center">0x13</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0x10</td>
-<td></td>
-<td></td>
+<td>大的端</td>
+<td style="text-align:center">00</td>
+<td style="text-align:center">00</td>
+<td style="text-align:center">05</td>
+<td style="text-align:center">8A</td>
 </tr>
 <tr>
-<td>0x11</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0x12</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0x13</td>
-<td></td>
-<td></td>
+<td>小的端</td>
+<td style="text-align:center">8S</td>
+<td style="text-align:center">05</td>
+<td style="text-align:center">00</td>
+<td style="text-align:center">00</td>
 </tr>
 </tbody>
 </table>
@@ -112,30 +105,26 @@
 <thead>
 <tr>
 <th></th>
-<th>大的端</th>
-<th>小的端</th>
+<th style="text-align:center">0x10</th>
+<th style="text-align:center">0x11</th>
+<th style="text-align:center">0x12</th>
+<th style="text-align:center">0x13</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0x10</td>
-<td></td>
-<td></td>
+<td>大的端</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">88</td>
+<td style="text-align:center">88</td>
 </tr>
 <tr>
-<td>0x11</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0x12</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>0x13</td>
-<td></td>
-<td></td>
+<td>小的端</td>
+<td style="text-align:center">88</td>
+<td style="text-align:center">88</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">14</td>
 </tr>
 </tbody>
 </table>
@@ -153,44 +142,44 @@
 <tbody>
 <tr>
 <td style="text-align:center">28</td>
-<td style="text-align:center">0000 0000 0000 0000 0000 0000 0001 1100</td>
-<td style="text-align:center">0000 001C</td>
-<td style="text-align:center">0000 001C</td>
-<td style="text-align:center">1C00 0000</td>
+<td style="text-align:center">0000 0000 0001 1100</td>
+<td style="text-align:center">001C</td>
+<td style="text-align:center">001C</td>
+<td style="text-align:center">1C00</td>
 </tr>
 <tr>
 <td style="text-align:center">2216</td>
-<td style="text-align:center">0000 0000 0000 0000 0000 1000 1010 1000</td>
-<td style="text-align:center">0000 08A8</td>
-<td style="text-align:center">0000 08A8</td>
-<td style="text-align:center">A808 0000</td>
+<td style="text-align:center">0000 1000 1010 1000</td>
+<td style="text-align:center">08A8</td>
+<td style="text-align:center">08A8</td>
+<td style="text-align:center">A808</td>
 </tr>
 <tr>
 <td style="text-align:center">-18675</td>
-<td style="text-align:center">1111 1111 1111 1111 1011 0111 0000 1101</td>
-<td style="text-align:center">FFFF B70D</td>
-<td style="text-align:center">FFFF B70D</td>
-<td style="text-align:center">0DB7 FFFF</td>
+<td style="text-align:center">1011 0111 0000 1101</td>
+<td style="text-align:center">B70D</td>
+<td style="text-align:center">B70D</td>
+<td style="text-align:center">0DB7</td>
 </tr>
 <tr>
 <td style="text-align:center">-12</td>
-<td style="text-align:center">1111 1111 1111 1111 1111 1111 1111 0100</td>
-<td style="text-align:center">FFFF FFF4</td>
-<td style="text-align:center">FFFF FFF4</td>
-<td style="text-align:center">F4FF FFFF</td>
+<td style="text-align:center">1111 1111 1111 0100</td>
+<td style="text-align:center">FFF4</td>
+<td style="text-align:center">FFF4</td>
+<td style="text-align:center">F4FF</td>
 </tr>
 <tr>
 <td style="text-align:center">31456</td>
-<td style="text-align:center">0000 0000 0000 0000 0111 1010 1110 0000</td>
-<td style="text-align:center">0000 7AE0</td>
-<td style="text-align:center">0000 7AE0</td>
-<td style="text-align:center">E07A 0000</td>
+<td style="text-align:center">0111 1010 1110 0000</td>
+<td style="text-align:center">7AE0</td>
+<td style="text-align:center">7AE0</td>
+<td style="text-align:center">E07A</td>
 </tr>
 </tbody>
 </table>
 <h3 id="11-將下列表示式由中置轉換為反波蘭後置表示式">11. 將下列表示式由中置轉換為反波蘭(後置)表示式</h3>
 <ul>
-<li>(8-6)/2<pre><code><code><div>8 6 + 2 /
+<li>(8-6)/2<pre><code><code><div>8 6 - 2 /
 </div></code></code></pre>
 </li>
 <li>(2+3)×8/10<pre><code><code><div>2 3 + 8 × 10 /
@@ -208,45 +197,203 @@
 <li>W × X + W × (U × V + Z)<pre><code><code><div>W X × W U V × Z + × +
 </div></code></code></pre>
 </li>
-<li>(W × (W + Y × (U × V)))/(U × (X + Y))<pre><code><code><div>W W Y U V × × + × U X Y + × /
+<li>(W × (X + Y × (U × V)))/(U × (X + Y))<pre><code><code><div>W X Y U V × × + × U X Y + × /
 </div></code></code></pre>
 </li>
 </ul>
 <h3 id="19-設暫存器共-32-個則-16-位元的指令是否可能以擴充的運作碼來編碼下列指令群-若是表示其編碼若否說明之">19. 設暫存器共 32 個，則 16 位元的指令是否可能以擴充的運作碼來編碼下列指令群? 若是，表示其編碼。若否，說明之。</h3>
-<h3 id="21">21.</h3>
+<ul>
+<li>60道具有二暫存器運算元的指令</li>
+</ul>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60</mn><mo>∗</mo><msup><mn>2</mn><mn>5</mn></msup><mo>∗</mo><msup><mn>2</mn><mn>5</mn></msup><mo>=</mo><mn>61440</mn></mrow><annotation encoding="application/x-tex">60 * 2^5 * 2^5 = 61440</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">1</span><span class="mord">4</span><span class="mord">4</span><span class="mord">0</span></span></span></span></p>
+</blockquote>
+<ul>
+<li>30道具有一暫存器運算元的指令</li>
+</ul>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>30</mn><mo>∗</mo><msup><mn>2</mn><mn>5</mn></msup><mo>=</mo><mn>960</mn></mrow><annotation encoding="application/x-tex">30 * 2^5 = 960</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord">6</span><span class="mord">0</span></span></span></span></p>
+</blockquote>
+<ul>
+<li>3道具一個10位元位址的指令</li>
+</ul>
+<blockquote>
+<p>$3*2^{10} = 3072</p>
+</blockquote>
+<ul>
+<li>26道具零個運算元的指令</li>
+</ul>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mn>26</mn></mrow><annotation encoding="application/x-tex">=26</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></p>
+</blockquote>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>61440</mn><mo>+</mo><mn>960</mn><mo>+</mo><mn>3072</mn><mo>+</mo><mn>26</mn><mo>=</mo><mn>65</mn><mo separator="true">,</mo><mn>498</mn></mrow><annotation encoding="application/x-tex">61440+960+3072+26=65,498</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">6</span><span class="mord">1</span><span class="mord">4</span><span class="mord">4</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mord">6</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mord">7</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">6</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">6</span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mord">9</span><span class="mord">8</span></span></span></span><br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mn>2</mn><mn>16</mn></msup><mo>=</mo><mn>65536</mn><mo stretchy="false">)</mo><mo>&gt;</mo><mn>65398</mn></mrow><annotation encoding="application/x-tex">(2^{16} = 65536) &gt; 65398</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">6</span><span class="mord">5</span><span class="mord">5</span><span class="mord">3</span><span class="mord">6</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">5</span><span class="mord">3</span><span class="mord">9</span><span class="mord">8</span></span></span></span><br />
+所以可以</p>
+</blockquote>
+<p>[60道具有二暫存器運算元的指令]</p>
+<pre><code><code><div>000000 xxxxx xxxxx
+111011 xxxxx xxxxx
+111100 跳出運作碼
+</div></code></code></pre>
+<p>[30道具有一暫存器運算元的指令]</p>
+<pre><code><code><div>111100 xxxxxxxxxx
+111110 xxxxxxxxxx
+111111 跳出運作碼
+</div></code></code></pre>
+<p>[3道具一個10位元位址的指令]</p>
+<pre><code><code><div>11111100000 xxxxx
+11111111101 xxxxx
+11111111110 跳出運作碼
+</div></code></code></pre>
+<p>[26道具零個運算元的指令]</p>
+<pre><code><code><div>1111111111000000
+1111111111011010
+</div></code></code></pre>
+<h3 id="21-設有一指令-load-1000已知記憶體中與-r1-的值如下">21. 設有一指令 Load 1000。已知記憶體中與 R1 的值如下:</h3>
+<p><img src="https://media.discordapp.net/attachments/786965371860811806/791727765031747594/unknown.png?width=1004&amp;height=732" alt=""></p>
+<h3 id="並設在索引定址模式中-r1-是隱喻的判斷載入累加器中的值為何並完成下表">並設在索引定址模式中 R1 是隱喻的。判斷載入累加器中的值為何，並完成下表：</h3>
 <p>記憶體</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>模式 Mode</th>
+<th style="text-align:center">載入AC的值</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0x1000</td>
-<td>0x1400</td>
+<td>立即 Immediate</td>
+<td style="text-align:center">0x1000</td>
 </tr>
 <tr>
-<td>0x1100</td>
-<td>0x400</td>
+<td>直接 Direct</td>
+<td style="text-align:center">0x1400</td>
 </tr>
 <tr>
-<td>0x1200</td>
-<td>0x100</td>
+<td>間皆 Indirect</td>
+<td style="text-align:center">0x1300</td>
 </tr>
 <tr>
-<td>0x1300</td>
-<td>0x1100</td>
-</tr>
-<tr>
-<td>0x1400</td>
-<td>0x1300</td>
+<td>索引 Indexed</td>
+<td style="text-align:center">0x1000</td>
 </tr>
 </tbody>
 </table>
-<h3 id="23">23.</h3>
-<h3 id="26">26.</h3>
+<h3 id="23-一個非管道化的系統需時-200ns-以處理一件工作同樣的工作也可在時脈週期為-40ns-的五階管道中處理計算管道在處理-200-件這項工作中的加速率管道化的設計相較於非管道化的設計最大的加速可達若干">23. 一個非管道化的系統需時 200ns 以處理一件工作。同樣的工作也可在時脈週期為 40ns 的五階管道中處理。計算管道在處理 200 件這項工作中的加速率。管道化的設計相較於非管道化的設計最大的加速可達若干?</h3>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>e</mi><mi>d</mi><mi>U</mi><mi>p</mi><mo>=</mo><mo stretchy="false">(</mo><mn>200</mn><mi>n</mi><mi>s</mi><mo>∗</mo><mn>200</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mn>5</mn><mo>+</mo><mn>200</mn><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>∗</mo><mo stretchy="false">(</mo><mn>40</mn><mi>n</mi><mi>s</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mn>40000</mn><mi mathvariant="normal">/</mi><mn>8140</mn><mo>=</mo><mn>4.9019</mn></mrow><annotation encoding="application/x-tex">SpeedUp = (200ns*200)/((5+200-1)*(40ns)) = 40000/8140 = 4.9019</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">)</span><span class="mord">/</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">4</span><span class="mord">0</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">/</span><span class="mord">8</span><span class="mord">1</span><span class="mord">4</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord">.</span><span class="mord">9</span><span class="mord">0</span><span class="mord">1</span><span class="mord">9</span></span></span></span><br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>S</mi><mi>p</mi><mi>e</mi><mi>e</mi><mi>d</mi><mi>U</mi><mi>p</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">Max SpeedUp = 5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></p>
+</blockquote>
+<h3 id="26-在三二一與零位址機器上撰寫計算表示式-abcde的碼依據程式語言的一般作法計算表示式時不應改變其運算元的值">26. 在三、二、一與零位址機器上撰寫計算表示式 A=(B+C)×(D+E)的碼。依據程式語言的一般作法，計算表示式時不應改變其運算元的值。</h3>
+<table>
+<thead>
+<tr>
+<th>三位址機器 3-addrsess machine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add R1, B, C</td>
+</tr>
+<tr>
+<td>Add R2, D, E</td>
+</tr>
+<tr>
+<td>Mult A, R1, R2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>二位址機器 2-addrsess machine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Load R1, B</td>
+</tr>
+<tr>
+<td>Add R1, C</td>
+</tr>
+<tr>
+<td>Load R2, E</td>
+</tr>
+<tr>
+<td>Add R2, E</td>
+</tr>
+<tr>
+<td>Mult R2, R1</td>
+</tr>
+<tr>
+<td>Store A, R2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>一位址機器 1-addrsess machine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Load B</td>
+</tr>
+<tr>
+<td>Add C</td>
+</tr>
+<tr>
+<td>Store Temp</td>
+</tr>
+<tr>
+<td>Load D</td>
+</tr>
+<tr>
+<td>Add E</td>
+</tr>
+<tr>
+<td>Mult Temp</td>
+</tr>
+<tr>
+<td>Store A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>零位址機器 0-addrsess machine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Push B</td>
+</tr>
+<tr>
+<td>Push C</td>
+</tr>
+<tr>
+<td>Add</td>
+</tr>
+<tr>
+<td>Push D</td>
+</tr>
+<tr>
+<td>Push E</td>
+</tr>
+<tr>
+<td>Add</td>
+</tr>
+<tr>
+<td>Mult</td>
+</tr>
+<tr>
+<td>Store A</td>
+</tr>
+</tbody>
+</table>
 
     </body>
     </html>
