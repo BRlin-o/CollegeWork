@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Homework 6</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="homework-6">Homework 6</h1>
+<h2 id="6-1">6-1</h2>
+<h3 id="1-設採用直接對映式快取的計算機具有容量為220個位元組的以位元組定址的主記憶體以及32個區塊的快取每個快取區塊內含16個位元組">1. 設採用直接對映式快取的計算機具有容量為220個位元組的以位元組定址的主記憶體以及32個區塊的快取，每個快取區塊內含16個位元組。</h3>
+<ul>
+<li>主記憶體中有多少個區塊?
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>20</mn></msup><mi mathvariant="normal">/</mi><msup><mn>2</mn><mn>4</mn></msup><mo>=</mo><msup><mn>2</mn><mn>16</mn></msup></mrow><annotation encoding="application/x-tex">2^{20}/2^{4} = 2^{16}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span></p>
+</blockquote>
+</li>
+<li>快取所見的記憶體位址格式為何?也就是標籤、區快與位移的欄位大小各若干?
+<blockquote>
+<p>20-bit addresses with 11 bits in the tag field, 5 in the block field, and 4 in the offset field</p>
+</blockquote>
+</li>
+<li>記憶體位址 0x0DB63 會對映到哪個快取區快?
+<blockquote>
+<p>00001100101 10110 0111, which implies</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="4-設採用全關聯式快取的計算機具有容量為216個位元組的以位元組定址的主記憶體以及64個區塊的快取每個快取區塊內含32個位元組">4. 設採用全關聯式快取的計算機具有容量為216個位元組的以位元組定址的主記憶體以及64個區塊的快取，每個快取區塊內含32個位元組。</h3>
+<ul>
+<li>主記憶體中有多少個區塊?
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mi mathvariant="normal">/</mi><msup><mn>2</mn><mn>5</mn></msup><mo>=</mo><msup><mn>2</mn><mn>11</mn></msup></mrow><annotation encoding="application/x-tex">2^{16}/2^{5} = 2^{11}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></p>
+</blockquote>
+</li>
+<li>快取所見的記憶體位址格式為何?也就是標籤、區快與位移的欄位大小各若干?
+<blockquote>
+<p>16 bit addresses with 11 bits in the tag field and 5 in the offset field</p>
+</blockquote>
+</li>
+<li>記憶體位址 0xF8C9 會對映到哪個快取區快?
+<blockquote>
+<p>可以對應任何位置</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="7-某2路集合關聯式快取內有4個集合主記憶體中有2k個大小式8個位元組的區塊且以位元組定址">7. 某2路集合關聯式快取內有4個集合。主記憶體中有2K個大小式8個位元組的區塊且以位元組定址。</h3>
+<ul>
+<li>表示主記憶體位址在用於快取時的格式。確實標示個欄位及其大小。
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>K</mi><mo>∗</mo><msup><mn>2</mn><mn>3</mn></msup><mo>=</mo><msup><mn>2</mn><mn>14</mn></msup></mrow><annotation encoding="application/x-tex">2K * 2^{3} = 2^{14}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span></p>
+</blockquote>
+</li>
+<li>計算由位址 0x8 至 0x33 並反覆3次的程式的命中率。可將命中率以分數表示。
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>126</mn><mi mathvariant="normal">/</mi><mn>132</mn><mo>=</mo><mn>95.45</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">126/132 = 95.45\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord">6</span><span class="mord">/</span><span class="mord">1</span><span class="mord">3</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">9</span><span class="mord">5</span><span class="mord">.</span><span class="mord">4</span><span class="mord">5</span><span class="mord">%</span></span></span></span></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="10-設有記憶體位址對應的字組大小是8位元的計算機該計算機具有16位元組區塊大小是4位元組的塊取計算機於執行程式的過程存取了一些記憶體位置設該計算機採用直接對映式塊取快取所見的記憶體位址格式如下">10. 設有記憶體位址對應的字組大小是8位元的計算機。該計算機具有16位元組、區塊大小是4位元組的塊取。計算機於執行程式的過程存取了一些記憶體位置。設該計算機採用直接對映式塊取。快取所見的記憶體位址格式如下：</h3>
+<p><img src="https://media.discordapp.net/attachments/791874005916450826/797070066726076436/unknown.png" alt=""></p>
+<h3 id="系統依照以下次序存取記憶體位址0x6e0xb90x170xe00x4e0x4f0x500x910xa80xa90xab0xad0x93與0x94最先四次存取的記憶體位址已被載入下列的快取區塊中標籤的內容以二進行式表現而快取的內容則不過式以位址存於該位置中">系統依照以下次序存取記憶體位址：0x6E、0xB9、0x17、0xE0、0x4E、0x4F、0x50、0x91、0xA8、0xA9、0xAB、0xAD、0x93與0x94。最先四次存取的記憶體位址已被載入下列的快取區塊中。(標籤的內容以二進行式表現，而快取的「內容」則不過式以位址存於該位置中)。</h3>
+<p><img src="https://media.discordapp.net/attachments/791874005916450826/797071315558334465/IMG_20201225_120357.jpg?width=959&amp;height=402" alt=""></p>
+<ul>
+<li>若前四次存取都是錯失，上述整個記憶體存取序列的命中率是多少?
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Address</th>
+<th style="text-align:center">Hit or Miss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">6E</td>
+<td style="text-align:center">Miss, brought into Block 3 with tag 0110 (as shown)</td>
+</tr>
+<tr>
+<td style="text-align:center">B9</td>
+<td style="text-align:center">Miss, brought into Block 2 with tag 1011 (as shown)</td>
+</tr>
+<tr>
+<td style="text-align:center">0x6E</td>
+<td style="text-align:center">Miss, brought into Block 3 with tag 0110 (as shown)</td>
+</tr>
+<tr>
+<td style="text-align:center">0xB9</td>
+<td style="text-align:center">Miss, brought into Block 2 with tag 1011 (as shown)</td>
+</tr>
+<tr>
+<td style="text-align:center">0x17</td>
+<td style="text-align:center">Miss. brought into Block 1 with tag 0001 (as shown)</td>
+</tr>
+<tr>
+<td style="text-align:center">0xE0</td>
+<td style="text-align:center">Miss, brought into Block 0 with tag 1110 (as shown)</td>
+</tr>
+<tr>
+<td style="text-align:center">0x4E</td>
+<td style="text-align:center">Miss, brought into Block 3 with tag 0100</td>
+</tr>
+<tr>
+<td style="text-align:center">0x4F</td>
+<td style="text-align:center">Hit</td>
+</tr>
+<tr>
+<td style="text-align:center">0x50</td>
+<td style="text-align:center">Miss, brought into Block 0 with tag 0101</td>
+</tr>
+<tr>
+<td style="text-align:center">0x91</td>
+<td style="text-align:center">Miss, brought into Block 0 with tag 1001</td>
+</tr>
+<tr>
+<td style="text-align:center">0xA8</td>
+<td style="text-align:center">Miss, brought into Block 2 with tag 1010</td>
+</tr>
+<tr>
+<td style="text-align:center">0xA9</td>
+<td style="text-align:center">Hit</td>
+</tr>
+<tr>
+<td style="text-align:center">0xAB</td>
+<td style="text-align:center">Hit</td>
+</tr>
+<tr>
+<td style="text-align:center">0xAD</td>
+<td style="text-align:center">Miss, brought into Block 3 with tag 1010</td>
+</tr>
+<tr>
+<td style="text-align:center">0x93</td>
+<td style="text-align:center">Hit</td>
+</tr>
+<tr>
+<td style="text-align:center">0x94</td>
+<td style="text-align:center">Miss, brought into Block 1 with tab 1001</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>由上圖知道，有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mi mathvariant="normal">/</mi><mn>14</mn><mo>=</mo><mn>28.6</mn><mi mathvariant="normal">%</mi><mtext>的機率會命中</mtext></mrow><annotation encoding="application/x-tex">4/14=28.6\%的機率會命中</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mord">/</span><span class="mord">1</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mord">.</span><span class="mord">6</span><span class="mord">%</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">機</span><span class="mord cjk_fallback">率</span><span class="mord cjk_fallback">會</span><span class="mord cjk_fallback">命</span><span class="mord cjk_fallback">中</span></span></span></span></p>
+</blockquote>
+</li>
+<li>在最後一個位址存取之後，哪些記憶體區塊會存在快取中?
+<blockquote>
+<p>Block 0, with tag 1001, contains 0x90, 0x91, 0x92, 0x93<br />
+Block 1, with tag 1001, contains 0x94, 0x95, 0x96, 0x97<br />
+Block 2, with tag 1010, contains 0xA8, 0xA9, 0xAA, 0xAB<br />
+Block 3, with tag 1010, contains 0xAC, 0xAD, 0xAE, 0xAF<br /></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="15-設有容量4096位元組區塊大小16位元組的直接對映式快取若位址長32為位元組且快取開始為空完成下表答案應以十六進數字表示若各個位址一所示次序存取哪些存取會造成衝突使才被寫入的區塊又被強制覆蓋掉">15. 設有容量4096位元組、區塊大小16位元組的直接對映式快取。若位址長32為位元組且快取開始為空，完成下表。(答案應以十六進數字表示。)若各個位址一所示次序存取，哪些存取會造成衝突(使才被寫入的區塊又被強制覆蓋掉)?</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">位址</th>
+<th style="text-align:center">標籤</th>
+<th style="text-align:center">快取中位址(區塊)</th>
+<th style="text-align:center">區塊中位移</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0x0FF0FABA</td>
+<td style="text-align:center">0x0FF0F</td>
+<td style="text-align:center">0xAB</td>
+<td style="text-align:center">0xA</td>
+</tr>
+<tr>
+<td style="text-align:left">0x00000011</td>
+<td style="text-align:center">0x00000</td>
+<td style="text-align:center">0x01</td>
+<td style="text-align:center">0x1</td>
+</tr>
+<tr>
+<td style="text-align:left">0x0FFFFFFE</td>
+<td style="text-align:center">0x0FFFF</td>
+<td style="text-align:center">0xFF</td>
+<td style="text-align:center">0xE</td>
+</tr>
+<tr>
+<td style="text-align:left">0x23456719</td>
+<td style="text-align:center">0x23456</td>
+<td style="text-align:center">0x71</td>
+<td style="text-align:center">0x9</td>
+</tr>
+<tr>
+<td style="text-align:left">0xCAFEBABE</td>
+<td style="text-align:center">0xCAFEB</td>
+<td style="text-align:center">0xAB</td>
+<td style="text-align:center">0xE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="18-設某程序的頁表內含如下的項次使用圖618中的格式指出程序的各頁位於主記憶體中何處">18. 設某程序的頁表內含如下的項次。使用圖6.18中的格式，指出程序的各頁位於主記憶體中何處。</h3>
+<ul>
+<li><img src="https://media.discordapp.net/attachments/791874005916450826/797075443156647936/unknown.png" alt="">
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/791874005916450826/797086595996057610/unknown.png?width=384&amp;height=467" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="21-程序p有一以位元組定址的具有2項次的tlb的虛擬記憶體系統一2路集合關聯式快取以及一頁表設快取區塊大小是8位元組頁大小是16位元組在下列系統中主記憶體分成以字母代表的各個區塊兩個區塊形成一個頁框">21. 程序P有一以位元組定址的具有2項次的TLB的虛擬記憶體系統、一2路集合關聯式快取，以及一頁表。設快取區塊大小是8位元組、頁大小是16位元組。在下列系統中，主記憶體分成以字母代表的各個區塊。兩個區塊形成一個頁框。</h3>
+<p><img src="https://media.discordapp.net/attachments/791874005916450826/797075823202533376/IMG_20201225_120432.jpg?width=688&amp;height=467" alt="">
+已知系統狀態如上，回答下述問題：</p>
+<ul>
+<li>程序P的虛擬位址中的位元數若干? 並說明之
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>3</mn></msup><mo>∗</mo><msup><mn>2</mn><mn>4</mn></msup><mo>=</mo><msup><mn>2</mn><mn>7</mn></msup></mrow><annotation encoding="application/x-tex">2^3*2^4=2^7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span></span></span></span></p>
+</blockquote>
+</li>
+<li>實體位址中的位元數若干? 並說明之
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>∗</mo><msup><mn>2</mn><mn>4</mn></msup><mo>=</mo><msup><mn>2</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">2^2*2^4=2^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></p>
+</blockquote>
+</li>
+<li>表示虛擬位址0x12在系統將之轉換為實體位址時使用的位址格式(指出各攔的名稱與大小)，並將之轉換成對應的實體位置(提示：將為只以二進制形式表示且將之劃分成恰當的欄位)說明這咧欄位如何用於轉換至對應的實體位址
+<blockquote>
+<p>0x12 = 001(page field) 0010(offset),</p>
+</blockquote>
+</li>
+<li>已知虛擬位址0x06會轉換成實體位址0x36。對實體位只表示其用以決定對應的快取位址時使用的格式(指出個欄位的名稱與大小)。說明如何經由這樣的格式決定實體位只0x36會對應到快取中的哪個位置(提示：將0x36以二進制形式表示，然後再劃分成適當的欄位)
+<blockquote>
+<p>0x36 = 11(tag) 0(set) 110(offset),</p>
+</blockquote>
+</li>
+<li>已知虛擬位址0x19位於虛擬頁1的位移9處。說明這個位址如何轉譯成他的實體位只、以及數據如何存取。在說明應包含如何使用TLB、頁表、快取記憶體
+<blockquote>
+<p>0x19 = 001(virutal page) 1001(offset),</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="22-一虛擬記憶體系統具有一個tlb一個快取與一個頁表假設">22. 一虛擬記憶體系統具有一個TLB、一個快取與一個頁表。假設：</h3>
+<pre><code><code><div>TLB命中需時 5ns
+快取命中需時 12ns
+主記憶體快取需時 25ns
+碟片存取需時 200ms (包括更新頁表、快取與TLB)
+TLB命中率是 90%
+快取命中率是 98%
+頁錯誤率是 .001%
+TLB或快取錯失時，存取所需的時間包刮TLB與/或快取更新，不過存取並不會重新開始
+頁錯失時，頁由碟片中取得、執行所有的更新、不過存取會重新開始
+所有存取都循序地發生 (不重疊、沒有平行的動作)
+</div></code></code></pre>
+<p>分別指出下列各種情形是否可能。若可能，說明存取所需數據耗時的時間。</p>
+<ul>
+<li>TLB命中、快取命中
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>T</mi><mi>L</mi><mi>B</mi><mo stretchy="false">)</mo><mo>+</mo><mn>12</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>c</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>e</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">5ns(TLB)+12ns(cache)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mclose">)</span></span></span></span></p>
+</blockquote>
+</li>
+<li>TLB錯失、頁表命中、快取命中
+<blockquote>
+<p>$5ns(TLB)+25ns(page table)+12ns(cache)</p>
+</blockquote>
+</li>
+<li>TLB錯失、頁表命中、快取錯失
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>T</mi><mi>L</mi><mi>B</mi><mo stretchy="false">)</mo><mo>+</mo><mn>25</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>p</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>t</mi><mi>a</mi><mi>b</mi><mi>l</mi><mi>e</mi><mo stretchy="false">)</mo><mo>+</mo><mn>12</mn><mo stretchy="false">(</mo><mi>c</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>e</mi><mo stretchy="false">)</mo><mo>+</mo><mn>25</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>m</mi><mi>a</mi><mi>i</mi><mi>n</mi><mi>m</mi><mi>e</mi><mi>m</mi><mi>o</mi><mi>r</mi><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">5ns(TLB)+25ns(page table)+12(cache)+25ns(main memory)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></p>
+</blockquote>
+</li>
+<li>TLB錯失、頁表錯失、快取命中
+<blockquote>
+<p>不可能</p>
+</blockquote>
+</li>
+<li>TLB錯失、頁表錯失
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>T</mi><mi>L</mi><mi>B</mi><mo stretchy="false">)</mo><mo>+</mo><mn>25</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>p</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>t</mi><mi>a</mi><mi>b</mi><mi>l</mi><mi>e</mi><mo stretchy="false">)</mo><mo>+</mo><mn>200</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>s</mi><mi>k</mi><mo stretchy="false">)</mo><mo>+</mo><mn>5</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>T</mi><mi>B</mi><mi>L</mi><mo separator="true">,</mo><mi>a</mi><mi>g</mi><mi>a</mi><mi>i</mi><mi>n</mi><mo stretchy="false">)</mo><mo>+</mo><mn>12</mn><mi>n</mi><mi>s</mi><mo stretchy="false">(</mo><mi>c</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>e</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">5ns(TLB)+25ns(page table)+200ns(disk)+5ns((TBL, again)+12ns(cache)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">a</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mclose">)</span></span></span></span></p>
+</blockquote>
+</li>
+</ul>
+
+    </body>
+    </html>
