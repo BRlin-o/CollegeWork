@@ -1,0 +1,55 @@
+BL51 BANKED LINKER/LOCATER V4.21                                                        07/18/2007  13:47:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.21, INVOKED BY:
+C:\C51\BIN\L51 6_3.OBJ TO 6_3.ABS
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  6_3.OBJ (6_3)
+  C:\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  6_3.ABS (6_3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0016H     UNIT         ?PR?_DELAY_MS?6_3
+            CODE    0816H     000CH     UNIT         ?PR?MAIN?6_3
+            CODE    0822H     000CH     UNIT         ?PR?DELAY?6_3
+            CODE    082EH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   6_3.ABS (6_3)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?6_3
+
+?PR?MAIN?6_3
+  +--> ?PR?DELAY?6_3
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?6_3
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 002EH BYTE ( 2%) *
+******************************************************************************
+
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

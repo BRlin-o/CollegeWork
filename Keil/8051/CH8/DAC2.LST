@@ -1,0 +1,45 @@
+C51 COMPILER V8.08   DAC2                                                                  08/02/2007 09:42:24 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE DAC2
+OBJECT MODULE PLACED IN DAC2.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DAC2.C DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /************** DAC2.C *************************
+   2          *動作：輸出三角函數資料送到DAC0800輸出正弦波
+   3          **********************************************/
+   4          #include "..\AT89X52.H"   //暫存器及組態定義
+   5          #include <math.h> //將算數函數包括進來
+   6          sfr  Data=0x80;//P0資料BUS輸出
+   7          float x;     //正弦值計算
+   8          int i;   //角度
+   9          main()
+  10          {
+  11   1        while(1)  //重覆執行 
+  12   1         {
+  13   2           for(i=0;i<360;i++)       //角度0~359度
+  14   2            {
+  15   3              x=sin(i*3.14159/180);//角度轉為弧度-1~0~1
+  16   3              Data=x*127+128; //弧度-1~0~1轉為1~128~255輸出
+  17   3              
+  18   3                      x=cos(i*3.14159/180);//角度轉為弧度-1~0~1
+  19   3                      P1=x*127+128; //弧度-1~0~1轉為1~128~255輸出
+  20   3                }
+  21   2         }
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    196    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

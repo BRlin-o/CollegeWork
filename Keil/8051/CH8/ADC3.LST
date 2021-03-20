@@ -1,0 +1,116 @@
+C51 COMPILER V8.16   ADC3                                                                  10/13/2008 11:33:47 PAGE 1   
+
+
+C51 COMPILER V8.16, COMPILATION OF MODULE ADC3
+OBJECT MODULE PLACED IN ADC3.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ADC3.C DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**************** ADC3.C ****ADC0804實習板*************
+   2          *動作：輸入類比電壓，中斷方式讀取數位資料，在LCD顯示數位資料
+   3          *接線： 資料=P2，INTR=P32，RD=P10，WR=P11，CS接地                 
+   4          ****************************************************/
+   5          #include "..\AT89X52.H"   //暫存器及組態定義
+   6          sbit  AD_RD=P1^0 ; //P10為讀取控制，RD=0讀取數位資料
+   7          sbit  AD_WR=P1^1 ; //P11為寫入轉換控制，WR=0->1開始轉換
+   8          
+   9          sfr  Data=0x80;//P0資料BUS輸出
+  10          sbit RS=0x96;  //P16 LCD指令/資料控制,RS=0指令，RS=1資料
+  11                         //LCD讀取/寫入控制,R/W=GND寫入
+  12          sbit EN=0x97;  //P17 LCD致能輸出,EN=0禁能LCD，EN=1致能LCD
+  13          
+  14          const int8  Table1[]="AN0="; //第一行列表字元
+  15          uint8 i; //資料計數
+  16          
+  17          main()
+  18          {
+  19   1        LCD_init();     //重置及清除LCD
+  20   1        LCD_Cmd(0x80);  //由第一行開始顯示
+  21   1         for(i=0 ; i< 4 ; i++) 
+  22   1           LCD_Data(Table1[i]);//讀取列表"AN0="字元到LCD顯示
+  23   1      
+  24   1              EA=1; EX0=1;    //致能外部INT0中斷
+  25   1              IT0=1;          //設定INT0腳負緣觸發中斷
+  26   1              AD_WR=0; AD_WR=1;//ADC開始轉換
+  27   1              while(1);                //等待轉換完畢
+  28   1      }
+  29          void EX0_SUB(void) interrupt 0
+  30          {
+  31   1              AD_RD=0;         //轉換完畢，讀取數位資料
+  32   1              LCD_Disp(P2); //LCD顯示ADC的資料
+  33   1              AD_RD=1;         //ADC停止讀取
+  34   1              AD_WR=0; AD_WR=1;//ADC重新開始轉換
+  35   1      }
+  36          /********************************************************
+  37          *函數名稱: LCD_Disp(unsigned int disp)
+  38          *功能描述: LCD顯示5位數十進制數字
+  39          *輸入參數：disp
+  40          *******************************************************/
+  41          void LCD_Disp(unsigned int disp)  // LCD 十進制顯示
+  42          {
+  43   1       LCD_Cmd(0x85);  //由第一行開始顯示
+  44   1       LCD_Data(disp /100+'0');     //取出百位數字元到LCD顯示
+  45   1       LCD_Data(disp % 100/10+'0'); //取出十位數字元到LCD顯示
+  46   1       LCD_Data(disp % 10+'0');     //取出個位數字元到LCD顯示
+  47   1      } 
+  48          /***********************************************************
+  49          *函數名稱: LCD_Data
+  50          *功能描述: 傳送資料到文字型LCD
+  51          *輸入參數：dat
+  52          ************************************************************/
+  53          void LCD_Data(char dat)  //傳送資料到LCD
+  54          {
+  55   1          Data=dat; //資料送到BUS
+C51 COMPILER V8.16   ADC3                                                                  10/13/2008 11:33:47 PAGE 2   
+
+  56   1          RS=1;EN=1;//資料寫入到LCD內
+  57   1          Delay_ms(1);   //LCD等待寫入完成
+  58   1          EN=0;          //禁能LCD    
+  59   1      }
+  60          /***************************************************************
+  61          *函數名稱: LCD_Cmd
+  62          *功能描述: 傳送命令到文字型LCD
+  63          *輸入參數：Cmd
+  64          ************************************************************/
+  65          void LCD_Cmd(unsigned char Cmd) //傳送命令到LCD
+  66          {
+  67   1          Data=Cmd;  //命令送到BUS
+  68   1          RS=0;EN=1; //命令寫入到LCD內
+  69   1          Delay_ms(1);    //LCD等待寫入完成     
+  70   1          EN=0;           //禁能LCD
+  71   1      }
+  72          /***************************************************************
+  73          *函數名稱: LCD_init
+  74          *功能描述: 啟始化文字型LCD
+  75          *****************************************************************/
+  76          void LCD_init(void)    //LCD的啟始程式  
+  77          {
+  78   1          LCD_Cmd(0x38);/*0011 1000,8bit傳輸,顯示2行,5*7字型
+  79   1                          bit4:DL=1,8bit傳輸,
+  80   1                          bit3:N=1,顯示2行
+  81   1                          bit2:F=0,5*7字型*/    
+  82   1          LCD_Cmd(0x0c);/*0000 1100,顯示幕ON,不顯示游標,游標不閃爍
+  83   1                          bit2:D=1,顯示幕ON
+  84   1                          bit1:C=0,不顯示游標
+  85   1                              bit0:B=0,游標不閃爍*/
+  86   1          LCD_Cmd(0x06);/*0000 0110,//顯示完游標右移,游標移位禁能 
+  87   1                          bit1:I/D=1,顯示完游標右移,
+  88   1                          bit0:S=0,游標移位禁能*/  
+  89   1          LCD_Cmd(0x01); //清除顯示幕  
+  90   1          LCD_Cmd(0x02); //游標回原位  
+  91   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    255    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

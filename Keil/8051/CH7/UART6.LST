@@ -1,0 +1,109 @@
+C51 COMPILER V8.09   UART6                                                                 03/17/2008 17:17:26 PAGE 1   
+
+
+C51 COMPILER V8.09, COMPILATION OF MODULE UART6
+OBJECT MODULE PLACED IN UART6.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE UART6.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**********UART6.C ******UART與LCD傳輸**********
+   2          *動作：接收個人電腦的資料，送到LCD顯示
+   3          ************************************************/
+   4          #include "..\AT89X52.H"   //暫存器及組態定義
+   5          sfr  Data=0x80;//P0資料BUS輸出
+   6          sbit RS=0x96;  //P16 LCD指令/資料控制,RS=0指令，RS=1資料
+   7                         //LCD讀取/寫入控制,R/W=0寫入
+   8          sbit EN=0x97;  //P17 LCD致能輸出,EN=0禁能LCD，EN=1致能LCD
+   9          char code Table1[] = "COUNT="; //第一行陣列字元
+  10          main()
+  11          {   
+  12   1              char i;         //計數值
+  13   1              LCD_init();     //LCD啟始程式
+  14   1              LCD_Cmd(0x80);        //游標由第一行開始顯示     
+  15   1              for(i=0 ; i< 6 ; i++)   
+  16   1            LCD_Data(Table1[i]);//讀取陣列文字送到LCD顯示      
+  17   1              LCD_Cmd(0x86);        //游標由第一行第6字開始顯示        
+  18   1              UART_init(9600);      //設定串列環境及鮑率   
+  19   1              EA=1;ES=1;            //致能串列中斷   
+  20   1              while(1);       //自我空轉，表示可做其它工作
+  21   1      }
+  22          /*****************************************************/
+  23          void SCON_int(void)  interrupt 4  //串列中斷函數  
+  24          {  
+  25   1        RI=0;             //接收完畢，令RI=0      
+  26   1        LCD_Data(SBUF);  //將接收到的字元由LCD顯示    
+  27   1      }
+  28          /***********************************************************
+  29          *函數名稱: UART_init
+  30          *功能描述: UART啟始程式
+  31          *輸入參數：bps
+  32          ************************************************************/
+  33          void UART_init(unsigned int bps)  //UART啟始程式
+  34          {
+  35   1         SCON = 0x50;     //設定UART串列傳輸為MODE1及致能接收
+  36   1         TMOD = 0x20;     //設定TIMER1為MODE2
+  37   1         TH1 = 256-(28800/bps);  //設計時器決定串列傳輸鮑率
+  38   1         TR1 = 1;          //開始計時
+  39   1      }
+  40          /***********************************************************
+  41          *函數名稱: LCD_Data
+  42          *功能描述: 傳送資料到文字型LCD
+  43          *輸入參數：dat
+  44          ************************************************************/
+  45          void LCD_Data(char dat)  //傳送資料到LCD
+  46          {
+  47   1              Data=dat; //資料送到BUS   
+  48   1              P0_7=0;    //過濾顯示字型資料
+  49   1          RS=1;EN=1;//資料寫入到LCD內
+  50   1          Delay_ms(1);   //LCD等待寫入完成
+  51   1          EN=0;          //禁能LCD    
+  52   1      }
+  53          /***************************************************************
+  54          *函數名稱: LCD_Cmd
+  55          *功能描述: 傳送命令到文字型LCD
+C51 COMPILER V8.09   UART6                                                                 03/17/2008 17:17:26 PAGE 2   
+
+  56          *輸入參數：Cmd
+  57          ************************************************************/
+  58          void LCD_Cmd(unsigned char Cmd) //傳送命令到LCD
+  59          {
+  60   1          Data=Cmd;  //命令送到BUS
+  61   1          RS=0;EN=1; //命令寫入到LCD內
+  62   1          Delay_ms(1);    //LCD等待寫入完成     
+  63   1          EN=0;           //禁能LCD
+  64   1      }
+  65          /***************************************************************
+  66          *函數名稱: LCD_init
+  67          *功能描述: 啟始化文字型LCD
+  68          *****************************************************************/
+  69          void LCD_init(void)    //LCD的啟始程式  
+  70          {
+  71   1          LCD_Cmd(0x38);/*0011 1000,8bit傳輸,顯示2行,5*7字型
+  72   1                          bit4:DL=1,8bit傳輸,
+  73   1                          bit3:N=1,顯示2行
+  74   1                          bit2:F=0,5*7字型*/    
+  75   1          LCD_Cmd(0x0c);/*0000 1100,顯示幕ON,不顯示游標,游標不閃爍
+  76   1                          bit2:D=1,顯示幕ON
+  77   1                          bit1:C=0,不顯示游標
+  78   1                              bit0:B=0,游標不閃爍*/
+  79   1          LCD_Cmd(0x06);/*0000 0110,//顯示完游標右移,游標移位禁能 
+  80   1                          bit1:I/D=1,顯示完游標右移,
+  81   1                          bit0:S=0,游標移位禁能*/  
+  82   1          LCD_Cmd(0x01); //清除顯示幕  
+  83   1          LCD_Cmd(0x02); //游標回原位  
+  84   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    226    ----
+   CONSTANT SIZE    =      7    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,44 @@
+C51 COMPILER V8.09   3_28                                                                  01/07/2008 11:39:58 PAGE 1   
+
+
+C51 COMPILER V8.09, COMPILATION OF MODULE 3_28
+OBJECT MODULE PLACED IN 3_28.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 3_28.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /************* 3_28.c ************************
+   2          *動作：P2及P3輸入相比較. 
+   3          *若P2<P3，較大送到P0，較小送到P1 
+   4          *若P2=P3，P1=00，P0=00
+   5          *若P2>P3，P1=ff，P0=ff
+   6          **********************************************/
+   7          #include "..\AT89X52.H"         //暫存器及組態設定      
+   8          main()
+   9          {
+  10   1      unsigned char i,j,k;  //定義8-bit變數
+  11   1      loop:
+  12   1         i=P2; j=P3;   //P2,P3 輸入   
+  13   1         if(i<j) {k=i; i=j; j=k;}  //若P2<P3,i和j交換
+  14   1           else
+  15   1           {
+  16   2             if(i==j) {i=0; j=0;} //若P2=P3,i=0,j=0 
+  17   2              else {i=0xff; j=0xff;}//若P2>P3,i=ff,j=ff
+  18   2           }
+  19   1         P0=i; P1=j;   //P0,P1 輸出
+  20   1      goto loop;
+  21   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     58    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

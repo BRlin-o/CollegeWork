@@ -1,0 +1,42 @@
+C51 COMPILER V8.08   DEMO                                                                  07/27/2007 13:29:12 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE DEMO
+OBJECT MODULE PLACED IN DEMO.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DEMO.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /************基本動作範例程式*******************
+   2          *檔名︰DEMO.C
+   3          *功能︰令變數遞加
+   4          *模擬：開啟Watch，單步執行觀察變數的動作
+   5          ************************************************/
+   6          void Delay(void)  //函數式
+   7          {  
+   8   1         unsigned char  dly=10; //宣告變數及初值，限0~255
+   9   1         while(dly--);         //空轉dly次，指令後面介紹
+  10   1      }
+  11          
+  12          main()//主程式
+  13          {         //主程式開始
+  14   1          char  i=0; //宣告變數=0，限-128~0~127
+  15   1        loop:            //跳躍標記
+  16   1          i=i+1;     //變數加1
+  17   1          Delay();   //執行Delay函數式
+  18   1          goto loop; //跳到loop處
+  19   1      }          //主程式結束
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     17    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

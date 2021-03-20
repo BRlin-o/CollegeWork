@@ -1,0 +1,55 @@
+[Signal 5]
+DispName=P3
+PlotType=1
+Color=255
+ValHex=0
+MinDec=0
+MinVal=0.
+MaxDec=0
+MaxVal=255.
+Mask=64
+Offset=6
+[Signal 6]
+DispName=P3
+PlotType=1
+Color=32768
+ValHex=0
+MinDec=0
+MinVal=0.
+MaxDec=0
+MaxVal=255.
+Mask=128
+Offset=7
+[Signal 2]
+DispName=P0
+PlotType=2
+Color=255
+ValHex=1
+MinDec=0
+MinVal=0.
+MaxDec=0
+MaxVal=255.
+Mask=-1
+Offset=0
+[Signal 3]
+DispName=P3
+PlotType=1
+Color=255
+ValHex=0
+MinDec=0
+MinVal=0.
+MaxDec=0
+MaxVal=255.
+Mask=16
+Offset=4
+[Signal 4]
+DispName=P3
+PlotType=1
+Color=255
+ValHex=0
+MinDec=0
+MinVal=0.
+MaxDec=0
+MaxVal=255.
+Mask=32
+Offset=5

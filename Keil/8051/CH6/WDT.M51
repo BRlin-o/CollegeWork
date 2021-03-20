@@ -1,0 +1,94 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        07/19/2007  15:31:01  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE WDT.obj TO WDT RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  WDT.obj (WDT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  WDT (WDT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0017H     UNIT         ?PR?MAIN?WDT
+            CODE    0817H     0016H     UNIT         ?PR?_DELAY_MS?WDT
+            CODE    082DH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   WDT (WDT)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?WDT
+
+?PR?MAIN?WDT
+  +--> ?PR?_DELAY_MS?WDT
+
+
+
+SYMBOL TABLE OF MODULE:  WDT (WDT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        WDT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0800H         PUBLIC        main
+  C:0817H         PUBLIC        _Delay_ms
+  D:00A6H         PUBLIC        WDTRST
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        dly
+BL51 BANKED LINKER/LOCATER V6.05                                                      07/19/2007  15:31:01  PAGE 2
+
+
+  -------         DO            
+  D:0005H         SYMBOL        dly1
+  -------         ENDDO         
+  C:0817H         LINE#         26
+  C:0817H         LINE#         27
+  C:0817H         LINE#         29
+  C:0821H         LINE#         30
+  C:082CH         LINE#         31
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  C:0800H         LINE#         6
+  C:0800H         LINE#         7
+  C:0800H         LINE#         8
+  C:0803H         LINE#         9
+  C:0806H         LINE#         10
+  C:0806H         LINE#         11
+  C:0806H         LINE#         12
+  C:0808H         LINE#         13
+  C:080FH         LINE#         14
+  C:0812H         LINE#         15
+  C:0815H         LINE#         16
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        WDT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 002DH BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=60
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

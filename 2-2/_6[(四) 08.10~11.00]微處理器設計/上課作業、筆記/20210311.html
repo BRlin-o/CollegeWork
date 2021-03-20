@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>20210311</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="20210311">20210311</h1>
+<h2 id="上課小考請回答後上傳word到智慧大師">上課小考(請回答後上傳word到智慧大師)</h2>
+<h3 id="1-請說明微處理器mcu">1. 請說明微處理器(MCU)</h3>
+<ul>
+<li>(a)資料匯流排(data bus),位址匯流排(address bus),控制匯流排(control bus)的用途；
+<blockquote>
+<p>資料匯流排：在CPU與RAM之間來回傳送需要處理或是需要儲存的資料。<br />
+位置匯流排：用來指定到RAM之中存取的資料位置。<br />
+控制匯流排：將微處理器控制單元的訊號，傳送到周邊裝置，一般常見的為USB Bus 和1394 Bus.</p>
+</blockquote>
+</li>
+<li>(b) 8bits MCU指的是以上三種匯流排(bus)的哪一種匯流排寬度?
+<blockquote>
+<p>資料匯流排</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-一般而言單晶片微電腦mcu所連接之程式記憶體rom的種類與資料記憶體ram的種類為何請舉出3種rom與2種ram">2. 一般而言單晶片微電腦(MCU)所連接之程式記憶體ROM的種類與資料記憶體(RAM)的種類為何(請舉出3種ROM與2種RAM)?</h3>
+<blockquote>
+<ul>
+<li>ROM<br />
+OTP ROM, PROM, EPROM</li>
+<li>RAM<br />
+DRAM, SRAM</li>
+</ul>
+</blockquote>
+<h3 id="3-8bits16bits32bits-mcu單晶片微電腦各舉一例">3. 8bits,16bits,32bits MCU單晶片微電腦各舉一例?</h3>
+<blockquote>
+<p>Z80, 8086, 80486</p>
+</blockquote>
+<h3 id="4-請比較at89s51與at89s52差異-ram-rom中斷interrupt-ios-timers計時計數器">4. 請比較AT89S51與AT89S52差異, RAM, ROM,中斷(interrupt), IOs, Timers(計時/計數器)</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">AT89S51</th>
+<th style="text-align:center">AT89S52</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Flash ROM 4k</td>
+<td style="text-align:center">Flash ROM 8k</td>
+</tr>
+<tr>
+<td style="text-align:center">128</td>
+<td style="text-align:center">256</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="5-請問為何mcu有watch-dog-timer它的作用是甚麼">5. 請問為何MCU有Watch dog timer,它的作用是甚麼?</h3>
+<blockquote>
+<p>提供警報機制、重設處理器</p>
+</blockquote>
+<h3 id="6-請劃出mcu內部主要區塊圖block-diagram">6. 請劃出MCU內部主要區塊圖(Block diagram)</h3>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/819370831922462770/unknown.png" alt=""></p>
+</blockquote>
+<h3 id="7-請描述at89s52微處理器mcu以下資訊">7. 請描述AT89S52微處理器(MCU)以下資訊：</h3>
+<ul>
+<li>
+<p>a. 接腳數(pins)以及各pin腳功能。</p>
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/816857285526945794/819371890102501406/unknown.png" alt="">
+|P1.0/T2|IO，T2為Timer2外部技術輸入|</p>
+</blockquote>
+</li>
+<li>
+<p>b. 請描述ATS8952內建資料記憶體(RAM)大小以及各分成那幾區(位址範圍)</p>
+<blockquote>
+<p>256byte<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387763635126314/unknown.png" alt=""></p>
+</blockquote>
+</li>
+<li>
+<p>c. 請描述ATS8952內建程式記憶體(ROM)大小以及各分成那幾區(位址範圍)</p>
+<blockquote>
+<p>0<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387730957434885/unknown.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<p>參考教材:Chap01 ppt在課程管理,學習路徑上</p>
+
+    </body>
+    </html>

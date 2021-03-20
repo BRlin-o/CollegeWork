@@ -1,0 +1,4 @@
+"6_2.obj" 
+TO "ch6" 
+RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

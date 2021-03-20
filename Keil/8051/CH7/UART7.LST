@@ -1,0 +1,66 @@
+C51 COMPILER V8.09   UART7                                                                 03/17/2008 17:18:01 PAGE 1   
+
+
+C51 COMPILER V8.09, COMPILATION OF MODULE UART7
+OBJECT MODULE PLACED IN UART7.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE UART7.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /********** UART7.c *********串列埠函數發射****************
+   2          *動作：用printf()函數將資料以UART串列格式送到電腦
+   3          ***********************************************************/
+   4          #include "..\AT89X52.H"   //暫存器及組態定義
+   5          #include <stdio.h>   //加入基本輸出入函數
+   6          
+   7          main()
+   8          {  
+   9   1        int i=42,j=3;       //定義整數變數
+  10   1        char  ch='a';       //定義字元變數
+  11   1         
+  12   1        UART_init(9600);     //設定串列環境及鮑率
+  13   1        TI=1;
+  14   1        printf("i=%d \n",i);      //顯示i=42
+  15   1        printf("j= %d \n",j);         //顯示j=3
+  16   1        printf("i=%d,j=%d,i+j=%d \n",i,j,i+j); //顯示i=42,j=3,i+j=45
+  17   1         
+  18   1        printf("%d convert %%d-->/%d/\n",i,i);     //42 convert %d-->/42/
+  19   1        printf("%d convert %%6d-->/%6d/\n",i,i);   //42 convert %6d-->/    42/
+  20   1        printf("%d convert %%06d-->/%06d/\n",i,i); //42 convert %06d-->/000042/
+  21   1        printf("%d convert %%-6d-->/%-6d/\n",i,i); //42 convert %-6d -->/42    /
+  22   1        
+  23   1        printf("i(8)= %o\n",i);           //顯示i(8)=54
+  24   1        printf("i(16)= %x\n",i);      //顯示i(16)=2a
+  25   1           
+  26   1        printf("%c convert %%c-->/%c/\n",ch,ch);    //a convert %c-->/a/
+  27   1        printf("%c convert %%6c -->/%6c/\n",ch,ch); //a convert %c-->/     a/
+  28   1        printf("%c convert %%-6c-->/%-6c/\n",ch,ch);//a convert %c-->/a     / 
+  29   1        
+  30   1      while(1);   //自我空轉
+  31   1      } 
+  32          /***********************************************************
+  33          *函數名稱: UART_init
+  34          *功能描述: UART啟始程式
+  35          *輸入參數：bps
+  36          ************************************************************/
+  37          void UART_init(unsigned int bps)  //UART啟始程式
+  38          {
+  39   1         SCON = 0x50;     //設定UART串列傳輸為MODE1及致能接收
+  40   1         TMOD = 0x20;     //設定TIMER1為MODE2
+  41   1         TH1 = 256-(28800/bps);  //設計時器決定串列傳輸鮑率
+  42   1         TR1 = 1;          //開始計時
+  43   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    295    ----
+   CONSTANT SIZE    =    233    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,12 @@
+*** About the ISP (In-System Programming):
+
+ISP is implemented by software control of MCU itself. There needs a loader code,
+i.e., the ISP-code, pre-programmed in MCU's LDROM for ISP operation. The 'ISP Programmer'
+and 'ISP by COM Port' use the ISP function to update the MCU chip.
+
+
+*** About the ICP (In-Circuit Programming):
+
+ICP is implemented by hardware control. There doesn't need any loader code
+pre-programmed in the MCU. The 'ICP Programmer' uses the ICP function to update
+the MCU chip.

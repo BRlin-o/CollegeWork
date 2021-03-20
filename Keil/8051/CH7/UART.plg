@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+C:\8051A\CH7\UART.uv2
+Project File Date:  08/09/2007
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling UART6.C...
+linking...
+Program Size: data=10.0 xdata=0 code=336
+creating hex file from "UART"...
+"UART" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling UART7.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?UART7
+Program Size: data=35.1 xdata=0 code=1669
+creating hex file from "UART"...
+"UART" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling UART1.C...
+linking...
+Program Size: data=12.0 xdata=0 code=242
+creating hex file from "UART"...
+"UART" - 0 Error(s), 0 Warning(s).

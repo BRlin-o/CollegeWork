@@ -1,0 +1,102 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        08/09/2007  15:56:28  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE 7_1.obj TO CH7
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  7_1.obj (7_1)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  CH7 (7_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0023H     UNIT         ?PR?MAIN?7_1
+            CODE    0823H     0016H     UNIT         ?PR?_DELAY_MS?7_1
+            CODE    0839H     0011H     UNIT         ?CO?7_1
+            CODE    084AH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   CH7 (7_1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?7_1
+
+?PR?MAIN?7_1
+  +--> ?CO?7_1
+
+
+
+SYMBOL TABLE OF MODULE:  CH7 (7_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        7_1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0098H.1       PUBLIC        TI
+  C:0800H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  C:0823H         PUBLIC        _Delay_ms
+  D:0098H         PUBLIC        SCON
+BL51 BANKED LINKER/LOCATER V6.05                                                      08/09/2007  15:56:28  PAGE 2
+
+
+  C:0839H         PUBLIC        TABLE
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        dly
+  -------         DO            
+  D:0005H         SYMBOL        dly1
+  -------         ENDDO         
+  C:0823H         LINE#         26
+  C:0823H         LINE#         27
+  C:0823H         LINE#         29
+  C:082DH         LINE#         30
+  C:0838H         LINE#         31
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         7
+  C:0800H         LINE#         8
+  C:0800H         LINE#         10
+  C:0803H         LINE#         12
+  C:0804H         LINE#         13
+  C:0804H         LINE#         14
+  C:0818H         LINE#         15
+  C:081BH         LINE#         16
+  C:081DH         LINE#         17
+  C:0821H         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        7_1
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?7_1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 004AH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=89
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

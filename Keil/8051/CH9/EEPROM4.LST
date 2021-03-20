@@ -1,0 +1,172 @@
+C51 COMPILER V8.09   EEPROM4                                                               12/28/2007 15:12:39 PAGE 1   
+
+
+C51 COMPILER V8.09, COMPILATION OF MODULE EEPROM4
+OBJECT MODULE PLACED IN EEPROM4.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE EEPROM4.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /********** EEPROM4.C *****"EEPROM 93C66實習板******
+   2          *動作：讀取16-bit陣列資料寫入EEPROM，再重覆讀取到P0/P1輸出
+   3          *接腳：CS=P27,SK=P26,DI=P25,DO=P24,ORG=開路
+   4          ***********************************************/
+   5          #include "..\AT89X52.H"   //暫存器及組態定義
+   6          sfr LED=0x80;   //LED由P0輸出
+   7          sbit CS=P2 ^7 ; //EEPROM 93C66接線
+   8          sbit SK=P2 ^6 ;
+   9          sbit DI=P2 ^5 ;
+  10          sbit DO=P2 ^4 ;
+  11          
+  12          unsigned int code Table[] 
+  13           ={0x1111,0x2222,0x3333,0x4444,0x5555,0x6666,0x7777,0x8888}; 
+  14          main()
+  15          {
+  16   1              unsigned char i;//資料計數
+  17   1              DI=1; DO=1; CS=0; SK=0;//設定初值
+  18   1          EWEN();             //致能EEPROM寫入及清除
+  19   1              ERAL();             //EEPROM清除全部記憶體
+  20   1              for(i=0;i<8;i++)    //寫入8筆資料
+  21   1                WRITE_16(i,Table[i]); //寫入位址及資料
+  22   1          EWDS();    //禁能EEPROM寫入及清除
+  23   1          while(1)   //不斷重覆讀取EEPROM的資料
+  24   1          {  
+  25   2            for(i=0;i<8;i++) //讀取8筆資料
+  26   2            {
+  27   3              LED=READ_16(i);    //讀取EEPROM的16-bit資料低位元組輸出
+  28   3                      P1=READ_16(i)>>8; //讀取EEPROM的16-bit資料高位元組輸出
+  29   3                  Delay_ms(100);    //延時
+  30   3            }
+  31   2         }
+  32   1      }
+  33          /****************************************************
+  34           函數名稱: Clock
+  35           功能描述:送入串列EEPROM時脈信號
+  36          *****************************************************/
+  37          void Clock(void)
+  38           {
+  39   1        SK=1;  SK=0;
+  40   1       }
+  41          /****************************************************
+  42           函數名稱: SEND
+  43           功能描述:送入EEPROM串列1-bit位址或資料
+  44           輸入參數：flag
+  45          *****************************************************/
+  46          void SEND(bit flag)
+  47           {
+  48   1         DI=flag; Clock();
+  49   1       } 
+  50          /*****************************************************
+  51           函數名稱: SEND8
+  52           功能描述: 串列EEPROM送入8-bit
+  53           輸入參數：Addr
+  54          ******************************************************/
+  55          void SEND8(unsigned char Addr) 
+C51 COMPILER V8.09   EEPROM4                                                               12/28/2007 15:12:39 PAGE 2   
+
+  56          {
+  57   1        char i;   
+  58   1        for(i=0;i<8;i++)         //bit7~0 
+  59   1         {
+  60   2           if(Addr & 0x80) DI=1; //若bit7=1，則DI=1
+  61   2             else DI= 0;         //若bit7=0，則DI=0
+  62   2           Clock();              //串列時脈，bit送入EEPROM
+  63   2           Addr= Addr << 1;      //位址左移
+  64   2         }
+  65   1      }
+  66          /********************************************
+  67           函數名稱:WRITE_16
+  68           功能描述:93C66串列EEPROM送入位址及16-bit資料
+  69           輸入參數：Addr,ch
+  70          *********************************************/
+  71          void WRITE_16(unsigned char Addr,unsigned int ch)
+  72          { 
+  73   1        CS=1;     //開啟EEPROM晶片
+  74   1        SEND(1);          //啟始位元 
+  75   1        SEND(0); SEND(1);     //操作碼01   
+  76   1        SEND8(Addr);      //送入位址  
+  77   1        SEND8(ch>>8);     //寫入高位元組資料
+  78   1        SEND8(ch);        //寫入低位元組資料
+  79   1        CS=0;             //關閉EEPROM晶片 
+  80   1        CS=1; while(!DO) Clock(); CS=0;//等待寫入完畢  
+  81   1      }
+  82          /*************************************************
+  83           函數名稱: READ_16
+  84           功能描述: 讀取93C66串列EEPROM資料
+  85           輸入參數：Addr
+  86           輸出參數：ch
+  87          **************************************************/
+  88          unsigned int READ_16(unsigned char Addr)
+  89          {
+  90   1        char i;
+  91   1        unsigned int ch;   //16-bit資料
+  92   1        CS=1;              //開啟EEPROM晶片  
+  93   1        SEND(1);           //啟始位元 
+  94   1        SEND(1); SEND(0);      //操作碼10   
+  95   1        SEND8(Addr);       //送入位址  
+  96   1        
+  97   1        if(DO==0)
+  98   1        {
+  99   2              ch=0;  //資料=0
+ 100   2              for(i=0; i < 16; i++)//讀取16-bit資料
+ 101   2               {
+ 102   3                 Clock();         //串列資料由DO輸出
+ 103   3                 ch=ch << 1;      //資料位元左移
+ 104   3                 if(DO== 1) ch++; //若DO=1，則ch資料bit0=1
+ 105   3               }
+ 106   2         }
+ 107   1        CS=0;       //關閉EEPROM晶片 
+ 108   1        return ch;  //將16-bit資料送回主程式
+ 109   1      }
+ 110          /****************************************************
+ 111           函數名稱: EWEN
+ 112           功能描述: 93C66串列EEPROM寫入及清除致能
+ 113          ****************************************************/
+ 114          void EWEN(void)   //EEPROM寫入及清除致能
+ 115          {
+ 116   1        CS=1;             //開啟EEPROM晶片
+ 117   1        SEND(1);          //啟始位元
+C51 COMPILER V8.09   EEPROM4                                                               12/28/2007 15:12:39 PAGE 3   
+
+ 118   1        SEND(0); SEND(0);     //操作碼00
+ 119   1        SEND8(0xc0);      //送入指令，致能抹除/寫入動作
+ 120   1        CS=0;             //關閉EEPROM晶片
+ 121   1      }
+ 122          /************************************************
+ 123           函數名稱: EWDS
+ 124           功能描述: 93C66串列EEPROM寫入及清除禁能
+ 125          ***********************************************/
+ 126          void EWDS(void)  //EEPROM寫入及清除禁能
+ 127          {
+ 128   1        CS=1;             //開啟EEPROM晶片
+ 129   1        SEND(1);          //啟始位元
+ 130   1        SEND(0); SEND(0);     //操作碼00          
+ 131   1        SEND8(0x00);      //送入指令，禁能抹除/寫入動作
+ 132   1        CS=0;             //關閉EEPROM晶片
+ 133   1      } 
+ 134          /*************************************************
+ 135           函數名稱: ERAL
+ 136           功能描述: 93C66串列EEPROM清除全部記憶體
+ 137          **************************************************/
+ 138          void ERAL(void) //EEPROM清除全部記憶體
+ 139          {
+ 140   1        CS=1;        //開啟EEPROM晶片
+ 141   1        SEND(1);     //啟始位元
+ 142   1        SEND(0); SEND(0);  //送入操作碼00
+ 143   1        SEND8(0x80); //送入指令，禁能抹除/寫入動作
+ 144   1        CS=0;        //關閉EEPROM晶片
+ 145   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    308    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

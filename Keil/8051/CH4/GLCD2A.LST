@@ -1,0 +1,91 @@
+C51 COMPILER V8.10   GLCD2A                                                                03/21/2008 16:02:56 PAGE 1   
+
+
+C51 COMPILER V8.10, COMPILATION OF MODULE GLCD2A
+OBJECT MODULE PLACED IN GLCD2A.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE GLCD2A.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*****GLCD2A.C****繪圖型LCD(橫排)實習板範例******
+   2          *動作：在繪圖型LCD上顯示"應用電子"
+   3          *步驟：用MatrixFont 20個16x16字型.exe，輸入四個中文字
+   4          *      不進行設定，再匯出檔案test。
+   5          *************************************************/
+   6          #include "..\AT89X52.H"   //暫存器及組態定義
+   7          #include "test.H"
+   8          sfr    Data=0x80;//P0資料BUS輸出
+   9          sbit   DI=0x96;  //P16 LCD指令/資料控制,DI=0指令，DI=1資料
+  10                           //LCD讀取/寫入控制,R/W=GND寫入
+  11          sbit   EN=0x97;  //P17 LCD致能輸出,EN=0禁能LCD，EN=1致能LCD
+  12          sbit   CS1=0x94; //CS1=1，繪圖型LCD左半部選擇
+  13          sbit   CS2=0x95; //CS2=1，繪圖型LCD右半部選擇
+  14          main()
+  15          {
+  16   1        unsigned char i,x_page;  //定義計數變數
+  17   1        CS1=1;CS2=1;      //開啟繪圖型LCD左右半部
+  18   1        Delay_ms(5);      //等待LCD開機時間
+  19   1        GLCD_Cmd(0x3f);   //0011111D，D=1開啟螢幕
+  20   1        for (x_page=0;x_page<8;x_page++)      //選擇X頁位址=0~7，清除所有畫面
+  21   1        {
+  22   2          GLCD_Cmd(0xb8+x_page); //10111xxx+0~7，設定X頁位址
+  23   2              GLCD_Cmd(0x40+0); //01xxxxxx+0~63，Y軸開始位址=0最左邊
+  24   2          for(i=0; i< 64 ;i++) //寫入64筆 
+  25   2            GLCD_Data(0);//寫入資料00000000,清除畫面 
+  26   2         }
+  27   1      
+  28   1        CS1=1;CS2=0;      //開啟繪圖型LCD左半部
+  29   1        GLCD_Cmd(0xb8+0); //10111xxx+0~7，X頁位址=0(字的上半部)
+  30   1        GLCD_Cmd(0x40+0); //01xxxxxx+0~63，Y軸位址=0最左邊
+  31   1        for(i=0; i< 16*4 ;i++) //寫入64筆 
+  32   1         {
+  33   2          GLCD_Data(test[i*2]);//寫入偶數資料(字的上半部) 
+  34   2              Delay_ms(10);
+  35   2         }
+  36   1        GLCD_Cmd(0xb8+1); //10111xxx+0~7，X頁位址=1(字的下半部)
+  37   1        GLCD_Cmd(0x40+0); //01xxxxxx+0~63，Y軸位址=0最左邊
+  38   1        for(i=0; i< 16*4 ;i++) //寫入64筆 
+  39   1         {
+  40   2               GLCD_Data(test[i*2+1]);//寫入奇數資料(字的下半部)
+  41   2           Delay_ms(10);
+  42   2          }
+  43   1        while(1);     //停止 
+  44   1      }
+  45          /*******************************************
+  46          *函數名稱: GLCD_Cmd
+  47          *功能描述: 寫入命令到繪圖型LCD
+  48          *輸入參數：cmd
+  49          *********************************************/
+  50          void GLCD_Cmd(unsigned char cmd)
+  51          {
+  52   1              Data=cmd;       //輸出命令      
+  53   1              DI=0;EN=1;      //寫入命令
+  54   1          Delay_ms(10);EN=0;  //等待寫入完成  
+  55   1      }
+C51 COMPILER V8.10   GLCD2A                                                                03/21/2008 16:02:56 PAGE 2   
+
+  56          /********************************************
+  57          *函數名稱: GLCD_Data
+  58          *功能描述: 寫入資料到繪圖型LCD
+  59          *輸入參數：dat
+  60          *********************************************/
+  61          void GLCD_Data(char dat)
+  62          {
+  63   1              Data=dat;        //輸出資料
+  64   1              DI=1;EN=1;      //寫入資料
+  65   1          Delay_ms(10);EN=0;  //等待寫入完成  
+  66   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    200    ----
+   CONSTANT SIZE    =    128    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

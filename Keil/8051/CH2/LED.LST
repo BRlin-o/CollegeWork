@@ -1,0 +1,37 @@
+C51 COMPILER V8.09   LED                                                                   10/12/2007 10:27:33 PAGE 1   
+
+
+C51 COMPILER V8.09, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN LED.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE LED.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          //*********LED.C*********專案程式執行********************
+   2          //功能︰令變數遞加及P2輸出延時
+   3          //模擬：開啟Watch及P2視窗，設中斷點，觀察變數的動作
+   4          //********************************************************
+   5          #include "..\AT89X52.H"   //暫存器及組態定義
+   6          main()                  //主程式
+   7          {                       //主程式開始   
+   8   1          unsigned char  i=0;  //計數變數0~255
+   9   1         loop:                //標記名稱
+  10   1           P2=i;              //變數i送到P2輸出(設中斷點)
+  11   1           Delay_ms(50); //延時函數式
+  12   1           i=i+1;             //變數加一  
+  13   1           goto loop;         //跳到標記loop
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     36    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

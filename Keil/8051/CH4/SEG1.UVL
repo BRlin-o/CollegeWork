@@ -1,0 +1,11 @@
+[Signal 1]
+DispName=P0
+PlotType=2
+Color=32768
+ValHex=1
+MinDec=0
+MinVal=0.
+MaxDec=0
+MaxVal=255.
+Mask=255
+Offset=0

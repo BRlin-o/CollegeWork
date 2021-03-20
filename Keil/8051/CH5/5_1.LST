@@ -1,0 +1,50 @@
+C51 COMPILER V8.09   5_1                                                                   03/17/2008 17:15:18 PAGE 1   
+
+
+C51 COMPILER V8.09, COMPILATION OF MODULE 5_1
+OBJECT MODULE PLACED IN 5_1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 5_1.C DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /********** 5_1.c *****************************
+   2          * 動作：主程式P0遞加，INT0腳輸入0準位或負緣觸發時，P0閃爍5次
+   3          **********************************************/
+   4          #include "..\AT89X52.H"   //暫存器及組態定義
+   5          main()    //主程式
+   6          {
+   7   1        unsigned char i=0; //定義變數=0
+   8   1        EA=1;      //致能整體中斷
+   9   1        EX0=1;     //致能外部INT0中斷
+  10   1        while(1)   //不斷循環
+  11   1         {
+  12   2           P0=i;   //變數由P0輸出
+  13   2               Delay_ms(50);
+  14   2           i++;
+  15   2         }
+  16   1      }
+  17          //********INT0中斷函數，使用暫存器庫1**********
+  18          void EX0_int(void) interrupt 0 using 1 
+  19           {
+  20   1          char i=0;     //定義閃爍計數變數
+  21   1              unsigned int  dly;     //定義延時變數
+  22   1          for(i=0;i<5;i++) //設定閃爍5次
+  23   1           {
+  24   2            P0=0x00; for(dly=0;dly<20000;dly++);//全亮，延時
+  25   2            P0=0xff; for(dly=0;dly<20000;dly++);//全暗，延時
+  26   2               }
+  27   1       }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     93    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

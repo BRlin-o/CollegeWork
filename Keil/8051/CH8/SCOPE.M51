@@ -1,0 +1,54 @@
+BL51 BANKED LINKER/LOCATER V4.21                                                        07/20/2007  08:46:05  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.21, INVOKED BY:
+C:\C51\BIN\L51 SCOPE.OBJ TO SCOPE.ABS
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  SCOPE.OBJ (SCOPE)
+  C:\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  SCOPE.ABS (SCOPE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     007BH     UNIT         ?PR?MAIN?SCOPE
+            CODE    087BH     0040H     UNIT         ?CO?SCOPE
+            CODE    08BBH     0016H     UNIT         ?PR?_DELAY_MS?SCOPE
+            CODE    08D1H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   SCOPE.ABS (SCOPE)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?SCOPE
+
+?PR?MAIN?SCOPE                 0008H    0004H
+  +--> ?CO?SCOPE
+  +--> ?PR?_DELAY_MS?SCOPE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D1H BYTE (10%) *
+******************************************************************************
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

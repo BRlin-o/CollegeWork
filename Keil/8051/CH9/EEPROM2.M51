@@ -1,0 +1,101 @@
+BL51 BANKED LINKER/LOCATER V4.21                                                        07/25/2007  07:18:44  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.21, INVOKED BY:
+C:\C51\BIN\L51 EEPROM2.OBJ TO EEPROM2.ABS
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  EEPROM2.OBJ (EEPROM2)
+  C:\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  EEPROM2.ABS (EEPROM2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         _BIT_GROUP_
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0059H     UNIT         ?PR?MAIN?EEPROM2
+            CODE    0859H     0032H     UNIT         ?PR?_READ_16?EEPROM2
+            CODE    088BH     0025H     UNIT         ?PR?_WRITE_16?EEPROM2
+            CODE    08B0H     0018H     UNIT         ?PR?_SEND8?EEPROM2
+            CODE    08C8H     0016H     UNIT         ?PR?_DELAY_MS?EEPROM2
+            CODE    08DEH     0010H     UNIT         ?CO?EEPROM2
+            CODE    08EEH     000FH     UNIT         ?PR?EWEN?EEPROM2
+            CODE    08FDH     000FH     UNIT         ?PR?EWDS?EEPROM2
+            CODE    090CH     000FH     UNIT         ?PR?ERAL?EEPROM2
+            CODE    091BH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0927H     0007H     UNIT         ?PR?SEND?EEPROM2
+            CODE    092EH     0005H     UNIT         ?PR?CLOCK?EEPROM2
+
+
+
+OVERLAY MAP OF MODULE:   EEPROM2.ABS (EEPROM2)
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?EEPROM2
+
+?PR?MAIN?EEPROM2               -----    -----      0008H    0001H
+  +--> ?PR?EWEN?EEPROM2
+  +--> ?PR?ERAL?EEPROM2
+  +--> ?CO?EEPROM2
+  +--> ?PR?_WRITE_16?EEPROM2
+BL51 BANKED LINKER/LOCATER V4.21                                                      07/25/2007  07:18:44  PAGE 2
+
+
+  +--> ?PR?EWDS?EEPROM2
+  +--> ?PR?_READ_16?EEPROM2
+  +--> ?PR?_DELAY_MS?EEPROM2
+
+?PR?EWEN?EEPROM2               -----    -----      -----    -----
+  +--> ?PR?SEND?EEPROM2
+  +--> ?PR?_SEND8?EEPROM2
+
+?PR?SEND?EEPROM2               0020H.0  0000H.1    -----    -----
+  +--> ?PR?CLOCK?EEPROM2
+
+?PR?_SEND8?EEPROM2             -----    -----      -----    -----
+  +--> ?PR?CLOCK?EEPROM2
+
+?PR?ERAL?EEPROM2               -----    -----      -----    -----
+  +--> ?PR?SEND?EEPROM2
+  +--> ?PR?_SEND8?EEPROM2
+
+?PR?_WRITE_16?EEPROM2          -----    -----      -----    -----
+  +--> ?PR?SEND?EEPROM2
+  +--> ?PR?_SEND8?EEPROM2
+  +--> ?PR?CLOCK?EEPROM2
+
+?PR?EWDS?EEPROM2               -----    -----      -----    -----
+  +--> ?PR?SEND?EEPROM2
+  +--> ?PR?_SEND8?EEPROM2
+
+?PR?_READ_16?EEPROM2           -----    -----      -----    -----
+  +--> ?PR?SEND?EEPROM2
+  +--> ?PR?_SEND8?EEPROM2
+  +--> ?PR?CLOCK?EEPROM2
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0127H BYTE (14%) *
+******************************************************************************
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

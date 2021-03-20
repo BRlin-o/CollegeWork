@@ -1,0 +1,125 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        08/09/2007  15:49:51  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE MUSIC1.obj TO MUSIC RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  MUSIC1.obj (MUSIC1)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  MUSIC (MUSIC1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MUSIC1
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     0047H     UNIT         ?PR?MAIN?MUSIC1
+            CODE    0847H     0016H     UNIT         ?PR?_DELAY_MS?MUSIC1
+            CODE    085DH     000EH     UNIT         ?PR?T0_INT?MUSIC1
+            CODE    086BH     000EH     UNIT         ?CO?MUSIC1
+            CODE    0879H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   MUSIC (MUSIC1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MUSIC1
+
+?PR?MAIN?MUSIC1
+  +--> ?CO?MUSIC1
+  +--> ?PR?_DELAY_MS?MUSIC1
+
+
+
+SYMBOL TABLE OF MODULE:  MUSIC (MUSIC1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MUSIC1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.05                                                      08/09/2007  15:49:51  PAGE 2
+
+
+  B:00A8H.7       PUBLIC        EA
+  D:0008H         PUBLIC        Temp
+  C:0800H         PUBLIC        main
+  C:085DH         PUBLIC        T0_int
+  C:0847H         PUBLIC        _Delay_ms
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:086BH         PUBLIC        Table
+  B:0080H.0       PUBLIC        SPEAK
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        dly
+  -------         DO            
+  D:0005H         SYMBOL        dly1
+  -------         ENDDO         
+  C:0847H         LINE#         26
+  C:0847H         LINE#         27
+  C:0847H         LINE#         29
+  C:0851H         LINE#         30
+  C:085CH         LINE#         31
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         18
+  C:0800H         LINE#         19
+  C:0800H         LINE#         21
+  C:0804H         LINE#         22
+  C:0807H         LINE#         23
+  C:0807H         LINE#         24
+  C:0807H         LINE#         25
+  C:0809H         LINE#         26
+  C:0809H         LINE#         27
+  C:0829H         LINE#         28
+  C:082FH         LINE#         29
+  C:0831H         LINE#         30
+  C:0838H         LINE#         31
+  C:083AH         LINE#         32
+  C:083EH         LINE#         33
+  C:0845H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         PROC          T0_INT
+  C:085DH         LINE#         37
+  C:085FH         LINE#         39
+  C:0866H         LINE#         40
+  C:0868H         LINE#         41
+  -------         ENDPROC       T0_INT
+  -------         ENDMOD        MUSIC1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 007CH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=139
+BL51 BANKED LINKER/LOCATER V6.05                                                      08/09/2007  15:49:51  PAGE 3
+
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

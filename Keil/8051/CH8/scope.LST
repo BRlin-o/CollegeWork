@@ -1,0 +1,57 @@
+C51 COMPILER V8.08   SCOPE                                                                 08/02/2007 13:53:19 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE SCOPE
+OBJECT MODULE PLACED IN scope.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE scope.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*******SCOPE.C***** 示波器字幕控制實習板範例***********
+   2          *動作：在示波器顯示 HELLO !! 字串,及閃爍
+   3          *接線：P0控制亮點水平方向位置, P1控制亮點垂直方向位置
+   4          ********************************************************/
+   5          #include "..\AT89X52.H"   //暫存器及組態定義
+   6          #include "font.h"  //加入字型檔
+   7          
+   8           main()
+   9          {
+  10   1       char t; //字型處理暫存變數
+  11   1       char i;     //上下偏移位置
+  12   1       int  j;     //左右偏移位置     
+  13   1       int  x=100; //X(水平)軸開始顯示位置0~190
+  14   1       int  y=200; //Y(垂直)軸開始顯示位置0~248
+  15   1      
+  16   1       P0=P1=0;  //示波器畫面全暗
+  17   1       while(1)
+  18   1       {
+  19   2         for(i=0;i<8 ;i++)   //上下偏移位置
+  20   2              {
+  21   3               for(j=0; j<8*8; j++) //左右偏移位置
+  22   3                {
+  23   4                  t=font[j>>3][i]; //讀取每個字同一行的每筆資料
+  24   4                  t=t<<(j & 7);    //將每筆資料，左移0~7次，依予取出bit資料
+  25   4                  if(t & 0x80)     //若資料bit=1，則送到示波器顯示
+  26   4                   {
+  27   5                     P0=j+x;//計算此bit左右位置，轉成類比電壓輸出到示波器X(水平)軸    
+  28   5                     P1=i+y;//計算此bit上下位置，轉成類比電壓輸出到示波器Y(垂直)軸
+  29   5                   }
+  30   4                 }
+  31   3              }
+  32   2         P0=P1=0; Delay_ms(100); //示波器畫面全暗一段時間，形成閃爍動作
+  33   2        }
+  34   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    144    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

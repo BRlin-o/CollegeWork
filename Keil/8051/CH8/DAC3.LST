@@ -1,0 +1,43 @@
+C51 COMPILER V8.08   DAC3                                                                  08/02/2007 09:38:38 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE DAC3
+OBJECT MODULE PLACED IN DAC3.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DAC3.C DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*******DAC3.C*****使用列表法輸出正弦波*************
+   2          *功能：讀取正弦列表資料，送到DAC0804產生正弦波
+   3          ***************************************************/
+   4          #include "..\AT89X52.H"   //暫存器及組態定義
+   5          #include "TABLE.H"       // 正弦波列表資料 
+   6          sfr  Data=0x80;//P0資料BUS輸出
+   7          main()
+   8          {
+   9   1       int i;   //角度
+  10   1       char dly; //延時 
+  11   1        while(1)  //重覆執行 
+  12   1         {
+  13   2           for(i=0;i<360;i++)    //角度0~359度
+  14   2            {  
+  15   3              Data=sin_table[i];  //讀取角度的數位資料輸出
+  16   3              //for(dly=0;dly<30;dly++);//延時
+  17   3            }    
+  18   2         }
+  19   1      }
+*** WARNING C280 IN LINE 10 OF DAC3.C: 'dly': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     52    ----
+   CONSTANT SIZE    =    360    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

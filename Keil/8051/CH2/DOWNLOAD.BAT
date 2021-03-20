@@ -1,0 +1,3 @@
+MODE COM1:9600,N,8,2
+hexbin LED.hex LED.bin I
+COPY LED.bin COM1:/B 

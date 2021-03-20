@@ -1,0 +1,77 @@
+C51 COMPILER V8.10   GLCD1                                                                 03/21/2008 16:10:12 PAGE 1   
+
+
+C51 COMPILER V8.10, COMPILATION OF MODULE GLCD1
+OBJECT MODULE PLACED IN GLCD1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE GLCD1.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*****GLCD1.C****繪圖型LCD(橫排)實習板範例******
+   2          *動作：在繪圖型LCD最低下顯示橫線，往上移動 
+   3          *************************************************/
+   4          #include "..\AT89X52.H"   //暫存器及組態定義
+   5          sfr    Data=0x80;//P0資料BUS輸出
+   6          sbit   DI=0x96;  //P16 LCD指令/資料控制,DI=0指令，DI=1資料
+   7                           //LCD讀取/寫入控制,R/W=GND寫入
+   8          sbit   EN=0x97;  //P17 LCD致能輸出,EN=0禁能LCD，EN=1致能LCD
+   9          sbit   CS1=0x94; //CS1=1，繪圖型LCD左半部選擇
+  10          sbit   CS2=0x95; //CS2=1，繪圖型LCD右半部選擇
+  11          
+  12          main()
+  13          {
+  14   1        unsigned char i;  //定義計數變數
+  15   1        CS1=1;CS2=1;      //開啟繪圖型LCD左右半部
+  16   1        Delay_ms(5);      //等待LCD開機時間
+  17   1        GLCD_Cmd(0x3f);   //0011111D，D=1開啟螢幕
+  18   1        GLCD_Cmd(0xb8+7); //10111xxx+0~7，X頁位址=7最下頁
+  19   1        GLCD_Cmd(0x40+0); //01xxxxxx+0~63，Y軸位址=0最左邊
+  20   1        for(i=0; i< 64 ;i++) //寫入64筆 
+  21   1          GLCD_Data(0x80);//寫入資料10000000,最低下一橫線 
+  22   1        while(1)
+  23   1        {
+  24   2          for(i=0; i<64 ;i++) //計數=0~63
+  25   2              {
+  26   3                //GLCD_Cmd(0xC0+i); //11xxxxxx+0~63，開始行數=0~63往上移
+  27   3                Delay_ms(100);
+  28   3              }
+  29   2        }
+  30   1      }
+  31          /*******************************************
+  32          *函數名稱: GLCD_Cmd
+  33          *功能描述: 寫入命令到繪圖型LCD
+  34          *輸入參數：cmd
+  35          *********************************************/
+  36          void GLCD_Cmd(unsigned char cmd)
+  37          {
+  38   1              Data=cmd;       //輸出命令      
+  39   1              DI=0;EN=1;      //寫入命令
+  40   1          Delay_ms(10);EN=0;  //等待寫入完成  
+  41   1      }
+  42          /********************************************
+  43          *函數名稱: GLCD_Data
+  44          *功能描述: 寫入資料到繪圖型LCD
+  45          *輸入參數：dat
+  46          *********************************************/
+  47          void GLCD_Data(char dat)
+  48          {
+  49   1              Data=dat;        //輸出資料
+  50   1              DI=1;EN=1;      //寫入資料
+  51   1          Delay_ms(10);EN=0;  //等待寫入完成  
+  52   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V8.10   GLCD1                                                                 03/21/2008 16:10:12 PAGE 2   
+
+   CODE SIZE        =    112    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

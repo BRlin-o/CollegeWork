@@ -24,3 +24,7 @@
     - 幾位元的CPU資料匯流排就有幾bit
   - 記憶體的控制
     ![](https://media.discordapp.net/attachments/816857285526945794/816861185180827719/IMG_20210304_103409.jpg)
+  - 個人電腦與單晶片微電腦比較表
+    ![](https://media.discordapp.net/attachments/816857285526945794/816862576482451456/IMG_20210304_104003.jpg)
+  - 單片微電腦內部方塊圖
+    ![](https://media.discordapp.net/attachments/816857285526945794/816862830396440626/IMG_20210304_104100.jpg)

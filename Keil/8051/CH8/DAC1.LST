@@ -1,0 +1,46 @@
+C51 COMPILER V8.08   DAC1                                                                  08/02/2007 15:18:09 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE DAC1
+OBJECT MODULE PLACED IN DAC1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DAC1.C DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**************** DAC1.C *************************
+   2          *動作：送出數位資料到DAC0800輸出三角波                   
+   3          *************************************************/
+   4          #include "..\AT89X52.H"  //暫存器及組態定義
+   5          sfr  Data=0x80;//P0資料BUS輸出
+   6          main()  
+   7          {
+   8   1        unsigned char i=0; //輸出數位資料
+   9   1        unsigned char dly=0; //延時
+  10   1        while(1)    // 重覆執行 
+  11   1        {   
+  12   2              while(++i) 
+  13   2              {
+  14   3                Data=i;       //資料輸出
+  15   3                for(dly=0;dly<10;dly++); //延時
+  16   3              }
+  17   2              while(--i)      
+  18   2              {
+  19   3                Data=i;       //資料輸出
+  20   3                for(dly=0;dly<10;dly++); //延時
+  21   3              }
+  22   2        }
+  23   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     59    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

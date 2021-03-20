@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x4E0A;&#x8AB2;&#x5C0F;&#x8003;</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h2 id="上課小考">上課小考</h2>
+<h3 id="1請描述at89s52微處理器mcu以下資訊">1.請描述AT89S52微處理器(MCU)以下資訊：</h3>
+<ul>
+<li>(a)請描述ATS8952內建資料記憶體(RAM)大小以及各分成那幾區(位址範圍)</li>
+</ul>
+<blockquote>
+<p>256byte<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387763635126314/unknown.png" alt=""></p>
+</blockquote>
+<ul>
+<li>(b)請描述ATS8952內建程式記憶體(ROM)大小以及各分成那幾區(位址範圍)</li>
+</ul>
+<blockquote>
+<p>Flash Rom 8k<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387730957434885/unknown.png" alt=""></p>
+</blockquote>
+<h3 id="2-請描述實驗板石英振盪器幾mhz">2. 請描述實驗板石英振盪器幾MHz?</h3>
+<blockquote>
+<p>11.059KHz</p>
+</blockquote>
+<h3 id="3-請問實驗板-mcs-8051-mcu-特殊暫存器sfr--p0p1-p2p3在記憶體哪一位址">3. 請問實驗板 MCS-8051 MCU 特殊暫存器(sfr) , P0，P1, P2，P3在記憶體哪一位址?</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">P0</td>
+<td style="text-align:center">0x80</td>
+</tr>
+<tr>
+<td style="text-align:center">P1</td>
+<td style="text-align:center">0x81</td>
+</tr>
+<tr>
+<td style="text-align:center">P2</td>
+<td style="text-align:center">0x82</td>
+</tr>
+<tr>
+<td style="text-align:center">P3</td>
+<td style="text-align:center">0x83</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="4-請問ats8952-位元定址區在ram的哪一範圍-有何功用">4. 請問ATS8952 位元定址區在RAM的哪一範圍? 有何功用?</h3>
+<blockquote>
+<ul>
+<li>0x2F ~ 0x20</li>
+<li>平時作為RAM來使用</li>
+</ul>
+</blockquote>
+<h3 id="5-請問ats8952-sfr特殊功能暫存器在ram的哪一範圍">5. 請問ATS8952 SFR特殊功能暫存器在RAM的哪一範圍?</h3>
+<blockquote>
+<ul>
+<li>0x80 ~ 0xF0</li>
+</ul>
+</blockquote>
+<h2 id="上課筆記">上課筆記</h2>
+<p>程式放在ROM</p>
+<ul>
+<li>哪種類型的Flash ROM可以執行程式(APROM)</li>
+</ul>
+<blockquote>
+<p>NOR type: 因為NOR可以定址</p>
+</blockquote>
+<p>data flash
+NAND type: 放在SSD 儲存資料</p>
+<p>一般都是用DRAM定址</p>
+<h3 id="c語言架構">C語言架構</h3>
+<ul>
+<li>宣告
+<ul>
+<li>假指令區(#Diretive)</li>
+</ul>
+</li>
+<li>宣告定義檔
+<ul>
+<li><code>#include &lt;*[.h&gt;]&gt; || $include &quot;*.h&quot;</code></li>
+<li><code>#define XXX AAA</code></li>
+<li><code>#ifdef XXX</code></li>
+</ul>
+</li>
+<li>宣告變數
+<ul>
+<li><code>int gWight;</code></li>
+</ul>
+</li>
+<li>宣告函式(function)
+<ul>
+<li><code>void test(int demo);</code></li>
+<li>宣告變數
+<ul>
+<li><code>int demo;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>主程式
+<ul>
+<li><code>main(){}</code></li>
+<li>指令或叫敘述(statement)</li>
+<li>函數實作</li>
+</ul>
+</li>
+<li>註解</li>
+<li>範例1</li>
+</ul>
+<pre><code><code><div>/* 
+被註解 
+*/ 沒被註解
+</div></code></code></pre>
+<ul>
+<li>範例2</li>
+</ul>
+<pre><code><code><div>// 被註解 也被註解, 又被註解
+沒被註解
+</div></code></code></pre>
+
+    </body>
+    </html>
