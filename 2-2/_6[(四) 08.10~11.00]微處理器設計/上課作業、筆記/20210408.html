@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x4E0A;&#x8AB2;&#x5C0F;&#x8003;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="上課小考">上課小考</h1>
+<h2 id="chap02">Chap02</h2>
+<h3 id="1-請回答以下以keil-c51開發實驗版軟體環境使用問題">1. 請回答以下以Keil C51開發實驗版軟體環境使用問題。</h3>
+<ul>
+<li>(1) 在Debug(偵錯)模式下，要看資料記憶體(RAM) 0x00位址要如何達成? (請放截圖)</li>
+</ul>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/829520374743302164/unknown.png" alt=""></p>
+</blockquote>
+<ul>
+<li>(2) 在Debug(偵錯)模式下，要看程式記憶體(ROM) 0x0010位址要如何達成? (請放截圖)</li>
+</ul>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/829527997983621190/unknown.png" alt=""></p>
+</blockquote>
+<ul>
+<li>(3) 在Debug(偵錯)模式下，請問單步偵錯中Step Out是什麼?</li>
+</ul>
+<blockquote>
+<p>可直接跳出目前所在的副程式</p>
+</blockquote>
+<ul>
+<li>(4) 在Debug(偵錯)模式下，請問單步偵錯中Step in與Step Over的不同?</li>
+</ul>
+<blockquote>
+<ul>
+<li>Step in: 按順序執行一個指令的動作後暫停，遇到副程式(函數)會跳進函數執行。</li>
+<li>Step Over: 按順序執行一個指令的動作後暫停，且會直接跳過副程式(函數)，不會進入副程式(函數)</li>
+</ul>
+</blockquote>
+<h2 id="chap03">Chap03</h2>
+<h3 id="1請問keil-c51編譯器標準變數的資料型態data-type有哪8種以及每一種佔的bit長度">1.請問Keil C51編譯器標準變數的資料型態(data type)有哪8種以及每一種佔的bit長度?</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">標準變數的資料型態</th>
+<th style="text-align:center">每一種佔的bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">unsigned char</td>
+<td style="text-align:center">8bit</td>
+</tr>
+<tr>
+<td style="text-align:center">signed char, char</td>
+<td style="text-align:center">8bit</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned int</td>
+<td style="text-align:center">16bit</td>
+</tr>
+<tr>
+<td style="text-align:center">signed int, short int, int</td>
+<td style="text-align:center">16bit</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned long, long</td>
+<td style="text-align:center">32bit</td>
+</tr>
+<tr>
+<td style="text-align:center">signed long</td>
+<td style="text-align:center">32bit</td>
+</tr>
+<tr>
+<td style="text-align:center">float, double</td>
+<td style="text-align:center">32bit</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="2-請問keil-c51編譯器請舉出4種擴充的資料型態以及每一種佔的bit長度">2. 請問Keil C51編譯器請舉出4種擴充的資料型態以及每一種佔的bit長度?</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">擴充的資料型態</th>
+<th style="text-align:center">每一種佔的bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bit</td>
+<td style="text-align:center">1bit</td>
+</tr>
+<tr>
+<td style="text-align:center">sfr</td>
+<td style="text-align:center">8bit</td>
+</tr>
+<tr>
+<td style="text-align:center">sfr16</td>
+<td style="text-align:center">16bit</td>
+</tr>
+<tr>
+<td style="text-align:center">sbit</td>
+<td style="text-align:center">1bit</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="3-請寫一keil-c程式宣告8051-p0p1p2p3並將值都指定為0x00">3. 請寫一Keil C程式宣告8051 P0,P1,P2,P3並將值都指定為0x00</h3>
+<blockquote>
+<pre><code><code><div>P0 = 0x00;
+P1 = 0x00;
+P2 = 0x00;
+P3 = 0x00;
+</div></code></code></pre>
+</blockquote>
+<h3 id="4-請寫一keil-c程式宣告8051-p1的第01-bit-並將值都指定為0">4. 請寫一Keil C程式宣告8051 P1的第0,1 bit 並將值都指定為0</h3>
+<blockquote>
+<pre><code><code><div>P0_0=0;
+P0_1=0;
+</div></code></code></pre>
+</blockquote>
+
+    </body>
+    </html>
