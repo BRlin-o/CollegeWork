@@ -1,0 +1,183 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           		ORG	0000H
+      2    0000     75 80 00              LOOP:		MOV	P0, #00000000B
+      3    0003     75 90 FE              		MOV	P1, #11111110B
+      4    0006     30 A0 38              		JNB	P2.0, CASE1
+      5    0009     30 A1 4C              		JNB	P2.1, CASE2
+      6    000C     30 A2 59              		JNB	P2.2, CASE3
+      7    000F     30 A3 68              		JNB	P2.3, CASE4
+      8    0012                           
+      9    0012     75 90 FD              		MOV	P1, #11111101B
+     10    0015     30 A0 74              		JNB	P2.0, CASE5
+     11    0018     30 A1 76              		JNB	P2.1, CASE6
+     12    001B     30 A2 78              		JNB	P2.2, CASE7
+     13    001E     30 A3 7A              		JNB	P2.3, CASE8
+     14    0021                           
+     15    0021     75 90 FB              		MOV	P1, #11111011B
+     16    0024     30 A0 79              		JNB	P2.0, CASE9
+     17    0027     30 A1 7B              		JNB	P2.1, CASE10
+     18    002A     30 A2 7C              		JNB	P2.2, CASE11
+     19    002D     30 A3 7D              		JNB	P2.3, CASE12
+     20    0030                           
+     21    0030     75 90 F7              		MOV	P1, #11110111B
+     22    0033     30 A0 7B              		JNB	P2.0, CASE13
+     23    0036     30 A1 7C              		JNB	P2.1, CASE14
+     24    0039     30 A2 7D              		JNB	P2.2, CASE15
+     25    003C     30 A3 02              		JNB	P2.3, CASE1
+     26    003F     01 00                 		AJMP	LOOP
+     27    0041                           
+     28    0041     75 80 81              CASE1:	MOV	P0, #10000001B;	¥ª¬õ¿O¥kºñ¿O
+     29    0044     7D 28                 		MOV	R5, #40
+     30    0046     11 C5                 		ACALL	DELAY
+     31    0048     75 80 82              		MOV	P0, #10000010B;	¥ª¬õ¿O¥k¶À¿O
+     32    004B     7D 0A                 		MOV	R5, #10
+     33    004D     11 C5                 		ACALL	DELAY
+     34    004F     75 80 24              		MOV	P0, #00100100B;	¥ªºñ¿O¥k¬õ¿O
+     35    0052     7D 32                 		MOV	R5, #50
+     36    0054     11 C5                 		ACALL	DELAY
+     37    0056     01 00                 		AJMP	LOOP
+     38    0058                           
+     39    0058     75 80 AA              CASE2:	MOV	P0, #10101010B
+     40    005B     7D 03                 		MOV	R5, #3
+     41    005D     11 C5                 		ACALL	DELAY
+     42    005F     75 80 00              		MOV	P0, #00000000B
+     43    0062     7D 03                 		MOV	R5, #3
+     44    0064     11 C5                 		ACALL	DELAY
+     45    0066     01 00                 		AJMP	LOOP
+     46    0068                           
+     47    0068     78 0E                 CASE3:	MOV	R0, #OVER3-TABLE3+1
+     48    006A     90 01 11              		MOV	DPTR, #TABLE3
+     49    006D     79 00                 		MOV	R1, #00H	
+     50    006F     E9                    DoCASE3:	MOV	A, R1;
+     51    0070     93                    		MOVC	A, @A+DPTR
+     52    0071     F5 80                 		MOV	P0, A
+     53    0073     11 D0                 		ACALL	DDELAY
+     54    0075     09                    		INC	R1
+     55    0076     D8 F7                 		DJNZ	R0, DoCASE3
+     56    0078     01 00                 		AJMP	LOOP
+     57    007A                           
+     58    007A     78 14                 CASE4:	MOV	R0, #OVER4-TABLE4+1
+     59    007C     90 01 1F              		MOV	DPTR, #TABLE4
+     60    007F     79 00                 		MOV	R1, #00H	
+     61    0081     E9                    DoCASE4:	MOV	A, R1;
+     62    0082     93                    		MOVC	A, @A+DPTR
+     63    0083     F5 80                 		MOV	P0, A
+     64    0085     11 D0                 		ACALL	DDELAY
+     65    0087     09                    		INC	R1
+     66    0088     D8 F7                 		DJNZ	R0, DoCASE4
+     67    008A     01 00                 		AJMP	LOOP
+     68    008C                           
+     69    008C     75 80 08              CASE5:	MOV	P0, #00001000B
+     70    008F     01 00                 		AJMP	LOOP
+     71    0091     75 80 09              CASE6:	MOV	P0, #00001001B
+     72    0094     01 00                 		AJMP	LOOP
+     73    0096     75 80 08              CASE7:	MOV	P0, #00001000B
+     74    0099     01 00                 		AJMP	LOOP
+     75    009B     75 80 0B              CASE8:	MOV	P0, #00001011B
+     76    009E     01 00                 		AJMP	LOOP
+     77    00A0     75 80 0C              CASE9:	MOV	P0, #00001100B
+     78    00A3     01 00                 		AJMP	LOOP
+     79    00A5                           
+     80    00A5     7E 74                 CASE10:	MOV	R6, #116
+     81    00A7     01 D9                 		AJMP	OUTPUT
+     82    00A9     7E 68                 CASE11:	MOV	R6, #104
+     83    00AB     01 D9                 		AJMP	OUTPUT
+     84    00AD     7E 5C                 CASE12:	MOV	R6, #92
+     85    00AF     01 D9                 		AJMP	OUTPUT
+     86    00B1     7E 57                 CASE13:	MOV	R6, #87
+     87    00B3     01 D9                 		AJMP	OUTPUT
+     88    00B5     7E 4E                 CASE14:	MOV	R6, #78
+     89    00B7     01 D9                 		AJMP	OUTPUT
+     90    00B9                           
+     91    00B9     7C 14                 CASE15:	MOV	R4, #20
+     92    00BB     31 04                 DoCASE15:	ACALL	PK
+     93    00BD     DC FC                 		DJNZ	R4, DoCASE15
+     94    00BF     7D 14                 		MOV	R5, #20
+     95    00C1     11 C5                 		ACALL	DELAY
+     96    00C3     01 00                 		AJMP	LOOP
+     97    00C5                           
+     98    00C5                           DELAY:	
+     99    00C5     7E FA                 DL1:		MOV	R6, #250
+    100    00C7     7F C8                 DL2:		MOV	R7, #200
+    101    00C9     DF FE                 DL3:		DJNZ	R7, DL3
+    102    00CB     DE FA                 		DJNZ	R6, DL2
+    103    00CD     DD F6                 		DJNZ	R5, DL1
+    104    00CF     22                    		RET
+    105    00D0                           
+    106    00D0     7E FA                 DDELAY:	MOV	R6, #250
+    107    00D2     7F C8                 DDL1:		MOV	R7, #200
+    108    00D4     DF FE                 DDL2:		DJNZ	R7, DDL2
+    109    00D6     DE FA                 		DJNZ	R6, DDL1
+    110    00D8     22                    		RET
+    111    00D9                           
+    112    00D9     C2 A6                 OUTPUT:	CLR	P2.6
+    113    00DB     11 E3                 		ACALL	MDELAY
+    114    00DD     D2 A6                 		SETB	P2.6
+    115    00DF     11 E3                 		ACALL	MDELAY
+    116    00E1     01 00                 		AJMP	LOOP
+    117    00E3                           
+    118    00E3     8E F0                 MDELAY:	MOV	B, R6
+    119    00E5     7F 06                 MDL:		MOV	R7, #6
+    120    00E7     DF FE                 		DJNZ	R7, $
+    121    00E9     DE FA                 		DJNZ	R6, MDL
+    122    00EB     AE F0                 		MOV	R6, B
+    123    00ED     22                    		RET
+    124    00EE                           
+    125    00EE     C2 A6                 SOUND:	CLR	P2.6
+    126    00F0     11 F9                 		ACALL	SDELAY
+    127    00F2     D2 A6                 		SETB	P2.6
+    128    00F4     11 F9                 		ACALL	SDELAY
+    129    00F6     DD F6                 		DJNZ	R5, SOUND
+    130    00F8     22                    		RET
+    131    00F9                           
+    132    00F9     8E F0                 SDELAY:	MOV	B, R6
+    133    00FB     7F 06                 SDL:		MOV	R7, #6
+    134    00FD     DF FE                 		DJNZ	R7, $
+    135    00FF     DE FA                 		DJNZ	R6, SDL
+    136    0101     AE F0                 		MOV	R6, B
+    137    0103     22                    		RET
+    138    0104                           
+    139    0104     7E 5F                 PK:		MOV	R6, #95
+    140    0106     7D 0A                 		MOV	R5, #10
+    141    0108     11 EE                 		ACALL	SOUND
+    142    010A     7E 3F                 		MOV	R6, #63
+    143    010C     7D 0A                 		MOV	R5, #10
+    144    010E     11 EE                 		ACALL	SOUND
+    145    0110     22                    		RET
+    146    0111                           
+    147    0111     01                    TABLE3:	DB	00000001B
+    148    0112     02                    		DB	00000010B
+    149    0113     04                    		DB	00000100B
+    150    0114     08                    		DB	00001000B
+    151    0115     10                    		DB	00010000B
+    152    0116     20                    		DB	00100000B
+    153    0117     40                    		DB	01000000B
+    154    0118     80                    		DB	10000000B
+    155    0119     40                    		DB	01000000B
+    156    011A     20                    		DB	00100000B
+    157    011B     10                    		DB	00010000B
+    158    011C     08                    		DB	00001000B
+    159    011D     04                    		DB	00000100B
+    160    011E     02                    OVER3:	DB	00000010B
+    161    011F                           
+    162    011F     81                    TABLE4:	DB	10000001B
+    163    0120     C3                    		DB	11000011B
+    164    0121     E7                    		DB	11100111B
+    165    0122     FF                    		DB	11111111B
+    166    0123     E7                    		DB	11100111B
+    167    0124     C3                    		DB	11000011B
+    168    0125     81                    		DB	10000001B
+    169    0126     00                    		DB	00000000B
+    170    0127     81                    		DB	10000001B
+    171    0128     C3                    		DB	11000011B
+    172    0129     E7                    		DB	11100111B
+    173    012A     FF                    		DB	11111111B
+    174    012B     E7                    		DB	11100111B
+    175    012C     C3                    		DB	11000011B
+    176    012D     81                    		DB	10000001B
+    177    012E     00                    		DB	00000000B
+    178    012F     FF                    		DB	11111111B
+    179    0130     00                    		DB	00000000B
+    180    0131     FF                    		DB	11111111B
+    181    0132     00                    OVER4:	DB	00000000B

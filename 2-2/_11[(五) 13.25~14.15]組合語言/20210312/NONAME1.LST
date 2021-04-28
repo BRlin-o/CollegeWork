@@ -1,0 +1,42 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           		ORG	000H			;
+      2    0000     78 12                 START:	MOV	R0, #OK-TABLE+1	;
+      3    0002     90 00 1E              		MOV	DPTR, #TABLE	;
+      4    0005     79 00                 		MOV	R1, #00H		;
+      5    0007     E9                    LOOP:		MOV 	A, R1			;
+      6    0008     F5 80                 		MOV	P0, A			;
+      7    000A     11 11                 		ACALL	DELAY			;
+      8    000C     09                    		INC	R1			;
+      9    000D                           		
+     10    000D     D8 F8                 		DJNZ	R0, LOOP		;
+     11    000F     01 00                 		AJMP	START			;
+     12    0011                           
+     13    0011     7D 02                 DELAY:	MOV	R5, #2		;
+     14    0013     7E FA                 DL1:		MOV	R6, #250		;
+     15    0015     7F C8                 DL2: 		MOV	R7, #200		;
+     16    0017     DF FE                 DL3:		DJNZ	R7, DL3		;
+     17    0019     DE FA                 		DJNZ	R6, DL2		;
+     18    001B     DD F6                 		DJNZ	R5, DL1		;
+     19    001D     22                    		RET				;
+     20    001E                           
+     21    001E     7E                    TABLE:	DB	01111110B		
+     22    001F     3C                    		DB	00111100B		
+     23    0020     18                    		DB	00011000B		
+     24    0021     00                    		DB	00000000B		
+     25    0022     18                    		DB	00011000B		
+     26    0023     3C                    		DB	00111100B		
+     27    0024     7E                    		DB	01111110B		;
+     28    0025     7E                    		DB	01111110B		
+     29    0026     3C                    		DB	00111100B		
+     30    0027     18                    		DB	00011000B		
+     31    0028     00                    		DB	00000000B		
+     32    0029     18                    		DB	00011000B		
+     33    002A     3C                    		DB	00111100B		
+     34    002B     7E                    		DB	01111110B		;
+     35    002C     00                    		DB	00000000B
+     36    002D     FF                    		DB	11111111B
+     37    002E     00                    		DB	00000000B
+     38    002F     FF                    OK:		DB	11111111B
+     39    0030     C7                    		DB	111111111		;
+     40    0031                           		END

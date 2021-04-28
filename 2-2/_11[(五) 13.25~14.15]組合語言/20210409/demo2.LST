@@ -1,0 +1,96 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           	ORG		000H
+      2    0000     75 80 00              	MOV	P0, #00000000B
+      3    0003     75 90 FE              LOOP:	MOV	P1, #11111110B
+      4    0006     30 A0 F7              	JNB	P2.0, FAL
+*******    Undefined  Symbol! (FAL)
+      5    0009     30 A1 F4              	JNB	P2.1, SOL
+*******    Undefined  Symbol! (SOL)
+      6    000C     30 A2 F1              	JNB	P2.2, LAL
+*******    Undefined  Symbol! (LAL)
+      7    000F     30 A3 EE              	JNB	P2.3, SIL
+*******    Undefined  Symbol! (SIL)
+      8    0012                           
+      9    0012     75 90 FD              	MOV	P1, #11111101B
+     10    0015     30 A0 29              	JNB	P2.0, DO
+     11    0018     30 A1 E5              	JNB	P2.1, RE
+*******    Undefined  Symbol! (RE)
+     12    001B     30 A2 E2              	JNB	P2.2, MI
+*******    Undefined  Symbol! (MI)
+     13    001E     30 A3 DF              	JNB	P2.3, FA
+*******    Undefined  Symbol! (FA)
+     14    0021                           
+     15    0021     75 90 FB              	MOV	P1, #11111011B
+     16    0024     30 A0 D9              	JNB	P2.0, SO
+*******    Undefined  Symbol! (SO)
+     17    0027     30 A1 D6              	JNB	P2.1, RA
+*******    Undefined  Symbol! (RA)
+     18    002A     30 A2 D3              	JNB	P2.2, SI
+*******    Undefined  Symbol! (SI)
+     19    002D     30 A3 D0              	JNB	P2.3, DOH
+*******    Undefined  Symbol! (DOH)
+     20    0030                           
+     21    0030     75 90 F7              	MOV	P1, #11110111B
+     22    0033     30 A0 CA              	JNB	P2.0, REH
+*******    Undefined  Symbol! (REH)
+     23    0036     30 A1 C7              	JNB	P2.1, MIH
+*******    Undefined  Symbol! (MIH)
+     24    0039     30 A2 C4              	JNB	P2.2, FAH
+*******    Undefined  Symbol! (FAH)
+     25    003C     30 A3 C1              	JNB	P2.3, SOH
+*******    Undefined  Symbol! (SOH)
+     26    003F     01 03                 	AJMP	LOOP
+     27    0041                           
+     28    0041     7E 7E                 DO:	MOV	R6, #126
+     29    0043     01 95                 	AJMP	OUTPUT
+     30    0045                           
+     31    0045     75 80 00              KEY0:	MOV	P0, #00000000B
+     32    0048     01 03                 	AJMP	LOOP
+     33    004A     75 80 01              KEY1:	MOV	P0, #00000001B
+     34    004D     01 03                 	AJMP	LOOP
+     35    004F     75 80 02              KEY2:	MOV	P0, #00000010B
+     36    0052     01 03                 	AJMP	LOOP
+     37    0054     75 80 03              KEY3:	MOV	P0, #00000011B
+     38    0057     01 03                 	AJMP	LOOP
+     39    0059     75 80 04              KEY4:	MOV	P0, #00000100B
+     40    005C     01 03                 	AJMP	LOOP
+     41    005E     75 80 05              KEY5:	MOV	P0, #00000101B
+     42    0061     01 03                 	AJMP	LOOP
+     43    0063     75 80 06              KEY6:	MOV	P0, #00000110B
+     44    0066     01 03                 	AJMP	LOOP
+     45    0068     75 80 07              KEY7:	MOV	P0, #00000111B
+     46    006B     01 03                 	AJMP	LOOP
+     47    006D     75 80 08              KEY8:	MOV	P0, #00001000B
+     48    0070     01 03                 	AJMP	LOOP
+     49    0072     75 80 09              KEY9:	MOV	P0, #00001001B
+     50    0075     01 03                 	AJMP	LOOP
+     51    0077     75 80 0A              KEYA:	MOV	P0, #00001010B
+     52    007A     01 03                 	AJMP	LOOP
+     53    007C     75 80 0B              KEYB:	MOV	P0, #00001011B
+     54    007F     01 03                 	AJMP	LOOP
+     55    0081     75 80 0C              KEYC:	MOV	P0, #00001100B
+     56    0084     01 03                 	AJMP	LOOP
+     57    0086     75 80 0D              KEYD:	MOV	P0, #00001101B
+     58    0089     01 03                 	AJMP	LOOP
+     59    008B     75 80 0E              KEYE:	MOV	P0, #00001110B
+     60    008E     01 03                 	AJMP	LOOP
+     61    0090     75 80 0F              KEYF:	MOV	P0, #00001111B
+     62    0093     01 03                 	AJMP	LOOP
+     63    0095                           
+     64    0095     C2 A6                 OUTPUT:	CLR	P2.6
+     65    0097     11 9F                 		ACALL	DELAY
+     66    0099     D2 A6                 		SETB	P2.6
+     67    009B     11 9F                 		ACALL	DELAY
+     68    009D     01 00                 		AJMP	TEST
+*******    Undefined  Symbol! (TEST)
+     69    009F                           
+     70    009F     8E F0                 DELAY:	MOV	B, R6
+     71    00A1     7F 06                 DL:		MOV	R7, #6
+     72    00A3     DF FE                 		DJNZ	R7, $
+     73    00A5     DE FA                 		DJNZ	R6, DL
+     74    00A7     AE F0                 		MOV	R6, B
+     75    00A9     22                    		RET
+     76    00AA                           
+     77    00AA                           	END
+     78    00AA                           

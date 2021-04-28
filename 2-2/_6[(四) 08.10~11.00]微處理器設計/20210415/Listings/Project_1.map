@@ -1,0 +1,144 @@
+LX51 LINKER/LOCATER V4.66.87.0                                                          04/21/2021  21:14:12  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.87.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\LX51.EXE .\Objects\STARTUP.obj, .\Objects\work2.obj TO .\Objects\Project_1 PRINT (.\Listings\Project_
+>> 1.map) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  .\Objects\work2.obj (WORK2)
+         COMMENT TYPE 0: C51 V9.57.0.0
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\Objects\Project_1 (?C_STARTUP)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   000033H   CODE
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+I:000000H   I:000000H   I:00007FH   00000EH   DATA
+
+
+MEMORY MAP OF MODULE:  .\Objects\Project_1 (?C_STARTUP)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   00000DH   000006H   BYTE   UNIT     DATA           _DATA_GROUP_
+00000EH   00000EH   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   0007FFH   0007FDH   ---    ---      **GAP**
+000800H   000823H   000024H   BYTE   UNIT     CODE           ?PR?MAIN?WORK2
+000824H   00082FH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Project_1 (?C_STARTUP)
+
+
+FUNCTION/MODULE              BIT_GROUP   DATA_GROUP 
+--> CALLED FUNCTION/MODULE  START  STOP  START  STOP
+====================================================
+?C_C51STARTUP               ----- -----  ----- -----
+  +--> MAIN/WORK2
+
+MAIN/WORK2                  ----- -----  0008H 000DH
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\Objects\Project_1 (?C_STARTUP)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+      00000000H   NUMBER   ---       ?C?CODESEG
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      01000800H   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+LX51 LINKER/LOCATER V4.66.87.0                                                        04/21/2021  21:14:12  PAGE 2
+
+
+      01000800H   CODE     ---       main
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Project_1 (?C_STARTUP)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+      000000E0H   SYMBOL    DATA     ---       ACC
+      000000F0H   SYMBOL    DATA     ---       B
+      00000083H   SYMBOL    DATA     ---       DPH
+      00000082H   SYMBOL    DATA     ---       DPL
+      00000000H   SYMBOL    NUMBER   ---       IBPSTACK
+      00000100H   SYMBOL    NUMBER   ---       IBPSTACKTOP
+      00000080H   SYMBOL    NUMBER   ---       IDATALEN
+      01000827H   SYMBOL    CODE     ---       IDATALOOP
+      00000000H   SYMBOL    NUMBER   ---       PBPSTACK
+      00000100H   SYMBOL    NUMBER   ---       PBPSTACKTOP
+      00000000H   SYMBOL    NUMBER   ---       PDATALEN
+      00000000H   SYMBOL    NUMBER   ---       PDATASTART
+      00000000H   SYMBOL    NUMBER   ---       PPAGE
+      00000000H   SYMBOL    NUMBER   ---       PPAGEENABLE
+      000000A0H   SYMBOL    DATA     ---       PPAGE_SFR
+      00000081H   SYMBOL    DATA     ---       SP
+      01000824H   SYMBOL    CODE     ---       STARTUP1
+      00000000H   SYMBOL    NUMBER   ---       XBPSTACK
+      00000000H   SYMBOL    NUMBER   ---       XBPSTACKTOP
+      00000000H   SYMBOL    NUMBER   ---       XDATALEN
+      00000000H   SYMBOL    NUMBER   ---       XDATASTART
+      01000000H   LINE      CODE     ---       #126
+      01000824H   LINE      CODE     ---       #133
+      01000826H   LINE      CODE     ---       #134
+      01000827H   LINE      CODE     ---       #135
+      01000828H   LINE      CODE     ---       #136
+      0100082AH   LINE      CODE     ---       #185
+      0100082DH   LINE      CODE     ---       #196
+
+      ---         MODULE    ---      ---       WORK2
+      01000800H   PUBLIC    CODE     ---       main
+
+      01000800H   BLOCK     CODE     ---       LVL=0
+      01000800H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000007H   SYMBOL    DATA     BYTE      b
+      00000006H   SYMBOL    DATA     BYTE      d
+      00000008H   SYMBOL    DATA     BYTE      l
+      00000009H   SYMBOL    DATA     BYTE      i
+      0000000AH   SYMBOL    DATA     BYTE      j
+      0000000BH   SYMBOL    DATA     BYTE      k
+      0000000CH   SYMBOL    DATA     BYTE      m
+      0000000DH   SYMBOL    DATA     BYTE      n
+      ---         BLOCKEND  ---      ---       LVL=1
+      01000800H   LINE      CODE     ---       #1
+      01000800H   LINE      CODE     ---       #2
+      01000804H   LINE      CODE     ---       #4
+      0100080CH   LINE      CODE     ---       #5
+      01000810H   LINE      CODE     ---       #6
+      01000814H   LINE      CODE     ---       #7
+      0100081DH   LINE      CODE     ---       #8
+      01000823H   LINE      CODE     ---       #9
+      ---         BLOCKEND  ---      ---       LVL=0
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0033H BYTE ( 2%) *
+LX51 LINKER/LOCATER V4.66.87.0                                                        04/21/2021  21:14:12  PAGE 3
+
+
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 const=0 code=51
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

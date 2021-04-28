@@ -1,0 +1,40 @@
+C51 COMPILER V9.57.0.0   DEMO5_WORK1                                                       04/15/2021 10:46:41 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO5_WORK1
+OBJECT MODULE PLACED IN .\Objects\demo5_work1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo5_work1.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Listings\demo5
+                    -_work1.lst) TABS(2) OBJECT(.\Objects\demo5_work1.obj)
+
+line level    source
+
+   1          #include "AT89X52.H"
+   2          #include "TABLE8.H"
+   3          
+   4          main() {
+   5   1        unsigned char *point;
+   6   1        
+   7   1        point = TABLE;
+   8   1        
+   9   1        loop:
+  10   1          P0=*point++;
+  11   1        goto loop;
+  12   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     52    ----
+   CONSTANT SIZE    =    256    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

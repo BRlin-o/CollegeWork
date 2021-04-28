@@ -1,0 +1,30 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           ;
+      2    0000                           ; 配合"8個LED(共陰)實習板"
+      3    0000                           ;     P0所接的8個LED(初始狀態:最左2個亮；其餘6個LED熄著),並進行右旋的變化
+      4    0000                           ;
+      5    0000                           
+      6    0000                           		ORG	0000H			;
+      7    0000                           START:	
+      8    0000     79 07                 		MOV	R1, #07H		;
+      9    0002     74 01                 		MOV	A, #00000001B	;
+     10    0004     F5 80                 LEFT:		MOV	P0, A			;
+     11    0006     11 18                 		ACALL	DELAY			;
+     12    0008     23                    		RL	A			;
+     13    0009     D9 F9                 		DJNZ	R1, LEFT		;
+     14    000B     79 07                 		MOV	R1, #07H		;
+     15    000D     74 80                 		MOV	A, #10000000B	;
+     16    000F     F5 80                 RIGHT:	MOV	P0, A			;
+     17    0011     11 18                 		ACALL	DELAY			;
+     18    0013     03                    		RR 	A			;
+     19    0014     D9 F9                 		DJNZ	R1, RIGHT		;
+     20    0016     01 00                 		AJMP	START			;
+     21    0018                           
+     22    0018     7E FA                 DELAY:	MOV	R6, #250		;
+     23    001A     7F C8                 DL1:		MOV	R7, #200		;
+     24    001C     DF FE                 DL2:		DJNZ	R7, DL2		;
+     25    001E     DE FA                 		DJNZ	R6, DL1		;
+     26    0020     22                    		RET				;
+     27    0021                           
+     28    0021                           		END				;

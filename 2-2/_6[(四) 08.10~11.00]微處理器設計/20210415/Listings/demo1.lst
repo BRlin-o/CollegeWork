@@ -1,0 +1,42 @@
+C51 COMPILER V9.57.0.0   DEMO1                                                             04/15/2021 09:01:53 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO1
+OBJECT MODULE PLACED IN .\Objects\demo1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo1.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Listings\demo1.lst) 
+                    -TABS(2) OBJECT(.\Objects\demo1.obj)
+
+line level    source
+
+   1          #include "AT89X52.H"  //暫存器及組態設定  
+   2          void main(){
+   3   1        char  a=-3,b=0,c=5; //宣告輸入變數的初值
+   4   1        unsigned char  d=0x0f;
+   5   1        static char  i;  //宣告輸出變數
+   6   1       loop:  
+   7   1         i=-a;        //負負得正，i=3
+   8   1         i=-c;        //i=-5
+   9   1         P1_0=!P1_0; //令P10反相
+  10   1         i=!b;        //b=0，反相後為i=1
+  11   1         i=!c;        //c=5不為0，故反相後i=0
+  12   1         P1=~d;       //d=0x，由P1反相輸出為0xf0
+  13   1       goto loop;
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     66    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

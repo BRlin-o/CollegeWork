@@ -1,0 +1,45 @@
+C51 COMPILER V9.57.0.0   DEMO3                                                             04/15/2021 09:52:12 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO3
+OBJECT MODULE PLACED IN .\Objects\demo3.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo3.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Listings\demo3.lst) 
+                    -TABS(2) OBJECT(.\Objects\demo3.obj)
+
+line level    source
+
+   1          #include "AT89X52.H"
+   2          #include "TABLE8.H"
+   3          
+   4          // sfr P0 =0x80;
+   5          // sfr P1 =0x90;
+   6          
+   7          
+   8          main() {
+   9   1        unsigned char i;
+  10   1        
+  11   1        loop:
+  12   1          P0 = TABLE[i];
+  13   1          P1 = TABLE[i]>>4;
+  14   1          Delay_ms(100);
+  15   1          i++;
+  16   1        goto loop;
+  17   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     46    ----
+   CONSTANT SIZE    =    256    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

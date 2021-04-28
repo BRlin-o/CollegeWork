@@ -1,0 +1,39 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           		ORG	0000H			;
+      2    0000                           START:	
+      3    0000     79 03                 		MOV	R1, #03H		;
+      4    0002     7A 07                 		MOV	R2, #07H		;
+      5    0004     74 80                 		MOV	A, #10000000B	;
+      6    0006     75 80 F0              LOOP1:	MOV	P0, #11110000B	;
+      7    0009     11 36                 		ACALL DELAY			;
+      8    000B     75 80 0F              		MOV	P0, #00001111B	;
+      9    000E     11 36                 		ACALL	DELAY			;
+     10    0010     D9 F4                 		DJNZ	R1, LOOP1		;
+     11    0012     79 03                 		MOV	R1, #03H		;
+     12    0014     74 80                 		MOV	A, #10000000B	;
+     13    0016     F5 80                 RIGHT:	MOV	P0, A			;
+     14    0018     11 36                 		ACALL	DELAY			;
+     15    001A     03                    		RR 	A			;
+     16    001B     DA F9                 		DJNZ	R2, RIGHT		;
+     17    001D     7A 07                 		MOV	R2, #07H		;
+     18    001F     74 01                 		MOV	A, #00000001B	;
+     19    0021     F5 80                 LEFT:		MOV	P0, A			;
+     20    0023     11 36                 		ACALL	DELAY			;
+     21    0025     23                    		RL	A			;
+     22    0026     DA F9                 		DJNZ	R2, LEFT		;
+     23    0028     75 80 55              LOOP3:	MOV	P0, #01010101B	;
+     24    002B     11 36                 		ACALL DELAY			;
+     25    002D     75 80 AA              		MOV	P0, #10101010B	;
+     26    0030     11 36                 		ACALL	DELAY			;
+     27    0032     D9 F4                 		DJNZ	R1, LOOP3		;
+     28    0034     01 00                 		AJMP	START			;
+     29    0036                           
+     30    0036     7E FA                 DELAY:	MOV	R6, #250		;
+     31    0038     7F E8                 DL1:		MOV	R7, #1000		;
+     32    003A     DF FE                 DL2:		DJNZ	R7, DL2		;
+     33    003C     DE FA                 		DJNZ	R6, DL1		;
+     34    003E     22                    		RET				;
+     35    003F                           
+     36    003F                           		END				;
+     37    003F                           

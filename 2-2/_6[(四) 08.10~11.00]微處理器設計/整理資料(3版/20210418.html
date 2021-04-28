@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x4E0A;&#x8AB2;&#x5C0F;&#x8003;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="上課小考">上課小考</h1>
+<h2 id="20210311">20210311</h2>
+<h3 id="1-請說明微處理器mcu">1. 請說明微處理器(MCU)</h3>
+<ul>
+<li>(a)資料匯流排(data bus),位址匯流排(address bus),控制匯流排(control bus)的用途；
+<blockquote>
+<p>資料匯流排：在CPU與RAM之間來回傳送需要處理或是需要儲存的資料。<br />
+位置匯流排：用來指定到RAM之中存取的資料位置。<br />
+控制匯流排：將微處理器控制單元的訊號，傳送到周邊裝置，一般常見的為USB Bus 和1394 Bus.</p>
+</blockquote>
+</li>
+<li>(b) 8bits MCU指的是以上三種匯流排(bus)的哪一種匯流排寬度?
+<blockquote>
+<p>資料匯流排</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-一般而言單晶片微電腦mcu所連接之程式記憶體rom的種類與資料記憶體ram的種類為何請舉出3種rom與2種ram">2. 一般而言單晶片微電腦(MCU)所連接之程式記憶體ROM的種類與資料記憶體(RAM)的種類為何(請舉出3種ROM與2種RAM)?</h3>
+<blockquote>
+<ul>
+<li>ROM<br />
+OTP ROM, PROM, EPROM</li>
+<li>RAM<br />
+DRAM, SRAM</li>
+</ul>
+</blockquote>
+<h3 id="3-8bits16bits32bits-mcu單晶片微電腦各舉一例">3. 8bits,16bits,32bits MCU單晶片微電腦各舉一例?</h3>
+<blockquote>
+<p>Z80, 8086, 80486</p>
+</blockquote>
+<h3 id="4-請比較at89s51與at89s52差異-ram-rom中斷interrupt-ios-timers計時計數器">4. 請比較AT89S51與AT89S52差異, RAM, ROM,中斷(interrupt), IOs, Timers(計時/計數器)</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">AT89S51</th>
+<th style="text-align:center">AT89S52</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Flash ROM 4k</td>
+<td style="text-align:center">Flash ROM 8k</td>
+</tr>
+<tr>
+<td style="text-align:center">128</td>
+<td style="text-align:center">256</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="5-請問為何mcu有watch-dog-timer它的作用是甚麼">5. 請問為何MCU有Watch dog timer,它的作用是甚麼?</h3>
+<blockquote>
+<p>提供警報機制、重設處理器</p>
+</blockquote>
+<h3 id="6-請劃出mcu內部主要區塊圖block-diagram">6. 請劃出MCU內部主要區塊圖(Block diagram)</h3>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/819370831922462770/unknown.png" alt=""></p>
+</blockquote>
+<h3 id="7-請描述at89s52微處理器mcu以下資訊">7. 請描述AT89S52微處理器(MCU)以下資訊：</h3>
+<ul>
+<li>
+<p>a. 接腳數(pins)以及各pin腳功能。</p>
+<blockquote>
+<p><img src="https://media.discordapp.net/attachments/816857285526945794/819371890102501406/unknown.png" alt="">
+|P1.0/T2|IO，T2為Timer2外部技術輸入|</p>
+</blockquote>
+</li>
+<li>
+<p>b. 請描述ATS8952內建資料記憶體(RAM)大小以及各分成那幾區(位址範圍)</p>
+<blockquote>
+<p>256byte<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387763635126314/unknown.png" alt=""></p>
+</blockquote>
+</li>
+<li>
+<p>c. 請描述ATS8952內建程式記憶體(ROM)大小以及各分成那幾區(位址範圍)</p>
+<blockquote>
+<p>0<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387730957434885/unknown.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="20210318">20210318</h2>
+<h3 id="1請描述at89s52微處理器mcu以下資訊">1.請描述AT89S52微處理器(MCU)以下資訊：</h3>
+<ul>
+<li>(a)請描述ATS8952內建資料記憶體(RAM)大小以及各分成那幾區(位址範圍)</li>
+</ul>
+<blockquote>
+<p>256byte<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387763635126314/unknown.png" alt=""></p>
+</blockquote>
+<ul>
+<li>(b)請描述ATS8952內建程式記憶體(ROM)大小以及各分成那幾區(位址範圍)</li>
+</ul>
+<blockquote>
+<p>Flash Rom 8k<br />
+<img src="https://media.discordapp.net/attachments/816857285526945794/819387730957434885/unknown.png" alt=""></p>
+</blockquote>
+<h3 id="2-請描述實驗板石英振盪器幾mhz">2. 請描述實驗板石英振盪器幾MHz?</h3>
+<blockquote>
+<p>11.059KHz</p>
+</blockquote>
+<h3 id="3-請問實驗板-mcs-8051-mcu-特殊暫存器sfr--p0p1-p2p3在記憶體哪一位址">3. 請問實驗板 MCS-8051 MCU 特殊暫存器(sfr) , P0，P1, P2，P3在記憶體哪一位址?</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">P0</td>
+<td style="text-align:center">0x80</td>
+</tr>
+<tr>
+<td style="text-align:center">P1</td>
+<td style="text-align:center">0x81</td>
+</tr>
+<tr>
+<td style="text-align:center">P2</td>
+<td style="text-align:center">0x82</td>
+</tr>
+<tr>
+<td style="text-align:center">P3</td>
+<td style="text-align:center">0x83</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="4-請問ats8952-位元定址區在ram的哪一範圍-有何功用">4. 請問ATS8952 位元定址區在RAM的哪一範圍? 有何功用?</h3>
+<blockquote>
+<ul>
+<li>0x2F ~ 0x20</li>
+<li>平時作為RAM來使用</li>
+</ul>
+</blockquote>
+<h3 id="5-請問ats8952-sfr特殊功能暫存器在ram的哪一範圍">5. 請問ATS8952 SFR特殊功能暫存器在RAM的哪一範圍?</h3>
+<blockquote>
+<ul>
+<li>0x80 ~ 0xF0</li>
+</ul>
+</blockquote>
+<h2 id="20210325">20210325</h2>
+<h3 id="1-請劃出一個keil-uvision專案從c原始檔與a51組譯檔assembly到輸出執行檔hex的整體步驟">1. 請劃出一個Keil uVision專案從.c原始檔與.a51組譯檔(assembly)到輸出執行檔(.hex)的整體步驟。</h3>
+<p><img src="https://media.discordapp.net/attachments/816857285526945794/824441389596147783/20210325.png" alt=""></p>
+<h2 id="20210408">20210408</h2>
+<h3 id="1-請回答以下以keil-c51開發實驗版軟體環境使用問題">1. 請回答以下以Keil C51開發實驗版軟體環境使用問題。</h3>
+<ul>
+<li>(1) 在Debug(偵錯)模式下，要看資料記憶體(RAM) 0x00位址要如何達成? (請放截圖)</li>
+</ul>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/829520374743302164/unknown.png" alt=""></p>
+</blockquote>
+<ul>
+<li>(2) 在Debug(偵錯)模式下，要看程式記憶體(ROM) 0x0010位址要如何達成? (請放截圖)</li>
+</ul>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/829527997983621190/unknown.png" alt=""></p>
+</blockquote>
+<ul>
+<li>(3) 在Debug(偵錯)模式下，請問單步偵錯中Step Out是什麼?</li>
+</ul>
+<blockquote>
+<p>可直接跳出目前所在的副程式</p>
+</blockquote>
+<ul>
+<li>(4) 在Debug(偵錯)模式下，請問單步偵錯中Step in與Step Over的不同?</li>
+</ul>
+<blockquote>
+<ul>
+<li>Step in: 按順序執行一個指令的動作後暫停，遇到副程式(函數)會跳進函數執行。</li>
+<li>Step Over: 按順序執行一個指令的動作後暫停，且會直接跳過副程式(函數)，不會進入副程式(函數)</li>
+</ul>
+</blockquote>
+<h2 id="chap03">Chap03</h2>
+<h3 id="1請問keil-c51編譯器標準變數的資料型態data-type有哪8種以及每一種佔的bit長度">1.請問Keil C51編譯器標準變數的資料型態(data type)有哪8種以及每一種佔的bit長度?</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">標準變數的資料型態</th>
+<th style="text-align:center">每一種佔的bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">unsigned char</td>
+<td style="text-align:center">8bit</td>
+</tr>
+<tr>
+<td style="text-align:center">signed char, char</td>
+<td style="text-align:center">8bit</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned int</td>
+<td style="text-align:center">16bit</td>
+</tr>
+<tr>
+<td style="text-align:center">signed int, short int, int</td>
+<td style="text-align:center">16bit</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned long, long</td>
+<td style="text-align:center">32bit</td>
+</tr>
+<tr>
+<td style="text-align:center">signed long</td>
+<td style="text-align:center">32bit</td>
+</tr>
+<tr>
+<td style="text-align:center">float, double</td>
+<td style="text-align:center">32bit</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned float</td>
+<td style="text-align:center">32bit</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="2-請問keil-c51編譯器請舉出4種擴充的資料型態以及每一種佔的bit長度">2. 請問Keil C51編譯器請舉出4種擴充的資料型態以及每一種佔的bit長度?</h3>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">擴充的資料型態</th>
+<th style="text-align:center">每一種佔的bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bit</td>
+<td style="text-align:center">1bit</td>
+</tr>
+<tr>
+<td style="text-align:center">sfr</td>
+<td style="text-align:center">8bit</td>
+</tr>
+<tr>
+<td style="text-align:center">sfr16</td>
+<td style="text-align:center">16bit</td>
+</tr>
+<tr>
+<td style="text-align:center">sbit</td>
+<td style="text-align:center">1bit</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="3-請寫一keil-c程式宣告8051-p0p1p2p3並將值都指定為0x00">3. 請寫一Keil C程式宣告8051 P0,P1,P2,P3並將值都指定為0x00</h3>
+<blockquote>
+<pre><code><code><div>sfr  P0 = 0x80;
+sfr  P1 = 0x90;
+sfr  P2 = 0xA0;
+sfr  P3 = 0xB0;
+
+void main() { 
+	P0 = 0x00;
+	P1 = 0x00;
+	P2 = 0x00;
+	P3 = 0x00;
+}
+</div></code></code></pre>
+<p><img src="https://media.discordapp.net/attachments/816857285526945794/833317609646456842/unknown.png" alt=""></p>
+</blockquote>
+<h3 id="4-請寫一keil-c程式宣告8051-p1的第01-bit-並將值都指定為0">4. 請寫一Keil C程式宣告8051 P1的第0,1 bit 並將值都指定為0</h3>
+<blockquote>
+<pre><code><code><div>sfr P0 = 0x80;
+
+sbit P0_0 = P0^0;
+sbit P0_1 = P0^1;
+
+void main(){
+  P0_0=0;
+  P0_1=0;
+}
+</div></code></code></pre>
+<p><img src="https://media.discordapp.net/attachments/816857285526945794/833317268842479646/unknown.png" alt=""></p>
+</blockquote>
+<h2 id="20210414">20210414</h2>
+<h3 id="1請問要利用keil-c撰寫以下程式編繹後執行時當函數test1以及test2第二次被呼叫時p0與p1的輸出各為多少值-void-test1void-函數式1--sfr-p00x80-static-char-i10-ii1-p0i--void-test2void-函數式2--sfr-p10x90-char-j10-jj1-p1j--void-test1void-void-test-2void-main-主程式--loop-test1進入函數式1-test2進入函數式2-goto-loop-">1.請問要利用Keil C撰寫以下程式編繹後執行時，當函數test1()以及test2()第二次被呼叫時P0與P1的輸出各為多少值? void test1(void) //函數式1 { sfr P0=0x80; static char i=10; i=i+1; P0=i; } void test2(void) //函數式2 { sfr P1=0x90; char j=10; j=j+1; P1=j; } void test1(void); void test 2(void); main() //主程式 { loop: test1();//進入函數式1 test2();//進入函數式2 goto loop; }</h3>
+<pre><code><code><div>P0=12
+P1=11
+</div></code></code></pre>
+<h3 id="2-請利用keil-c語法撰寫一片段程式請宣告特殊暫存器p3p2p1p0變數-並宣告p3_0-p2_0-p1_0p0_0四個port">2. 請利用Keil C語法撰寫一片段程式，請宣告特殊暫存器P3,P2,P1,P0變數, 並宣告P3_0, P2_0 P1_0,P0_0四個Port</h3>
+<pre><code><code><div>sfr  P0 = 0x80;
+sfr  P1 = 0x90;
+sfr  P2 = 0xA0;
+sfr  P3 = 0xB0;
+
+sbit P0_0 = P0^0;
+sbit P1_0 = P1^0;
+sbit P2_0 = P2^0;
+sbit P0_0 = P3^0;
+</div></code></code></pre>
+<h2 id="20210415">20210415</h2>
+<h3 id="1請問要利用keil-c撰寫以下程式編繹執行請問-mij的值為何">1.請問要利用Keil C撰寫以下程式編繹執行，請問 m,i,j的值為何?</h3>
+<pre><code><code><div>main()
+{ 
+  unsigned char  b=0x20,d=0x2f;
+  unsigned char  i,j; 
+   i=!b;      
+   j=~d;
+}
+</div></code></code></pre>
+<blockquote>
+<pre><code><code><div>i=000, j=0xD0
+</div></code></code></pre>
+</blockquote>
+<h3 id="2請問要利用keil-c撰寫以下程式編繹執行請問-lmijk的值為何">2.請問要利用Keil C撰寫以下程式編繹執行，請問 l,m,i,j,k的值為何?</h3>
+<pre><code><code><div>main()
+{ 
+  unsigned char  b=0x7f,d=0x10;
+  unsigned char  l,i,j,k,m,n; 
+    l=d&gt;&gt;2;
+    m=b^d;
+    i=!b;      
+    j=~d;
+    k=b&lt;&lt;2;
+}
+</div></code></code></pre>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/832288563377733663/unknown.png" alt=""></p>
+</blockquote>
+<h3 id="3-請問若是要利用位元運算子---來將特殊暫存器p1的第0-bit最低位設定為1以及第6-bit次高位設定為0原p1暫存器其他位元值保留請用keil-c語法寫出程式">3. 請問若是要利用位元運算子( &amp;, |,~,^ )來將特殊暫存器P1的第0 bit(最低位)設定為1以及第6 bit(次高位)設定為0，原P1暫存器其他位元值保留，請用Keil C語法寫出程式。</h3>
+<blockquote>
+<pre><code><code><div>sfr P1 = 0x90;
+void main()
+{ 
+  unsigned char  i = 0x10;
+	loop:
+		P1 = i;
+		P1 = P1 | 0x01;
+		P1 = P1 &amp; ~0x40;
+	goto loop;
+}
+</div></code></code></pre>
+</blockquote>
+<h3 id="4請問要利用keil-c撰寫以下程式編繹執行請問程式執行至最後一行a程式的i與b程式j的值為何">4.請問要利用Keil C撰寫以下程式編繹執行，請問程式執行至最後一行(a)程式的i與(b)程式j的值為何?</h3>
+<p>(a) main() {
+unsigned char  *p;
+unsigned char  i=11;
+p=&amp;i;
+*p=10;
+}
+(b) main() {
+unsigned char  *q;
+unsigned char  j=11;
+*q=j;
+j=j+1;<br>
+*q=11;
+}</p>
+<blockquote>
+<p>(a) a = 10<br />
+(b) b = 12</p>
+</blockquote>
+
+    </body>
+    </html>

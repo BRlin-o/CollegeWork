@@ -1,0 +1,51 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           		ORG	000H			;
+      2    0000     79 00                 		MOV	R1, #00000000B	;
+      3    0002     7A 55                 		MOV	R2, #01010101B	;
+      4    0004     7B 0F                 		MOV	R3, #00001111B	;
+      5    0006     7C F0                 		MOV	R4, #11110000B	;
+      6    0008                           
+      7    0008     43 B0 FF              TEST:		ORL	P3, #0FFH		;
+      8    000B     30 A0 0B              		JNB	P2.0, CASE1		;
+      9    000E     30 A1 12              		JNB	P2.1, CASE2		;
+     10    0011     30 A2 19              		JNB	P2.2, CASE3		;
+     11    0014     30 A3 20              		JNB	P2.3, CASE4		;
+     12    0017     01 08                 		AJMP	TEST			;
+     13    0019                           
+     14    0019     E9                    CASE1:	MOV	A, R1			;
+     15    001A     F5 80                 		MOV	P0, A			;
+     16    001C     64 FF                 		XRL	A, #11111111B	;
+     17    001E     F9                    		MOV	R1, A			;
+     18    001F     11 41                 		ACALL	DELAY			;
+     19    0021     01 08                 		AJMP	TEST			
+     20    0023                           
+     21    0023     EA                    CASE2:	MOV	A, R2			;
+     22    0024     F5 80                 		MOV	P0, A			;
+     23    0026     64 AA                 		XRL	A, #10101010B	;
+     24    0028     FA                    		MOV	R2, A			;
+     25    0029     11 41                 		ACALL	DELAY			;
+     26    002B     01 08                 		AJMP	TEST			
+     27    002D                           
+     28    002D     EB                    CASE3:	MOV	A, R3			;
+     29    002E     F5 80                 		MOV	P0, A			;
+     30    0030     64 F0                 		XRL	A, #11110000B	;
+     31    0032     FB                    		MOV	R3, A			;
+     32    0033     11 41                 		ACALL	DELAY			;
+     33    0035     01 08                 		AJMP	TEST			
+     34    0037                           
+     35    0037     EC                    CASE4:	MOV	A, R4			;
+     36    0038     F5 80                 		MOV	P0, A			;
+     37    003A     64 0F                 		XRL	A, #00001111B	;
+     38    003C     FC                    		MOV	R4, A			;
+     39    003D     11 41                 		ACALL	DELAY			;
+     40    003F     01 08                 		AJMP	TEST			
+     41    0041                           
+     42    0041     7D 02                 DELAY:	MOV	R5, #2		;
+     43    0043     7E FA                 DL1		MOV	R6, #250		;
+     44    0045     7F C8                 DL2		MOV	R7, #200		;
+     45    0047     DF FE                 DL3		DJNZ	R7, DL3		;
+     46    0049     DE FA                 		DJNZ	R6, DL2		;
+     47    004B     DD F6                 		DJNZ	R5, DL1		;
+     48    004D     22                    		RET				;
+     49    004E                           		END

@@ -1,0 +1,42 @@
+C51 COMPILER V9.57.0.0   DEMO2                                                             04/15/2021 09:23:24 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO2
+OBJECT MODULE PLACED IN .\Objects\demo2.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo2.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Listings\demo2.lst) 
+                    -TABS(2) OBJECT(.\Objects\demo2.obj)
+
+line level    source
+
+   1          main()
+   2          {
+   3   1        unsigned char  a=0x0f;   //a=0000 1111
+   4   1        unsigned char  b=0x33;   //b=0011 0011
+   5   1        static unsigned char  i; //輸出變數
+   6   1        loop:
+   7   1          i=~a;        //a=0000 1111取補數,      i=1111 000=0xf0;
+   8   1          i=a << 3;   //a=0000 1111左移3-bit,  i=0111 1000=0x78
+   9   1          i=b >> 1;   //b=0011 0011右移1-bit,  i=0001 1001=0x19
+  10   1          i=a & 0xfe; //a=0000 1111令bit0=0，  i=0000 1110=0x0e 
+  11   1          i=b ^ 0x01; //b=0011 0011令bit0=反相,i=0011 0010=0x32 
+  12   1          i=a | 0x80; //a=0000 1111令bit7=1，  i=1000 1111=0x8f
+  13   1        goto loop;
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     38    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,38 @@
+C51 COMPILER V9.57.0.0   DEMO5                                                             04/15/2021 10:30:40 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO5
+OBJECT MODULE PLACED IN .\Objects\demo5.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo5.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Listings\demo5.lst) 
+                    -TABS(2) OBJECT(.\Objects\demo5.obj)
+
+line level    source
+
+   1          #include "AT89X52.H"
+   2          
+   3          main() {
+   4   1        unsigned char *point;
+   5   1        point = 0x10;
+*** WARNING C196 IN LINE 5 OF demo5.c: mspace probably invalid
+   6   1        loop:
+   7   1          *point++ = 0xFF;
+   8   1        goto loop;
+   9   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     52    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

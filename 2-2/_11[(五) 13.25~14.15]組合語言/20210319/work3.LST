@@ -1,0 +1,36 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           		ORG	000H			;
+      2    0000     78 04                 START:	MOV	R0, #OK-TABLE+1	;
+      3    0002     90 00 2D              		MOV	DPTR, #TABLE	;
+      4    0005     79 00                 		MOV	R1, #00H		;
+      5    0007     7A 02                 		MOV	R2, #02H		;
+      6    0009     7B 00                 		MOV	R3, #00H		;
+      7    000B     E9                    LOOP:		MOV 	A, R1			;
+      8    000C     93                    		MOVC	A, @A+DPTR		;
+      9    000D     F5 80                 		MOV	P0, A			;
+     10    000F     11 26                 		ACALL	DELAY2		;
+     11    0011     09                    		INC	R1			;
+     12    0012     11 26                 		ACALL DELAY2		;
+     13    0014     09                    		INC	R1			;
+     14    0015                           		
+     15    0015     D8 F4                 		DJNZ	R0, LOOP		;
+     16    0017     01 00                 		AJMP	START			;
+     17    0019                           
+     18    0019     7D 0A                 DELAY:	MOV	R5, #10		;
+     19    001B     7E FA                 DL1:		MOV	R6, #250		;
+     20    001D     7F C8                 DL2:		MOV	R7, #200		;
+     21    001F     DF FE                 DL3:		DJNZ	R7, DL3		;
+     22    0021     DE FA                 		DJNZ	R6, DL2		;
+     23    0023     DD F6                 		DJNZ	R5, DL1		;
+     24    0025     22                    		RET				;
+     25    0026                           
+     26    0026     AC 02                 DELAY2:	MOV	R4, R2		;
+     27    0028     11 19                 DL4:		ACALL	DELAY			;
+     28    002A     DC FC                 		DJNZ	R4, DL4		;
+     29    002C     22                    		RET				;
+     30    002D                           
+     31    002D     81                    TABLE:	DB	10000001B		;
+     32    002E     82                    		DB	10000010B		;
+     33    002F     24                    		DB	00100100B		;
+     34    0030     44                    OK:		DB	01000100B		;

@@ -375,9 +375,14 @@
               <FilePath>.\AT89X52.H</FilePath>
             </File>
             <File>
-              <FileName>demo2.c</FileName>
+              <FileName>demo1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\demo2.c</FilePath>
+              <FilePath>.\demo1.c</FilePath>
+            </File>
+            <File>
+              <FileName>demosub.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\demosub.c</FilePath>
             </File>
           </Files>
         </Group>

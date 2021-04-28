@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\work2.obj" 
+TO ".\Objects\Project_1" 
+
+PRINT(".\Listings\Project_1.map") REMOVEUNUSED 

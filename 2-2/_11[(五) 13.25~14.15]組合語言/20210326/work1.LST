@@ -1,0 +1,112 @@
+Intel-8051 Macro Assembler - Version 1.00
+
+      1    0000                           		ORG	000H
+      2    0000     79 42                 		MOV	R1, #01000010B
+      3    0002     7A 55                 		MOV	R2, #01010101B
+      4    0004     7B 21                 		MOV	R3, #00100001B
+      5    0006     7C F0                 		MOV	R4, #11110000B
+      6    0008                           
+      7    0008     43 A0 FF              TEST:		ORL	P2, #0FFH
+      8    000B     30 A0 0B              		JNB	P2.0, CASE1
+      9    000E     30 A1 12              		JNB	P2.1, PRE_CASE2
+     10    0011     30 A2 23              		JNB	P2.2, CASE3
+     11    0014     30 A3 2A              		JNB	P2.3, PRE_CASE4
+     12    0017     01 08                 		AJMP	TEST
+     13    0019                           
+     14    0019     E9                    CASE1:	MOV	A, R1
+     15    001A     F5 80                 		MOV	P0, A
+     16    001C     64 42                 		XRL	A, #01000010B
+     17    001E     F9                    		MOV	R1, A
+     18    001F     11 55                 		ACALL	DELAY
+     19    0021     01 08                 		AJMP	TEST			
+     20    0023                           
+     21    0023     78 18                 PRE_CASE2: 	MOV	R0, #OK-TABLE+1
+     22    0025     90 00 62              		MOV	DPTR, #TABLE
+     23    0028     7A 00                 		MOV	R2, #00H
+     24    002A     01 2C                 		AJMP	CASE2
+     25    002C                           
+     26    002C     EA                    CASE2:	MOV	A, R2
+     27    002D     93                    		MOVC	A, @A+DPTR
+     28    002E     F5 80                 		MOV	P0, A
+     29    0030     11 55                 		ACALL	DELAY
+     30    0032     0A                    		INC	R2
+     31    0033                           
+     32    0033     D8 F7                 		DJNZ	R0, CASE2
+     33    0035     01 08                 		AJMP	TEST
+     34    0037                           
+     35    0037     EB                    CASE3:	MOV	A, R3
+     36    0038     F5 80                 		MOV	P0, A
+     37    003A     64 21                 		XRL	A, #00100001B
+     38    003C     FB                    		MOV	R3, A
+     39    003D     11 55                 		ACALL	DELAY
+     40    003F     01 08                 		AJMP	TEST
+     41    0041                           
+     42    0041     78 14                 PRE_CASE4: 	MOV	R0, #OK1-TABLE1+1
+     43    0043     90 00 7A              		MOV	DPTR, #TABLE1
+     44    0046     7A 00                 		MOV	R2, #00H
+     45    0048     01 4A                 		AJMP	CASE4
+     46    004A                           
+     47    004A     EA                    CASE4:	MOV	A, R2
+     48    004B     93                    		MOVC	A, @A+DPTR
+     49    004C     F5 80                 		MOV	P0, A
+     50    004E     11 55                 		ACALL	DELAY
+     51    0050     0A                    		INC	R2
+     52    0051                           
+     53    0051     D8 F7                 		DJNZ	R0, CASE4
+     54    0053     01 08                 		AJMP	TEST
+     55    0055                           		
+     56    0055     7D 02                 DELAY:	MOV	R5, #2
+     57    0057     7E FA                 DL1		MOV	R6, #250
+     58    0059     7F C8                 DL2		MOV	R7, #200
+     59    005B     DF FE                 DL3		DJNZ	R7, DL3
+     60    005D     DE FA                 		DJNZ	R6, DL2
+     61    005F     DD F6                 		DJNZ	R5, DL1
+     62    0061     22                    		RET
+     63    0062                           
+     64    0062     81                    TABLE:	DB	10000001B
+     65    0063     81                    		DB	10000001B
+     66    0064     81                    		DB	10000001B
+     67    0065     81                    		DB	10000001B
+     68    0066     81                    		DB	10000001B
+     69    0067     81                    		DB	10000001B
+     70    0068     82                    		DB	10000010B
+     71    0069     80                    		DB	10000000B
+     72    006A     82                    		DB	10000010B
+     73    006B     80                    		DB	10000000B
+     74    006C     82                    		DB	10000010B
+     75    006D     80                    		DB	10000000B
+     76    006E     24                    		DB	00100100B
+     77    006F     24                    		DB	00100100B
+     78    0070     24                    		DB	00100100B
+     79    0071     24                    		DB	00100100B
+     80    0072     24                    		DB	00100100B
+     81    0073     24                    		DB	00100100B
+     82    0074     44                    		DB	01000100B
+     83    0075     04                    		DB	00000100B
+     84    0076     44                    		DB	01000100B
+     85    0077     04                    		DB	00000100B
+     86    0078     44                    		DB	01000100B
+     87    0079     04                    OK:		DB	00000100B
+     88    007A                           
+     89    007A     7E                    TABLE1:	DB	01111110B
+     90    007B     3C                    		DB	00111100B
+     91    007C     18                    		DB	00011000B
+     92    007D     00                    		DB	00000000B
+     93    007E     18                    		DB	00011000B
+     94    007F     3C                    		DB	00111100B
+     95    0080     7E                    		DB	01111110B
+     96    0081     FF                    		DB	11111111B
+     97    0082     7E                    		DB	01111110B
+     98    0083     3C                    		DB	00111100B
+     99    0084     18                    		DB	00011000B
+    100    0085     00                    		DB	00000000B
+    101    0086     18                    		DB	00011000B
+    102    0087     3C                    		DB	00111100B
+    103    0088     7E                    		DB	01111110B
+    104    0089     FF                    		DB	11111111B
+    105    008A     00                    		DB	00000000B
+    106    008B     FF                    		DB	11111111B
+    107    008C     00                    		DB	00000000B
+    108    008D     FF                    OK1:		DB	11111111B
+    109    008E                           
+    110    008E                           		END

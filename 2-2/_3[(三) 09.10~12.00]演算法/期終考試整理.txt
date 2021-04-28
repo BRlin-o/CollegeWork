@@ -1,0 +1,41 @@
+### 3
+input: S是由n個平面點所組成的集合
+step1: 如果S只剩一個點，此點就是S的最大值，反之要找到一條垂直x軸的線L，將S分為S_L and S_R，兩邊寬度相等。
+step2: 找到S_L及S_R中最大的點，recursirely。
+step3: 找到S_R中最大值並表示為y_R，如果S_L的y值小於y_R，則將其丟棄。
+
+### 4
+step1: 沿中縣L拆分A and B。
+step2: Find ranks of points in A and ranks of points in B, recursirely。
+step3: 根據A與B中的y值將他們排序。
+step4: Update the ranks of points in B。
+
+### 6
+If the present Lower Bound is Big-Omega(n log n) and the algorithm is Big-O(n log n), then the algorithm is optimal。
+
+### 7
+1. the present Lower Bound was not be found.
+2. the algorithm is not best.
+3. the present Lower Bound was not be found and the algorithm is not best.
+
+
+### 8
+- f(n) = O(g(n))
+∃ c, n_0，並對所有n≥n_0，滿足0≤f(n)≤cg(n)
+- f(n) = Ω`(g(n))
+∃ c, n_0，並對所有n≥n_0，滿足0≤cg(n)≤f(n)
+- f(n) = Θ(g(n))
+∃ c1, c2, n_0，所有n≥n_0，滿足0≤c_1g(n)≤f(n)≤c_2g(n)
+
+### 11
+input: m sorted list, L_i, i=1, 2, 3, ..., m. 每個L_i由n_i個elements組成。
+output: and optimal 2-way merge tree。
+
+step 1: generate m trees, 其中每棵樹都有個權重為n_i的節點.
+step 2: 選擇兩棵權重最小的樹T1, T2。
+step 3: 創建一顆新樹T, T會有T1, T2當作子樹，其權重為T1 and T2權重之和。
+step 4: 將T1, T2替換為T
+step 5: 如果只剩一棵樹，返回其樹，否之跳回step 2;
+
+### 12
+雖然貪婪演算法都會選擇最小的路徑，但不一定就是最佳解。

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x4E0A;&#x8AB2;&#x5C0F;&#x8003;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="上課小考">上課小考</h1>
+<h3 id="1請問要利用keil-c撰寫以下程式編繹執行請問-mij的值為何">1.請問要利用Keil C撰寫以下程式編繹執行，請問 m,i,j的值為何?</h3>
+<pre><code><code><div>main()
+{ 
+  unsigned char  b=0x20,d=0x2f;
+  unsigned char  i,j; 
+   i=!b;      
+   j=~d;
+}
+</div></code></code></pre>
+<blockquote>
+<pre><code><code><div>i=000, j=0xD0
+</div></code></code></pre>
+</blockquote>
+<h3 id="2請問要利用keil-c撰寫以下程式編繹執行請問-lmijk的值為何">2.請問要利用Keil C撰寫以下程式編繹執行，請問 l,m,i,j,k的值為何?</h3>
+<pre><code><code><div>main()
+{ 
+  unsigned char  b=0x7f,d=0x10;
+  unsigned char  l,i,j,k,m,n; 
+    l=d&gt;&gt;2;
+    m=b^d;
+    i=!b;      
+    j=~d;
+    k=b&lt;&lt;2;
+}
+</div></code></code></pre>
+<blockquote>
+<p><img src="https://cdn.discordapp.com/attachments/816857285526945794/832288563377733663/unknown.png" alt=""></p>
+</blockquote>
+<h3 id="3-請問若是要利用位元運算子---來將特殊暫存器p1的第0-bit最低位設定為1以及第6-bit次高位設定為0原p1暫存器其他位元值保留請用keil-c語法寫出程式">3. 請問若是要利用位元運算子( &amp;, |,~,^ )來將特殊暫存器P1的第0 bit(最低位)設定為1以及第6 bit(次高位)設定為0，原P1暫存器其他位元值保留，請用Keil C語法寫出程式。</h3>
+<blockquote>
+<pre><code><code><div>sfr P1 = 0x90;
+void main()
+{ 
+  unsigned char  i = 0x10;
+	loop:
+		P1 = i;
+		P1 = P1 | 0x01;
+		P1 = P1 &amp; ~0x40;
+	goto loop;
+}
+</div></code></code></pre>
+</blockquote>
+<h3 id="4請問要利用keil-c撰寫以下程式編繹執行請問程式執行至最後一行a程式的i與b程式j的值為何">4.請問要利用Keil C撰寫以下程式編繹執行，請問程式執行至最後一行(a)程式的i與(b)程式j的值為何?</h3>
+<p>(a) main() {
+unsigned char  *p;
+unsigned char  i=11;
+p=&amp;i;
+*p=10;
+}
+(b) main() {
+unsigned char  *q;
+unsigned char  j=11;
+*q=j;
+j=j+1;<br>
+*q=11;
+}</p>
+<blockquote>
+<p>(a) a = 10<br />
+(b) b = 12</p>
+</blockquote>
+
+    </body>
+    </html>
