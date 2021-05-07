@@ -1,0 +1,75 @@
+C51 COMPILER V9.57.0.0   DEMO5                                                             05/06/2021 11:03:48 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO5
+OBJECT MODULE PLACED IN .\Objects\demo5.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo5.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\dem
+                    -o5.lst) TABS(2) OBJECT(.\Objects\demo5.obj)
+
+line level    source
+
+   1          #include "../_8051/AT89X52.H"
+   2          sfr Data = 0x80;
+   3          sbit SSLED0 = 0x90;
+   4          sbit SSLED1 = 0x91;
+   5          sbit SSLED2 = 0x92;
+   6          sbit SSLED3 = 0x93;
+   7          
+   8          unsigned char delay_t = 955;
+   9          unsigned char scan_t = 1;
+  10          
+  11          unsigned char code Table[] = {
+  12            0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71
+  13          };
+  14          unsigned char code Table_Length = 10;
+  15          
+  16          void main(){
+  17   1        unsigned char scan;
+  18   1        unsigned int count = 1234;
+  19   1        unsigned char i;
+  20   1        while(1){
+  21   2          for(scan=0;scan<10;++scan){
+  22   3            SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  23   3            i=count%10;
+  24   3            Data = ~Table[i];
+  25   3            SSLED0 = 0;
+  26   3            Delay_ms(scan_t);
+  27   3            
+  28   3            SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  29   3            i=(count%100)/10;
+  30   3            Data = ~Table[i];
+  31   3            SSLED1 = 0;
+  32   3            Delay_ms(scan_t);
+  33   3            
+  34   3            SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  35   3            i=(count%1000)/100;
+  36   3            Data = ~Table[i];
+  37   3            SSLED2 = 0;
+  38   3            Delay_ms(scan_t);
+  39   3            
+  40   3            SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  41   3            i=count/1000;
+  42   3            Data = ~Table[i];
+  43   3            SSLED3 = 0;
+  44   3            Delay_ms(scan_t);
+  45   3          }
+  46   2          count++;
+  47   2          Delay_ms(delay_t);
+  48   2        }
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    214    ----
+   CONSTANT SIZE    =     17    ----
+C51 COMPILER V9.57.0.0   DEMO5                                                             05/06/2021 11:03:48 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

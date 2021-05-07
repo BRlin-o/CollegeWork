@@ -1,0 +1,53 @@
+C51 COMPILER V9.57.0.0   DEMO3                                                             05/06/2021 10:43:44 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO3
+OBJECT MODULE PLACED IN .\Objects\demo3.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo3.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\dem
+                    -o3.lst) TABS(2) OBJECT(.\Objects\demo3.obj)
+
+line level    source
+
+   1          #include "../_8051/AT89X52.H"
+   2          sfr Data = 0x80;
+   3          unsigned char code Table[] = {
+   4            0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71
+   5          };
+   6          
+   7          int myPow(int n, int m){
+   8   1        if(m==0)
+   9   1          return 1;
+  10   1        if(m==1)
+  11   1          return n;
+  12   1        return n*myPow(n, m-1);
+*** WARNING C265 IN LINE 12 OF demo3.c: '_myPow': recursive call to non-reentrant function
+  13   1      }
+  14          
+  15          void main(void) {
+  16   1        char i, j;
+  17   1        while(1){
+  18   2          for(i=0;i<4;++i){
+  19   3            unsigned char index = myPow(2, i);
+  20   3            P1 = 0xff & (~index);
+  21   3            for(j=0;j<16;++j){
+  22   4              Data = ~ Table[j];
+  23   4              Delay_ms(200);
+  24   4            }
+  25   3            Data = ~ Table[i];
+  26   3          }
+  27   2        }
+  28   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    161    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

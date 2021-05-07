@@ -1,0 +1,40 @@
+C51 COMPILER V9.57.0.0   WORK1                                                             05/06/2021 13:52:25 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE WORK1
+OBJECT MODULE PLACED IN .\Objects\work1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE work1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\wor
+                    -k1.lst) TABS(2) OBJECT(.\Objects\work1.obj)
+
+line level    source
+
+   1          #include <stdio.h>  
+   2          #include <stdlib.h>
+   3          #include <math.h>
+   4          #include "AT89X52.H"
+   5          
+   6          void main(void) {
+   7   1        unsigned char TableA[] = {34,65,12,34,67,89,7,6,83,89}, TableB[] = {30,61,13,38,65,80,10,7,82,81};
+   8   1        unsigned char n = 10, i=0;
+   9   1        double RMSE_log = 0, RMSE_sqrt = 0, sum_catch = 0;
+  10   1        for(i=0;i<n;++i) {
+  11   2          sum_catch += (TableA[i] - TableB[i])*(TableA[i] - TableB[i]);
+  12   2        }
+  13   1        RMSE_log = log(sum_catch/n);
+  14   1        RMSE_sqrt = sqrt(sum_catch/n);
+  15   1        
+  16   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    223    ----
+   CONSTANT SIZE    =     20    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      34
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

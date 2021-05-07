@@ -1,3 +1,0 @@
-".\Objects\STARTUP.obj" 
-TO ".\Objects\assemble" 
-PRINT(".\Listings\assemble.m51") RAMSIZE(256) 

@@ -1,0 +1,104 @@
+		ORG	0000H
+		AJMP	MAIN
+
+		ORG	0003H
+		AJMP	DoLED
+
+		ORG	0013H
+		AJMP	DoSOUND
+
+
+MAIN:		SETB	P3.2
+		SETB	IT0
+		SETB	EX0
+		SETB	P3.3
+		SETB	IT1
+		SETB	EX1
+		SETB	EA
+
+LOOP:		MOV	P0, #10000001B
+		MOV	R5, #30
+		ACALL	DELAY_S
+		MOV	P0, #10000010B
+		MOV	R5, #10
+		ACALL	DELAY_S
+		MOV	P0, #00100100B
+		MOV	R5, #30
+		ACALL	DELAY_S
+		MOV	P0, #01000100B
+		MOV	R5, #10
+		ACALL	DELAY_S
+		AJMP	LOOP
+
+;==================================
+DoLED:	PUSH	P0
+		PUSH	05
+		PUSH	06
+		PUSH	07
+
+ALARM1:	MOV	R1, #07H		;
+		MOV	A, #00000001B	;
+LEFT:		MOV	P0, A			;
+		ACALL	DELAY			;
+		RL	A			;
+		DJNZ	R1, LEFT		;
+		MOV	R1, #07H		;
+		MOV	A, #10000000B	;
+RIGHT:	MOV	P0, A			;
+		ACALL	DELAY			;
+		RR 	A			;
+		DJNZ	R1, RIGHT		;
+		
+		POP	07
+		POP	06
+		POP	05
+		POP	P0
+		RETI
+;==================================
+
+;==================================
+DoSOUND:	PUSH	P0
+		PUSH	05
+		PUSH	06
+		PUSH	07
+
+		MOV	R6, #83
+		MOV	R5, #1000
+		ACALL	SOUND
+
+		POP	07
+		POP	06
+		POP	05
+		POP	P0
+
+		RETI
+;==================================
+
+SOUND:	CLR	P2.6
+		ACALL	DELAY_M
+		SETB	P2.6
+		ACALL	DELAY_M
+		DJNZ	R5, SOUND
+		RET
+DELAY_M:	MOV	B, R6
+DLM		MOV	R7, #6
+		DJNZ	R7, $
+		DJNZ	R6, DLM
+		MOV	R6, B
+		RET
+
+DELAY:	MOV	R6, #250
+DL1:		MOV	R7, #200
+DL2:		DJNZ	R7, DL2
+		DJNZ	R6, DL1
+		RET
+
+DELAY_S:	
+DLS1:		MOV	R6, #250
+DLS2:		MOV	R7, #200
+DLS3:		DJNZ	R7, DLS3
+		DJNZ	R6, DLS2
+		DJNZ	R5, DLS1
+		RET
+
+		END

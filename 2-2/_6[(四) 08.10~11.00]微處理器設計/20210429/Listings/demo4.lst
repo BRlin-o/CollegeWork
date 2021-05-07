@@ -1,0 +1,37 @@
+C51 COMPILER V9.57.0.0   DEMO4                                                             04/29/2021 10:26:49 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DEMO4
+OBJECT MODULE PLACED IN .\Objects\demo4.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE demo4.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\dem
+                    -o4.lst) TABS(2) OBJECT(.\Objects\demo4.obj)
+
+line level    source
+
+   1          #include "AT89X52.H"
+   2          
+   3          sfr LED = 0x80;
+   4          
+   5          void main() {
+   6   1        char i = -1, sum = 0;
+   7   1        
+   8   1        while(i<(10-1)){
+   9   2          sum+=(i+=2);
+  10   2        }
+  11   1        LED = sum;
+  12   1        for(;;);
+  13   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     46    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

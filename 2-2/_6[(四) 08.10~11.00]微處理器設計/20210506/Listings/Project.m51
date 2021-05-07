@@ -1,0 +1,205 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/06/2021  13:52:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\work1.obj TO .\Objects\Project PRINT (.\Listings\Project.m5
+>> 1) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\work1.obj (WORK1)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPADD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (LOG)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (SQRT)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPSERIES)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?IMUL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDCODE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDCODE0)
+
+
+LINK MAP OF MODULE:  .\Objects\Project (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0018H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         _BIT_GROUP_
+                    0020H.1   0000H.7                *** GAP ***
+            DATA    0021H     0026H     UNIT         _DATA_GROUP_
+            IDATA   0047H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     04A9H     UNIT         ?C?LIB_CODE
+            CODE    0CA9H     0135H     UNIT         ?PR?LOG?LOG
+            CODE    0DDEH     00DFH     UNIT         ?PR?MAIN?WORK1
+            CODE    0EBDH     00AAH     UNIT         ?PR?SQRT?SQRT
+            CODE    0F67H     0014H     UNIT         ?CO?WORK1
+            CODE    0F7BH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Project (?C_STARTUP)
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/06/2021  13:52:25  PAGE 2
+
+
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?WORK1
+
+?PR?MAIN?WORK1                 -----    -----      0021H    0022H
+  +--> ?CO?WORK1
+  +--> ?PR?LOG?LOG
+  +--> ?PR?SQRT?SQRT
+
+?PR?LOG?LOG                    0020H.0  0000H.1    0043H    0004H
+
+?PR?SQRT?SQRT                  -----    -----      0043H    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Project (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0F7BH         SEGMENT       ?C_C51STARTUP
+  I:0047H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0F7EH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0F7BH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0F7BH         LINE#         133
+  C:0F7DH         LINE#         134
+  C:0F7EH         LINE#         135
+  C:0F7FH         LINE#         136
+  C:0F81H         LINE#         185
+  C:0F84H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        WORK1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0DDEH         PUBLIC        main
+  C:0F67H         SYMBOL        _?ix1000
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/06/2021  13:52:25  PAGE 3
+
+
+  C:0F71H         SYMBOL        _?ix1001
+  -------         PROC          MAIN
+  -------         DO            
+  D:0021H         SYMBOL        TableA
+  D:002BH         SYMBOL        TableB
+  D:0035H         SYMBOL        n
+  D:0036H         SYMBOL        i
+  D:0037H         SYMBOL        RMSE_log
+  D:003BH         SYMBOL        RMSE_sqrt
+  D:003FH         SYMBOL        sum_catch
+  -------         ENDDO         
+  C:0DDEH         LINE#         6
+  C:0DDEH         LINE#         7
+  C:0E04H         LINE#         8
+  C:0E0AH         LINE#         9
+  C:0E22H         LINE#         10
+  C:0E2BH         LINE#         11
+  C:0E70H         LINE#         12
+  C:0E74H         LINE#         13
+  C:0E98H         LINE#         14
+  C:0EBCH         LINE#         16
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        WORK1
+
+  -------         MODULE        ?C?FPADD
+  C:0807H         PUBLIC        ?C?FPADD
+  C:0803H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPDIV
+  C:08FBH         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:09A2H         PUBLIC        ?C?FCASTC
+  C:099DH         PUBLIC        ?C?FCASTI
+  C:0998H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        LOG
+  C:0CDDH         PUBLIC        _LOG
+  C:0CD9H         PUBLIC        _LOG10
+  -------         ENDMOD        LOG
+
+  -------         MODULE        SQRT
+  C:0EC1H         PUBLIC        _SQRT
+  -------         ENDMOD        SQRT
+
+  -------         MODULE        ?C?FPMUL
+  C:0A20H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?COPY
+  C:0C43H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?IMUL
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/06/2021  13:52:25  PAGE 4
+
+
+  C:0C69H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?LNEG
+  C:0C7BH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?LLDCODE
+  C:0C89H         PUBLIC        ?C?LLDCODE
+  -------         ENDMOD        ?C?LLDCODE
+
+  -------         MODULE        ?C?LLDCODE0
+  C:0C99H         PUBLIC        ?C?LLDCODE0
+  -------         ENDMOD        ?C?LLDCODE0
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0102H BYTE (12%) *
+******************************************************************************
+
+Program Size: data=47.1 xdata=0 code=1930
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

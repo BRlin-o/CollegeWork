@@ -1,0 +1,47 @@
+C51 COMPILER V9.57.0.0   WORK2                                                             04/29/2021 09:41:36 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE WORK2
+OBJECT MODULE PLACED IN .\Objects\work2.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE work2.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\wor
+                    -k2.lst) TABS(2) OBJECT(.\Objects\work2.obj)
+
+line level    source
+
+   1          #include "AT89X52.H"
+   2          
+   3          sfr LED = 0x90;
+   4          
+   5          void main() {
+   6   1        unsigned char hor = 23, min = 59, sec = 59;
+   7   1        
+   8   1        loop:
+   9   1          P0 = ((sec/10)<<4)+(sec%10);
+  10   1          P1 = ((min/10)<<4)+(min%10);
+  11   1          P2 = ((hor/10)<<4)+(hor%10);
+  12   1          Delay_ms(100);
+  13   1          ++sec;
+  14   1          if(sec<60)goto loop;
+  15   1          sec=0;
+  16   1          ++min;
+  17   1          if(min<60)goto loop;
+  18   1          min=0;
+  19   1          ++hor;
+  20   1          if(hor<24)goto loop;
+  21   1          hor=min=sec=0;
+  22   1          goto loop;
+  23   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    119    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
