@@ -1,0 +1,116 @@
+C51 COMPILER V9.57.0.0   WORK1                                                             05/13/2021 09:22:05 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE WORK1
+OBJECT MODULE PLACED IN .\Objects\work1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE work1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\wor
+                    -k1.lst) TABS(2) OBJECT(.\Objects\work1.obj)
+
+line level    source
+
+   1          #include "../_8051/AT89X52.H"
+   2          
+   3          void beepGround(unsigned char);
+   4          void show7(unsigned int);
+   5          
+   6          sfr Data = 0x80;
+   7          sbit SSLED0 = 0x90;
+   8          sbit SSLED1 = 0x91;
+   9          sbit SSLED2 = 0x92;
+  10          sbit SSLED3 = 0x93;
+  11          sbit SPK=0xA6;
+  12          sbit KEY = P3^2;
+  13          
+  14          unsigned char delay_t = 1;
+  15          unsigned char scan_t = 1;
+  16          
+  17          unsigned char code Table[] = {
+  18            0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f, 0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71
+  19          };
+  20          unsigned char code Table_Length = 10;
+  21          
+  22          void main(){
+  23   1        unsigned int i = 9995;
+  24   1        SPK = 0;
+  25   1        
+  26   1        while(1){
+  27   2          if(i<9995){
+  28   3            ++i;
+  29   3            show7(i);
+  30   3          }else{
+  31   3            if(i>=10000){
+  32   4              i = 0;
+  33   4              beepGround(5);
+  34   4              continue;
+  35   4            }
+  36   3            do{
+  37   4              while(KEY==1)show7(i);
+  38   4              Delay_ms(20);
+  39   4            }while(KEY==1);
+  40   3            ++i;
+  41   3            do{
+  42   4              while(KEY==0)show7(i);
+  43   4              Delay_ms(20);
+  44   4            }while(KEY==0);
+  45   3          }
+  46   2        }
+  47   1      }
+  48          
+  49          void show7(unsigned int i){
+  50   1        unsigned char scan;
+  51   1        unsigned char num;
+  52   1        for(scan=0;scan<10;++scan){
+  53   2          SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  54   2          num=i%10;
+C51 COMPILER V9.57.0.0   WORK1                                                             05/13/2021 09:22:05 PAGE 2   
+
+  55   2          Data = ~Table[num];
+  56   2          SSLED0 = 0;
+  57   2          Delay_ms(scan_t);
+  58   2          
+  59   2          SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  60   2          num=(i%100)/10;
+  61   2          Data = ~Table[num];
+  62   2          SSLED1 = 0;
+  63   2          Delay_ms(scan_t);
+  64   2          
+  65   2          SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  66   2          num=(i%1000)/100;
+  67   2          Data = ~Table[num];
+  68   2          SSLED2 = 0;
+  69   2          Delay_ms(scan_t);
+  70   2          
+  71   2          SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  72   2          num=i/1000;
+  73   2          Data = ~Table[num];
+  74   2          SSLED3 = 0;
+  75   2          Delay_ms(scan_t);
+  76   2        }
+  77   1        SSLED0 = SSLED1 = SSLED2 = SSLED3 = 1;
+  78   1      }
+  79          
+  80          void beepGround(unsigned char j){
+  81   1        unsigned int i;
+  82   1        while(j--){
+  83   2          for(i=0;i<=400;++i) {
+  84   3            SPK = !SPK;
+  85   3            Delay_ms(1);
+  86   3          }
+  87   2          Delay_ms(200);
+  88   2        }
+  89   1        SPK = 0;
+  90   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    358    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
