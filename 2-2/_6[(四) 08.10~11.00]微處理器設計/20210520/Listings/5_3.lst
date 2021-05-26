@@ -1,0 +1,59 @@
+C51 COMPILER V9.57.0.0   5_3                                                               05/20/2021 23:54:11 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 5_3
+OBJECT MODULE PLACED IN .\Objects\5_3.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 5_3\5_3.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\5
+                    -_3.lst) TABS(2) OBJECT(.\Objects\5_3.obj)
+
+line level    source
+
+   1          #include "../_8051/AT89X52.H"
+   2          
+   3          void main(void){
+   4   1        unsigned char j=0;
+   5   1        EA = 1;
+   6   1        EX0 = EX1 = 1;
+   7   1        // IT0 = IT1 = 1;
+   8   1        PX1 = 1;
+   9   1        while(1){
+  10   2          P0 = j;
+  11   2          Delay_ms(100);
+  12   2          ++j;
+  13   2        }
+  14   1      }
+  15          
+  16          void EX0_int(void) interrupt 0 {
+  17   1        char i;
+  18   1        int dly;
+  19   1        for(i=0;i<50;++i){
+  20   2          P0 = 0x00;
+  21   2          for(dly=0;dly<20000;++dly);
+  22   2          
+  23   2          P0 = 0xff;
+  24   2          for(dly=0;dly<20000;++dly);
+  25   2        } 
+  26   1      }
+  27          
+  28          void EX1_int(void) interrupt 2 {
+  29   1        char i;
+  30   1        unsigned int dly = 0;
+  31   1        for(i=0;i<50;++i){
+  32   2          P0 = i;
+  33   2          for(dly=0;dly<20000;++dly);
+  34   2        }
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    156    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

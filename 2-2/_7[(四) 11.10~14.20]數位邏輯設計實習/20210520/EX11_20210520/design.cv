@@ -1,0 +1,10 @@
+// Code your design here
+module ent0(Clk, Pre, D);
+  input 	Clk, Pre;
+  output 	[2:0] D;
+  reg		[2:0] D;
+
+  always@(posedge Clk or negedge Pre)
+    D = (!Pre ? ~Pre : D+1);
+      
+endmodule
